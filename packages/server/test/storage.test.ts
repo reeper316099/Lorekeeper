@@ -34,6 +34,33 @@ describe('atomic IO', () => {
     expect(JSON.parse(await fs.readFile(f, 'utf8'))).toHaveProperty('i');
     expect((await fs.readdir(t.dir)).filter((n) => n.endsWith('.tmp'))).toEqual([]);
   });
+  it('retries a rename that Windows briefly refuses (EPERM/EBUSY)', async () => {
+    const { vi } = await import('vitest');
+    const t = await tmpDir();
+    cleanups.push(t.cleanup);
+    const real = fs.rename.bind(fs);
+    let failures = 2;
+    const spy = vi.spyOn(fs, 'rename').mockImplementation(async (a, b) => {
+      if (failures-- > 0)
+        throw Object.assign(new Error('locked'), { code: failures ? 'EPERM' : 'EBUSY' });
+      return real(a, b);
+    });
+    try {
+      await atomicWrite(path.join(t.dir, 'y.json'), '{"ok":true}');
+      expect(JSON.parse(await fs.readFile(path.join(t.dir, 'y.json'), 'utf8'))).toEqual({
+        ok: true,
+      });
+      failures = 99;
+      await expect(atomicWrite(path.join(t.dir, 'z.json'), '{}')).rejects.toThrow('locked');
+      expect((await fs.readdir(t.dir)).filter((n) => n.endsWith('.tmp'))).toEqual([]);
+      spy.mockImplementation(async () => {
+        throw Object.assign(new Error('nope'), { code: 'ENOENT' });
+      });
+      await expect(atomicWrite(path.join(t.dir, 'w.json'), '{}')).rejects.toThrow('nope'); // other errors are not retried
+    } finally {
+      spy.mockRestore();
+    }
+  });
   it('mutex serializes per key', async () => {
     const m = new KeyedMutex();
     const order: number[] = [];

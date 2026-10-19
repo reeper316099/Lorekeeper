@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { expectedUserData, resolveDataDir } from './paths';
 
@@ -10,7 +11,9 @@ describe('data dir resolution', () => {
     expect(resolveDataDir({ userData: '/u' })).toBe('/u');
   });
   it('ignores relative or blank overrides', () => {
-    expect(resolveDataDir({ env: 'relative/dir', bootstrapDir: '  ', userData: '/u' })).toBe('/u');
+    expect(resolveDataDir({ env: 'relative/dir', bootstrapDir: '  ', userData: '/u' })).toBe(
+      path.resolve('/u'),
+    );
   });
 });
 

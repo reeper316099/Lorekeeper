@@ -30,10 +30,29 @@ export async function atomicWrite(file: string, content: string | Uint8Array): P
     await handle.close();
   }
   try {
-    await fs.rename(tmp, file);
+    await renameWithRetry(tmp, file);
   } catch (err) {
     await fs.rm(tmp, { force: true });
     throw err;
+  }
+}
+
+const RETRYABLE = new Set(['EPERM', 'EBUSY', 'EACCES']);
+
+/**
+ * Windows refuses to rename over a file that another handle (an antivirus scan, a search indexer, a
+ * concurrent writer) has open for a moment. Retry briefly instead of failing the save.
+ */
+async function renameWithRetry(from: string, to: string, attempts = 12): Promise<void> {
+  for (let i = 0; ; i++) {
+    try {
+      await fs.rename(from, to);
+      return;
+    } catch (err) {
+      const code = (err as NodeJS.ErrnoException).code ?? '';
+      if (i >= attempts - 1 || !RETRYABLE.has(code)) throw err;
+      await new Promise((r) => setTimeout(r, 15 * (i + 1)));
+    }
   }
 }
 

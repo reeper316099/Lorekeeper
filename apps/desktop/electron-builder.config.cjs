@@ -13,6 +13,8 @@ const slug = APP_NAME.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 module.exports = {
   appId: `app.${slug}.desktop`,
   productName: APP_NAME,
+  // The package name is scoped (@lorekeeper/desktop), which is not a legal file name on Linux.
+  executableName: slug,
   copyright: `Copyright © ${new Date().getFullYear()} ${APP_NAME} contributors`,
   directories: { output: 'release', buildResources: 'build' },
   files: ['dist/**/*', '!dist/**/*.map', 'package.json'],
@@ -35,6 +37,10 @@ module.exports = {
   linux: {
     target: ['AppImage', 'deb', 'rpm'],
     category: 'Utility',
+    executableName: slug,
+    desktop: {
+      entry: { Name: APP_NAME, Comment: 'Track what you read and watch', StartupWMClass: APP_NAME },
+    },
     maintainer: `${APP_NAME} contributors <noreply@example.com>`,
   },
 };
