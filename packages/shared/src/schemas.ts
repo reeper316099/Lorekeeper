@@ -24,6 +24,8 @@ export const LinkSchema = z.object({
   url: z.string().nullable(),
   label: z.string().nullable(),
   raw: z.string().nullable(),
+  /** which spreadsheet column it came from: the main link column or "Other Links" */
+  slot: z.enum(['primary', 'other']).optional(),
   channel: z.string().nullable().optional(),
   date: z.string().nullable().optional(),
 });

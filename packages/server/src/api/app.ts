@@ -69,15 +69,13 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
     }
     const status = (err as { statusCode?: number }).statusCode ?? 500;
     if (status >= 500) req.log.error({ err: err.message }, 'unhandled');
-    return reply
-      .status(status)
-      .send({
-        error: {
-          code: status >= 500 ? 'INTERNAL' : 'BAD_REQUEST',
-          message: status >= 500 ? 'Internal error' : err.message,
-          details: null,
-        },
-      });
+    return reply.status(status).send({
+      error: {
+        code: status >= 500 ? 'INTERNAL' : 'BAD_REQUEST',
+        message: status >= 500 ? 'Internal error' : err.message,
+        details: null,
+      },
+    });
   });
   app.setNotFoundHandler((_req, reply) =>
     reply

@@ -8,6 +8,7 @@ import {
   suggestTagMerges,
   normalizeTitle,
   titleSimilarity,
+  isNearDuplicateTitle,
   parseStatus,
   parseScore,
   parseSources,
@@ -118,6 +119,8 @@ describe('title normalizer', () => {
     const b = 'Can You Do Quiet Harbor Without Mr Pelle?';
     expect(normalizeTitle(a)).not.toBe(normalizeTitle(b));
     expect(titleSimilarity(a, b)).toBeGreaterThan(0.6);
+    expect(isNearDuplicateTitle(a, b)).toBe(true);
+    expect(isNearDuplicateTitle('Silent Crown of Ash', 'Frozen Garden of Seven Moons')).toBe(false);
   });
 });
 

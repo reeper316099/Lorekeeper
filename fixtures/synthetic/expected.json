@@ -1,0 +1,33 @@
+{
+  "reading": {
+    "total": 66,
+    "byCategory": {
+      "Romance": 32,
+      "Action": 33,
+      "Fantasy": 1
+    },
+    "byRawStatus": {
+      "Reading": 57,
+      "Completed": 9
+    },
+    "tagsRaw": 36,
+    "tagsNormalized": 35
+  },
+  "watching": {
+    "total": 48,
+    "byCategory": {
+      "Anime": 43,
+      "Action Donghua": 4,
+      "Sci-Fi": 1
+    },
+    "byRawStatus": {
+      "Finished": 18,
+      "Watching": 14,
+      "On Hold": 7,
+      "Dropped": 3,
+      "(blank)": 6
+    },
+    "tagsRaw": 14,
+    "tagsNormalized": 14
+  }
+}
