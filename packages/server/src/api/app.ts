@@ -86,7 +86,11 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
 
   const route = async (api: FastifyInstance) => {
     api.get('/health', async () => ({ ok: true }));
-    api.get('/meta', async () => ({ ...store.meta, entries: store.all().length }));
+    api.get('/meta', async () => ({
+      ...store.meta,
+      entries: store.all().length,
+      dataDir: store.dir,
+    }));
 
     // ----- entries -----
     api.get('/entries', async (req) =>
@@ -252,7 +256,9 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
     );
 
     // ----- stats -----
-    api.get('/stats/overview', async () => overview(store));
+    api.get('/stats/overview', async (req) =>
+      overview(store, z.object({ library: LibrarySchema.optional() }).parse(req.query).library),
+    );
 
     // ----- settings & scales -----
     api.get('/settings', async () => store.settings);
@@ -277,10 +283,15 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
     api.get('/events', (req, reply) => {
       reply.hijack();
       const res = reply.raw;
+      const origin = req.headers.origin;
       res.writeHead(200, {
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
+        // The reply is hijacked, so CORS headers must be set by hand.
+        ...(origin && allowed.includes(origin)
+          ? { 'Access-Control-Allow-Origin': origin, Vary: 'Origin' }
+          : {}),
       });
       const send = (event: string, data: unknown) =>
         res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);

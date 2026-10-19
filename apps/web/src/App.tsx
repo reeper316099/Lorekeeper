@@ -1,8 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { readableTextColor } from '@lorekeeper/shared';
+import { Dashboard } from './components/Dashboard';
 import { Drawer } from './components/Drawer';
 import { Library } from './components/Library';
-import { ImportPage, SettingsPage, Soon } from './components/Pages';
+import { CategoriesPage, TagsPage } from './components/Managers';
+import { ImportPage } from './components/ImportWizard';
+import { Soon } from './components/Pages';
+import { Palette } from './components/Palette';
+import { SettingsPage, useSyncSettings } from './components/Settings';
 import { QuickAdd } from './components/QuickAdd';
 import { HelpModal, Sidebar, TopBar } from './components/Shell';
 import { Toasts } from './components/ui';
@@ -38,6 +43,7 @@ function useTheme() {
 export function App() {
   useTheme();
   useServerEvents();
+  useSyncSettings();
   const searchRef = useRef<HTMLInputElement>(null);
   const { route, sidebarCollapsed, set } = useUI();
 
@@ -47,6 +53,11 @@ export function App() {
       if (mod && e.key.toLowerCase() === 'n') {
         e.preventDefault();
         set({ quickAdd: true });
+        return;
+      }
+      if (mod && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        set({ palette: !useUI.getState().palette });
         return;
       }
       if (isTyping(e.target) || mod || e.altKey) return;
@@ -70,9 +81,9 @@ export function App() {
         <TopBar searchRef={searchRef} />
         <main className="page" id="main">
           {route === 'library' && <Library />}
-          {route === 'dashboard' && <Soon title="Dashboard" milestone="M4" />}
-          {route === 'categories' && <Soon title="Categories" milestone="M4" />}
-          {route === 'tags' && <Soon title="Tags" milestone="M4" />}
+          {route === 'dashboard' && <Dashboard />}
+          {route === 'categories' && <CategoriesPage />}
+          {route === 'tags' && <TagsPage />}
           {route === 'anilist' && <Soon title="AniList" milestone="M6" />}
           {route === 'import' && <ImportPage />}
           {route === 'settings' && <SettingsPage />}
@@ -80,6 +91,7 @@ export function App() {
       </div>
       <Drawer />
       <QuickAdd />
+      <Palette />
       <HelpModal />
       <Toasts />
     </div>

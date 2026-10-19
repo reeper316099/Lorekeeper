@@ -122,6 +122,13 @@ export function TopBar({ searchRef }: { searchRef: React.RefObject<HTMLInputElem
       </div>
       <div className="spacer" />
       <button
+        className="btn"
+        onClick={() => set({ palette: true })}
+        aria-label="Open command palette"
+      >
+        <Icon name="search" size={14} /> <kbd>⌘K</kbd>
+      </button>
+      <button
         className="btn ghost"
         onClick={() => set({ help: true })}
         aria-label="Keyboard shortcuts"
@@ -139,6 +146,7 @@ export function HelpModal() {
   const { help, set } = useUI();
   if (!help) return null;
   const rows: [string, string][] = [
+    ['⌘/Ctrl+K', 'Command palette'],
     ['/', 'Focus search'],
     ['N  or  ⌘/Ctrl+N', 'Add a title'],
     ['J / K', 'Move down / up'],

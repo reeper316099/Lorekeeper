@@ -1,8 +1,8 @@
 import { behindBy, type Entry } from '@lorekeeper/shared';
 import type { Store } from './storage/store.js';
 
-export async function overview(store: Store) {
-  const all = store.all();
+export async function overview(store: Store, library?: 'reading' | 'watching') {
+  const all = store.all().filter((e) => !library || e.library === library);
   const count = <K extends string>(keyOf: (e: Entry) => K) => {
     const m: Record<string, number> = {};
     for (const e of all) m[keyOf(e)] = (m[keyOf(e)] ?? 0) + 1;
@@ -14,7 +14,8 @@ export async function overview(store: Store) {
     count: scored.filter((e) => e.score === i + 1).length,
   }));
 
-  const tagCounts = store.tagUsage();
+  const tagCounts = new Map<string, number>();
+  for (const e of all) for (const t of e.tags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
   const topTags = [...tagCounts]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 25)
@@ -71,13 +72,15 @@ export async function overview(store: Store) {
     },
     byStatus: count((e) => e.status ?? 'none'),
     byLibrary: count((e) => e.library),
-    byCategory: store.categories.map((c) => ({
-      id: c.id,
-      name: c.name,
-      color: c.color,
-      library: c.library,
-      count: store.entriesOf(c.id).length,
-    })),
+    byCategory: store.categories
+      .filter((c) => !library || c.library === library)
+      .map((c) => ({
+        id: c.id,
+        name: c.name,
+        color: c.color,
+        library: c.library,
+        count: store.entriesOf(c.id).length,
+      })),
     scoreDistribution,
     topTags,
     tagCooccurrence,
@@ -87,6 +90,10 @@ export async function overview(store: Store) {
       .map(brief),
     behindList: all.filter((e) => (behindBy(e.current, e.consumedUpTo) ?? 0) > 0).map(brief),
     backlog: all.filter((e) => e.status === 'planned').length,
+    backlogList: byUpdated
+      .filter((e) => e.status === 'planned')
+      .slice(0, 10)
+      .map(brief),
     recentlyUpdated: byUpdated.slice(0, 10).map(brief),
     highestRated: [...scored]
       .sort((a, b) => b.score! - a.score!)

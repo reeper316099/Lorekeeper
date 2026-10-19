@@ -99,6 +99,7 @@ interface UI {
   drawerId: string | null;
   quickAdd: boolean;
   help: boolean;
+  palette: boolean;
   toasts: Toast[];
   set: (patch: Partial<UI>) => void;
   setFilters: (patch: Partial<Filters>) => void;
@@ -126,6 +127,7 @@ export const useUI = create<UI>()(
       drawerId: null,
       quickAdd: false,
       help: false,
+      palette: false,
       toasts: [],
       set: (patch) => set(patch),
       setFilters: (patch) => set((s) => ({ filters: { ...s.filters, ...patch }, selected: [] })),

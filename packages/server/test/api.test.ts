@@ -198,3 +198,36 @@ describe('categories, tags, stats, settings, backups', () => {
     expect((await call('GET', '/scales')).body.watching.statusLabels.completed).toBe('Finished');
   });
 });
+
+describe('realtime events', () => {
+  it('streams SSE with CORS for an allowed origin and requires a token', async () => {
+    const { buildApp } = await import('../src/index.js');
+    const s = await (await import('./helpers.js')).makeStore();
+    const app = await buildApp({
+      store: s.store,
+      token: 'tok',
+      allowedOrigins: ['http://localhost:5173'],
+    });
+    cleanups.push(async () => {
+      await app.close();
+      await s.store.close();
+      await s.cleanup();
+    });
+    await app.listen({ host: '127.0.0.1', port: 0 });
+    const base = `http://127.0.0.1:${(app.server.address() as { port: number }).port}/api/v1/events`;
+    expect((await fetch(`${base}?token=nope`)).status).toBe(401);
+    const ctl = new AbortController();
+    const res = await fetch(`${base}?token=tok`, {
+      headers: { Origin: 'http://localhost:5173' },
+      signal: ctl.signal,
+    });
+    expect(res.status).toBe(200);
+    expect(res.headers.get('access-control-allow-origin')).toBe('http://localhost:5173');
+    const first = new TextDecoder().decode((await res.body!.getReader().read()).value);
+    expect(first).toContain('event: hello');
+    ctl.abort();
+    const other = await fetch(`${base}?token=tok`, { headers: { Origin: 'http://evil.example' } });
+    expect(other.headers.get('access-control-allow-origin')).toBeNull();
+    await other.body?.cancel();
+  });
+});
