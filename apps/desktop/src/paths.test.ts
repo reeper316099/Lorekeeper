@@ -2,17 +2,20 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { expectedUserData, resolveDataDir } from './paths';
 
+// path.resolve('/tmp/a') is "D:\tmp\a" on Windows, so expectations use the platform's own resolution.
+const abs = (p: string) => path.resolve(p);
+
 describe('data dir resolution', () => {
   it('prefers env, then the Settings choice, then userData', () => {
     expect(resolveDataDir({ env: '/tmp/a', bootstrapDir: '/tmp/b', userData: '/u' })).toBe(
-      '/tmp/a',
+      abs('/tmp/a'),
     );
-    expect(resolveDataDir({ bootstrapDir: '/tmp/b', userData: '/u' })).toBe('/tmp/b');
-    expect(resolveDataDir({ userData: '/u' })).toBe('/u');
+    expect(resolveDataDir({ bootstrapDir: '/tmp/b', userData: '/u' })).toBe(abs('/tmp/b'));
+    expect(resolveDataDir({ userData: '/u' })).toBe(abs('/u'));
   });
   it('ignores relative or blank overrides', () => {
     expect(resolveDataDir({ env: 'relative/dir', bootstrapDir: '  ', userData: '/u' })).toBe(
-      path.resolve('/u'),
+      abs('/u'),
     );
   });
 });

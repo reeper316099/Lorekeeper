@@ -41,6 +41,6 @@ module.exports = {
     desktop: {
       entry: { Name: APP_NAME, Comment: 'Track what you read and watch', StartupWMClass: APP_NAME },
     },
-    maintainer: `${APP_NAME} contributors <noreply@example.com>`,
+    maintainer: `${APP_NAME} contributors <noreply@users.noreply.github.com>`,
   },
 };

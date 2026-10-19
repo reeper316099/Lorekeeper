@@ -22,5 +22,11 @@
     "@lorekeeper/shared": "*",
     "@lorekeeper/server": "*"
   },
-  "desktopName": "lorekeeper.desktop"
+  "desktopName": "lorekeeper.desktop",
+  "homepage": "https://github.com/reeper316099/Lorekeeper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reeper316099/Lorekeeper.git"
+  },
+  "license": "UNLICENSED"
 }
