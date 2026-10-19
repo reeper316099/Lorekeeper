@@ -1,0 +1,17 @@
+# Personal data — never commit
+private-fixtures/
+*.xlsx
+*.xlsm
+!fixtures/synthetic/*.xlsx
+*.csv
+!fixtures/synthetic/*.csv
+
+node_modules/
+dist/
+out/
+release/
+coverage/
+.DS_Store
+*.log
+.env
+*.tsbuildinfo

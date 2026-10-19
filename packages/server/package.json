@@ -1,0 +1,22 @@
+{
+  "name": "@lorekeeper/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@fastify/cors": "^11.3.1",
+    "chokidar": "^5.0.0",
+    "exceljs": "^4.4.0",
+    "fastify": "^5.12.7",
+    "fflate": "^0.8.3",
+    "iconv-lite": "^0.7.3",
+    "minisearch": "^7.2.0",
+    "papaparse": "^5.7.0",
+    "uuidv7": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.5.2"
+  }
+}
