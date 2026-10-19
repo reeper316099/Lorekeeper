@@ -62,7 +62,7 @@ export function cellFor(store: Store, e: Entry, f: Field): string | number | nul
 }
 
 function safeSheetName(name: string, used: Set<string>): string {
-  let base =
+  const base =
     name
       .replace(/[\\/*?:[\]]/g, ' ')
       .trim()
