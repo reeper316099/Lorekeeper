@@ -3,6 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import type { Scales, Settings } from '@lorekeeper/shared';
 import { api } from '../lib/api';
 import { useMeta, useScales, useSettings, useQueryClientInvalidate } from '../lib/queries';
+import { getBridge } from '../lib/bridge';
 import { useUI } from '../lib/store';
 
 const ACCENTS = [
@@ -64,7 +65,7 @@ export function SettingsPage() {
   useEffect(() => {
     if (scales) setDraft(scales);
   }, [scales]);
-  const bridge = (window as unknown as { lorekeeper?: { openDataDir?: () => void } }).lorekeeper;
+  const bridge = getBridge();
 
   const appearance = (patch: {
     theme?: typeof theme;
@@ -306,6 +307,20 @@ export function SettingsPage() {
             title={bridge?.openDataDir ? '' : 'Available in the desktop app'}
           >
             Open data folder
+          </button>{' '}
+          <button
+            className="btn"
+            disabled={!bridge}
+            title={bridge ? '' : 'Available in the desktop app'}
+            onClick={() => {
+              if (!bridge) return;
+              const copy = confirm(
+                'Copy your current data to the new folder?\n\nOK = copy it over, Cancel = start with an empty folder (your current data stays where it is).',
+              );
+              void bridge.chooseDataDir(copy);
+            }}
+          >
+            Change folder…
           </button>
         </div>
         <div className="muted" style={{ fontSize: 'var(--text-sm)' }}>

@@ -231,3 +231,33 @@ describe('realtime events', () => {
     await other.body?.cancel();
   });
 });
+
+describe('static web app', () => {
+  it('serves the web build without a token while the API stays protected', async () => {
+    const { mkdtemp, writeFile, rm } = await import('node:fs/promises');
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const { buildApp } = await import('../src/index.js');
+    const web = await mkdtemp(path.join(os.tmpdir(), 'lk-web-'));
+    await writeFile(path.join(web, 'index.html'), '<!doctype html><title>x</title>');
+    const s = await (await import('./helpers.js')).makeStore();
+    const app = await buildApp({ store: s.store, token: 'tok', staticDir: web });
+    cleanups.push(async () => {
+      await app.close();
+      await s.store.close();
+      await s.cleanup();
+      await rm(web, { recursive: true, force: true });
+    });
+    expect((await app.inject({ method: 'GET', url: '/' })).statusCode).toBe(200);
+    expect((await app.inject({ method: 'GET', url: '/api/v1/entries' })).statusCode).toBe(401);
+    expect(
+      (
+        await app.inject({
+          method: 'GET',
+          url: '/api/v1/entries',
+          headers: { authorization: 'Bearer tok' },
+        })
+      ).statusCode,
+    ).toBe(200);
+  });
+});

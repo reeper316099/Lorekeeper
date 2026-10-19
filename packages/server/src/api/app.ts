@@ -22,6 +22,8 @@ export interface AppOptions {
   /** Exact origins allowed by CORS (the packaged app origin, Vite dev server). */
   allowedOrigins?: string[];
   logger?: boolean;
+  /** Built web app to serve at / (the packaged desktop app). API routes stay under /api/v1. */
+  staticDir?: string;
   /** Extra route modules (importers/exporters) registered under /api/v1. */
   extend?: (app: FastifyInstance, store: Store) => void | Promise<void>;
 }
@@ -35,6 +37,8 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
   const app = Fastify({
     logger: opts.logger ? { level: 'info', redact: ['req.headers.authorization'] } : false,
     genReqId: () => randomUUID(),
+    // Long-lived SSE connections must not block shutdown.
+    forceCloseConnections: true,
   });
   const index = new SearchIndex(store);
   const tokenBuf = Buffer.from(opts.token);
@@ -50,6 +54,7 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
     reply.header('x-request-id', req.id);
     if (req.method === 'OPTIONS') return;
     const url = req.url.split('?')[0]!;
+    if (!url.startsWith('/api/')) return; // static web assets are public; the API is not
     const header = req.headers.authorization?.replace(/^Bearer\s+/i, '');
     const qs = url.endsWith('/events') ? (req.query as { token?: string }).token : undefined;
     const given = Buffer.from(header ?? qs ?? '');
@@ -313,5 +318,14 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
   };
 
   await app.register(route, { prefix: '/api/v1' });
+
+  if (opts.staticDir) {
+    const { default: fastifyStatic } = await import('@fastify/static');
+    await app.register(fastifyStatic, {
+      root: opts.staticDir,
+      wildcard: false,
+      index: ['index.html'],
+    });
+  }
   return app;
 }

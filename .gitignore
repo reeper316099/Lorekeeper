@@ -15,3 +15,5 @@ coverage/
 .env
 *.tsbuildinfo
 .claude/
+test-results/
+playwright-report/

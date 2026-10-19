@@ -7,6 +7,7 @@ export default tseslint.config(
   js.configs.recommended,
   { languageOptions: { globals: globals.node } },
   ...tseslint.configs.recommended,
+  { files: ['**/*.cjs'], rules: { '@typescript-eslint/no-require-imports': 'off' } },
   {
     rules: {
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],

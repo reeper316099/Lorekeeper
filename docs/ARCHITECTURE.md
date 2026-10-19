@@ -9,4 +9,5 @@ Electron main ──spawns──▶ Fastify API (127.0.0.1:ephemeral, bearer tok
 - `packages/shared`: Zod schemas, constants, pure parsers (progress, links, tags, titles, status, score).
 - `packages/server`: `storage/` (atomic IO, backups, migrations, `Store`), `search.ts` (MiniSearch + filters),
   `stats.ts`, `api/app.ts` (routes), `io/` (spreadsheet reading, import planner/commit/undo, exporters).
-- `apps/desktop`, `apps/web`: arrive in M3–M5.
+- `apps/web`: React UI (TanStack Query for server state, Zustand for UI state), talks only to `/api/v1`.
+- `apps/desktop`: Electron main (starts the Store + API on an ephemeral port, single-instance lock, window state, native menu), sandboxed preload bridge, esbuild bundle and electron-builder config. See `docs/DISTRIBUTION.md`.

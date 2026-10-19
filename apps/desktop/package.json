@@ -2,5 +2,24 @@
   "name": "@lorekeeper/desktop",
   "version": "0.1.0",
   "private": true,
-  "type": "module"
+  "description": "Local-first tracker for manga, manhwa, manhua, anime and TV",
+  "author": "Lorekeeper contributors",
+  "main": "dist/main.cjs",
+  "scripts": {
+    "bundle": "node scripts/bundle.mjs",
+    "build": "npm run build -w @lorekeeper/web && node scripts/bundle.mjs",
+    "start": "electron dist/main.cjs",
+    "dev": "LOREKEEPER_DEV_URL=http://127.0.0.1:5173 electron dist/main.cjs",
+    "icon": "node scripts/make-icon.mjs",
+    "pack": "npm run build && electron-builder --config electron-builder.config.cjs --dir",
+    "dist": "npm run build && electron-builder --config electron-builder.config.cjs",
+    "bundle:dev": "node scripts/bundle.mjs --dev"
+  },
+  "devDependencies": {
+    "electron": "44.9.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "@lorekeeper/shared": "*",
+    "@lorekeeper/server": "*"
+  }
 }

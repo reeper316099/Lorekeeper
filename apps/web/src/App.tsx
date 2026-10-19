@@ -12,6 +12,7 @@ import { QuickAdd } from './components/QuickAdd';
 import { HelpModal, Sidebar, TopBar } from './components/Shell';
 import { Toasts } from './components/ui';
 import { isTyping } from './lib/helpers';
+import { getBridge } from './lib/bridge';
 import { useServerEvents } from './lib/queries';
 import { useUI } from './lib/store';
 
@@ -26,6 +27,7 @@ function useTheme() {
       document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     };
     apply();
+    getBridge()?.setTheme(theme); // native title bar / menus follow the app theme
     if (theme !== 'system') return;
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     mq.addEventListener('change', apply);
@@ -44,6 +46,22 @@ export function App() {
   useTheme();
   useServerEvents();
   useSyncSettings();
+  useEffect(() => {
+    // Native menu items (File ▸ New Title, View ▸ Library, …) arrive as named actions.
+    return getBridge()?.onMenu((action) => {
+      const ui = useUI.getState();
+      if (action === 'new') ui.set({ quickAdd: true });
+      else if (action === 'palette') ui.set({ palette: true });
+      else if (action === 'help') ui.set({ help: true });
+      else if (
+        action === 'import' ||
+        action === 'settings' ||
+        action === 'dashboard' ||
+        action === 'library'
+      )
+        ui.set({ route: action });
+    });
+  }, []);
   const searchRef = useRef<HTMLInputElement>(null);
   const { route, sidebarCollapsed, set } = useUI();
 
