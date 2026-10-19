@@ -59,3 +59,25 @@ export interface EntryPage {
 
 export const get = <T>(p: string) => api<T>('GET', p);
 export type { Category, Entry, Scales, Settings, Tag };
+
+function conn(): { baseUrl: string; token: string } {
+  const b = (window as unknown as { lorekeeper?: { baseUrl: string; token: string } }).lorekeeper;
+  return (
+    b ?? {
+      baseUrl: import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:4317',
+      token: import.meta.env.VITE_API_TOKEN ?? 'dev-token',
+    }
+  );
+}
+
+/** URL for a cached cover file (e.g. "123.jpg"). <img> cannot send headers, so the token rides in the query. */
+export const coverUrl = (file: string): string => {
+  const c = conn();
+  return `${c.baseUrl}/api/v1/anilist/cover/${encodeURIComponent(file)}?token=${encodeURIComponent(c.token)}`;
+};
+
+/** AniList artwork shown before a match is confirmed goes through our allow-listed, disk-cached proxy. */
+export const remoteImageUrl = (url: string): string => {
+  const c = conn();
+  return `${c.baseUrl}/api/v1/anilist/image?url=${encodeURIComponent(url)}&token=${encodeURIComponent(c.token)}`;
+};

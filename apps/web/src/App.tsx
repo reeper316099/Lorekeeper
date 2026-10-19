@@ -3,9 +3,9 @@ import { readableTextColor } from '@lorekeeper/shared';
 import { Dashboard } from './components/Dashboard';
 import { Drawer } from './components/Drawer';
 import { Library } from './components/Library';
+import { AniListPage } from './components/AniList';
 import { CategoriesPage, TagsPage } from './components/Managers';
 import { ImportPage } from './components/ImportWizard';
-import { Soon } from './components/Pages';
 import { Palette } from './components/Palette';
 import { SettingsPage, useSyncSettings } from './components/Settings';
 import { QuickAdd } from './components/QuickAdd';
@@ -102,7 +102,7 @@ export function App() {
           {route === 'dashboard' && <Dashboard />}
           {route === 'categories' && <CategoriesPage />}
           {route === 'tags' && <TagsPage />}
-          {route === 'anilist' && <Soon title="AniList" milestone="M6" />}
+          {route === 'anilist' && <AniListPage />}
           {route === 'import' && <ImportPage />}
           {route === 'settings' && <SettingsPage />}
         </main>

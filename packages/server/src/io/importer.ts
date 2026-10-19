@@ -153,7 +153,11 @@ function fieldsEmpty(e: Entry) {
 }
 
 /** Merge an incoming entry into an existing one. Returns null if nothing changed. */
-function mergeInto(existing: Entry, incoming: Entry, mode: 'fill' | 'overwrite'): Entry | null {
+export function mergeInto(
+  existing: Entry,
+  incoming: Entry,
+  mode: 'fill' | 'overwrite',
+): Entry | null {
   const empty = fieldsEmpty(existing);
   const take = (key: keyof typeof empty, hasIncoming: boolean) =>
     hasIncoming && (mode === 'overwrite' || empty[key]);
@@ -484,7 +488,7 @@ function importDir(store: Store, id: string): string {
   return path.join(store.importsDir, id);
 }
 
-function newId(): string {
+export function newId(): string {
   const d = new Date();
   const p = (n: number) => String(n).padStart(2, '0');
   return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}-${randomBytes(3).toString('hex')}`;
@@ -609,4 +613,38 @@ export async function undoImport(store: Store, id: string) {
   await store.loadAll();
   store.emit('change');
   return { ok: true };
+}
+
+/**
+ * Snapshot every file an operation may touch so `undoImport(store, id)` can restore it exactly.
+ * Used by importers other than the spreadsheet one (e.g. AniList list import).
+ */
+export async function beginUndoable(
+  store: Store,
+  targetCategoryIds: string[],
+): Promise<{ id: string; dir: string }> {
+  const id = newId();
+  const dir = path.join(store.importsDir, id);
+  const snap = path.join(dir, 'snapshot');
+  const rels = new Set<string>(['config/categories.json', 'config/tags.json']);
+  for (const c of store.categories)
+    if (targetCategoryIds.includes(c.id)) rels.add(`data/${c.library}/${c.slug}.json`);
+  const manifest: Manifest = { existed: [], created: [] };
+  for (const rel of rels) {
+    const src = path.join(store.dir, rel);
+    if (
+      await fs.access(src).then(
+        () => true,
+        () => false,
+      )
+    ) {
+      await fs.mkdir(path.dirname(path.join(snap, rel)), { recursive: true });
+      await fs.copyFile(src, path.join(snap, rel));
+      manifest.existed.push(rel);
+    }
+  }
+  await fs.mkdir(dir, { recursive: true });
+  await atomicWrite(path.join(dir, 'manifest.json'), stableStringify(manifest));
+  await store.backup('pre-anilist-import');
+  return { id, dir };
 }

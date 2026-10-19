@@ -56,7 +56,10 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
     const url = req.url.split('?')[0]!;
     if (!url.startsWith('/api/')) return; // static web assets are public; the API is not
     const header = req.headers.authorization?.replace(/^Bearer\s+/i, '');
-    const qs = url.endsWith('/events') ? (req.query as { token?: string }).token : undefined;
+    // EventSource and <img> cannot set headers, so a few read-only routes accept ?token=.
+    const queryToken =
+      url.endsWith('/events') || url.includes('/anilist/cover/') || url.endsWith('/anilist/image');
+    const qs = queryToken ? (req.query as { token?: string }).token : undefined;
     const given = Buffer.from(header ?? qs ?? '');
     if (given.length !== tokenBuf.length || !timingSafeEqual(given, tokenBuf))
       throw new HttpError(401, 'UNAUTHORIZED', 'Missing or invalid token');
@@ -306,7 +309,7 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
         store.on(ev, h);
         return () => store.off(ev, h);
       };
-      const offs = ['change', 'external-change', 'file-error', 'file-restored'].map(on);
+      const offs = ['change', 'external-change', 'file-error', 'file-restored', 'job'].map(on);
       const ping = setInterval(() => res.write(': ping\n\n'), 25000);
       req.raw.on('close', () => {
         clearInterval(ping);

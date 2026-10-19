@@ -2,6 +2,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { buildApp, Store, type StoreOptions } from '../src/index.js';
+import type { AniMedia } from '../src/anilist/queries.js';
 
 export const TOKEN = 'test-token-123';
 
@@ -36,3 +37,35 @@ export async function makeApp(opts: StoreOptions = {}) {
   };
   return { ...s, app, call };
 }
+
+/** An AniList media fixture with invented content. */
+export const media = (id: number, title: string, o: Partial<AniMedia> = {}): AniMedia => ({
+  id,
+  idMal: null,
+  type: 'MANGA',
+  format: 'MANGA',
+  status: 'RELEASING',
+  episodes: null,
+  chapters: 120,
+  volumes: null,
+  countryOfOrigin: 'KR',
+  seasonYear: null,
+  averageScore: 80,
+  isAdult: false,
+  siteUrl: `https://anilist.co/manga/${id}`,
+  title: { romaji: title, english: null, native: null },
+  synonyms: [],
+  startDate: { year: 2020 },
+  description: 'A <i>story</i><br>line',
+  coverImage: {
+    large: `https://s4.anilist.co/file/c/${id}-large.jpg`,
+    extraLarge: `https://s4.anilist.co/file/c/${id}-xl.jpg`,
+  },
+  bannerImage: null,
+  genres: ['Fantasy'],
+  tags: [
+    { name: 'Time Loop', rank: 80, isMediaSpoiler: false },
+    { name: 'Twist', rank: 90, isMediaSpoiler: true },
+  ],
+  ...o,
+});

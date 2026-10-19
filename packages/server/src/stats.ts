@@ -49,6 +49,7 @@ export async function overview(store: Store, library?: 'reading' | 'watching') {
     consumedUpTo: e.consumedUpTo,
     totalUnits: e.totalUnits,
     leftOff: e.notes.extra1,
+    cover: e.external.cover ?? null,
     updatedAt: e.updatedAt,
     behindBy: behindBy(e.current, e.consumedUpTo),
   });

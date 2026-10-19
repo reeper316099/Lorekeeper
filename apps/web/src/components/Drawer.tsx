@@ -13,6 +13,7 @@ import {
   useUpdateEntry,
 } from '../lib/queries';
 import { useUI } from '../lib/store';
+import { AniListPanel } from './AniList';
 import { Cover, Icon } from './ui';
 import { ScoreSelect, StatusSelect } from './cells';
 
@@ -371,14 +372,7 @@ function Body({ entry }: { entry: Entry }) {
           </div>
         )}
 
-        <div className="callout">
-          <strong style={{ color: 'var(--text)' }}>AniList</strong>
-          <div>
-            {entry.external.anilistId
-              ? `Matched to AniList #${entry.external.anilistId}.`
-              : 'Not matched yet. Matching, covers and synopsis arrive with the AniList milestone.'}
-          </div>
-        </div>
+        <AniListPanel entry={entry} />
 
         <div className="field">
           <span className="label">Activity</span>

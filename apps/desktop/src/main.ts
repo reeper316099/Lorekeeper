@@ -14,7 +14,7 @@ import {
   type IpcMainInvokeEvent,
 } from 'electron';
 import { APP_NAME } from '@lorekeeper/shared';
-import { buildApp, registerIoRoutes, Store } from '@lorekeeper/server';
+import { buildApp, registerAllRoutes, Store } from '@lorekeeper/server';
 import { createLogger } from './logger';
 import { buildMenu } from './menu';
 import { readBootstrap, resolveDataDir } from './paths';
@@ -105,7 +105,7 @@ async function start(): Promise<void> {
     token,
     staticDir: existsSync(WEB_DIR) ? WEB_DIR : undefined,
     allowedOrigins: DEV_URL ? [new URL(DEV_URL).origin] : [],
-    extend: registerIoRoutes,
+    extend: registerAllRoutes,
   });
   await api.listen({ host: '127.0.0.1', port: 0 });
   const port = (api.server.address() as { port: number }).port;

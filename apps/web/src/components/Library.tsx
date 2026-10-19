@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import type { Entry } from '@lorekeeper/shared';
-import { api } from '../lib/api';
+import { api, coverUrl } from '../lib/api';
 import { behindOf, isTyping, timeAgo, useLookup } from '../lib/helpers';
 import { invalidateAll, useEntries, useMeta, useProgress, useUpdateEntry } from '../lib/queries';
 import { activeFilterCount, useUI, type ColumnKey } from '../lib/store';
@@ -228,7 +228,9 @@ function GridView({
                   <div
                     className="art"
                     style={{
-                      background: `linear-gradient(145deg, ${color}, color-mix(in oklab, ${color} 50%, #000))`,
+                      background: e.external.cover
+                        ? `center / cover no-repeat url("${coverUrl(e.external.cover)}"), ${color}`
+                        : `linear-gradient(145deg, ${color}, color-mix(in oklab, ${color} 50%, #000))`,
                     }}
                   >
                     <input
@@ -239,7 +241,10 @@ function GridView({
                       onChange={() => toggleSelected(e.id)}
                     />
                     {behind > 0 && <span className="chip behind">{behind} behind</span>}
-                    <span style={{ zIndex: 1 }} aria-hidden="true">
+                    <span
+                      style={{ zIndex: 1, display: e.external.cover ? 'none' : undefined }}
+                      aria-hidden="true"
+                    >
                       {e.title
                         .replace(/[^\p{L}\p{N} ]/gu, '')
                         .split(/\s+/)

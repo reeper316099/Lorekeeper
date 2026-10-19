@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { readableTextColor, type Entry, type Status } from '@lorekeeper/shared';
+import { coverUrl } from '../lib/api';
 import { useUI } from '../lib/store';
 
 const PATHS: Record<string, string> = {
@@ -59,11 +60,12 @@ export function Cover({
   size = 36,
   radius,
 }: {
-  entry: Pick<Entry, 'title'>;
+  entry: Pick<Entry, 'title'> & { external?: { cover?: string }; cover?: string | null };
   color: string;
   size?: number;
   radius?: number;
 }) {
+  const file = entry.external?.cover ?? entry.cover ?? null;
   return (
     <span
       className="cover"
@@ -76,7 +78,23 @@ export function Cover({
       }}
       aria-hidden="true"
     >
-      {initials(entry.title)}
+      {file ? (
+        <img
+          src={coverUrl(file)}
+          onError={(ev) => ((ev.target as HTMLImageElement).style.display = 'none')}
+          alt=""
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      ) : (
+        initials(entry.title)
+      )}
     </span>
   );
 }
