@@ -2,7 +2,6 @@
 private-fixtures/
 *.xlsx
 *.xlsm
-!fixtures/synthetic/*.xlsx
 *.csv
 !fixtures/synthetic/*.csv
 
@@ -15,3 +14,4 @@ coverage/
 *.log
 .env
 *.tsbuildinfo
+.claude/

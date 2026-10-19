@@ -466,6 +466,18 @@ export class Store extends EventEmitter {
     return out;
   }
 
+  /** Re-insert an exact entry (undo of a delete). No-op if the id already exists. */
+  async restoreEntry(entry: Entry): Promise<Entry> {
+    const parsed = EntrySchema.parse(entry);
+    if (this.all().some((e) => e.id === parsed.id)) return this.getEntry(parsed.id)!;
+    const list = this.byCat.get(parsed.categoryId);
+    if (!list) throw new HttpError(404, 'NOT_FOUND', `Category not found: ${parsed.categoryId}`);
+    list.push(parsed);
+    await this.registerTags(parsed.tags);
+    await this.commit([parsed.categoryId]);
+    return parsed;
+  }
+
   async deleteEntry(id: string): Promise<Entry> {
     const { entry, list, idx } = this.requireEntry(id);
     list.splice(idx, 1);

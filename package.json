@@ -19,7 +19,9 @@
     "typecheck": "tsc -b packages/shared packages/server",
     "guard": "node scripts/check-no-spreadsheets.mjs",
     "fixtures:generate": "tsx scripts/generate-fixtures.ts",
-    "dev:server": "tsx packages/server/src/dev.ts",
+    "dev:server": "tsx watch packages/server/src/dev.ts",
+    "dev:web": "npm run dev -w @lorekeeper/web",
+    "dev": "concurrently -k -n api,web \"npm:dev:server\" \"npm:dev:web\"",
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.5",
+    "concurrently": "^10.0.6",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
     "prettier": "^3.9.10",

@@ -10,7 +10,9 @@ const files = execFileSync('git', args, { encoding: 'utf8' }).split('\n').filter
 export function isForbidden(file) {
   const f = file.replace(/\\/g, '/');
   if (f.startsWith('private-fixtures/')) return true;
-  if (/\.(xlsx|xlsm|xls|csv|tsv)$/i.test(f)) return !f.startsWith('fixtures/synthetic/');
+  // Generated workbooks are never committed (they are produced by `npm run fixtures:generate`).
+  if (/\.(xlsx|xlsm|xls)$/i.test(f)) return true;
+  if (/\.(csv|tsv)$/i.test(f)) return !f.startsWith('fixtures/synthetic/');
   return false;
 }
 

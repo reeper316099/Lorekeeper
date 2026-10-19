@@ -3,6 +3,7 @@ import Fastify, { type FastifyInstance } from 'fastify';
 import cors from '@fastify/cors';
 import { z, ZodError } from 'zod';
 import {
+  EntrySchema,
   LibrarySchema,
   ScalesSchema,
   SettingsSchema,
@@ -104,6 +105,14 @@ export async function buildApp(opts: AppOptions): Promise<FastifyInstance> {
       for (const k of ['id', 'createdAt', 'updatedAt', 'library']) delete rest[k];
       reply.status(201);
       return store.createEntry(rest as never);
+    });
+    api.post('/entries/restore', async (req, reply) => {
+      reply.status(201);
+      return store.restoreEntry(EntrySchema.parse(req.body));
+    });
+    api.get('/entries/:id/activity', async (req) => {
+      const id = (req.params as { id: string }).id;
+      return (await store.readActivity()).filter((a) => a.entryId === id).reverse();
     });
     api.post('/entries/bulk', async (req) => {
       const body = z

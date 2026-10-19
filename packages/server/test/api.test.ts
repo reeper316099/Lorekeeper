@@ -79,7 +79,11 @@ describe('entries', () => {
     expect(
       (await call('POST', `/entries/${id}/move`, { categoryId: act.id })).body.categoryId,
     ).toBe(act.id);
-    const b = await call('POST', '/entries/bulk', { ids: [id], action: 'add_tag', value: 'Overlord Lead' });
+    const b = await call('POST', '/entries/bulk', {
+      ids: [id],
+      action: 'add_tag',
+      value: 'Overlord Lead',
+    });
     expect(b.body.affected).toBe(1);
     expect((await call('GET', `/entries/${id}`)).body.tags).toContain('Overlord Lead');
     expect((await call('DELETE', `/entries/${id}`)).status).toBe(200);
@@ -139,7 +143,11 @@ describe('categories, tags, stats, settings, backups', () => {
   });
   it('tag suggestions and merge', async () => {
     const { call, rom } = await setup();
-    await call('POST', '/entries', { title: 'a', categoryId: rom.id, tags: ['Sorcery', 'Fantasy'] });
+    await call('POST', '/entries', {
+      title: 'a',
+      categoryId: rom.id,
+      tags: ['Sorcery', 'Fantasy'],
+    });
     await call('POST', '/entries', { title: 'b', categoryId: rom.id, tags: ['Sorcery'] });
     await call('POST', '/entries', { title: 'c', categoryId: rom.id, tags: ['Sorcrey'] });
     const sug = (await call('GET', '/tags/suggestions')).body;

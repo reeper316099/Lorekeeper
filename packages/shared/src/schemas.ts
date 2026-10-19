@@ -134,6 +134,9 @@ export const SettingsSchema = z.object({
     .object({ keep: z.number().int().min(1).default(20), onLaunchHours: z.number().default(6) })
     .default({ keep: 20, onLaunchHours: 6 }),
   autoConfirmThreshold: z.number().min(0).max(1).default(0.92),
+  savedViews: z
+    .array(z.object({ id: z.string(), name: z.string(), query: z.record(z.string(), z.string()) }))
+    .default([]),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
 
