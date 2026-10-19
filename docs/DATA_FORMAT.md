@@ -13,8 +13,16 @@ data/<library>/<slug>.json   Entry[] for one category (library = reading | watch
 activity/YYYY-MM.jsonl    append-only progress/status log (feeds the heatmap)
 imports/<id>/             source copy, snapshot/, manifest.json, import-report.json (enables Undo)
 backups/                  backup-YYYYMMDD-HHmmss.zip (config + data + activity), backups/corrupt/
-exports/  logs/
+exports/                  files you export
+logs/app.log              rotating, never contains titles or notes
+anilist/match-queue.json  AniList review queue (pending / rejected / never / unlinkable)
+anilist/cache/            cached AniList responses (7 day TTL) and artwork
+covers/<anilistId>.<ext>  cached cover images for confirmed matches
+.lorekeeper.lock          pid of the running app (one process per data folder)
 ```
+
+In Electron's own profile folder (not the data folder) `bootstrap.json` remembers a data folder chosen in Settings and
+`window-state.json` remembers the window size and position.
 
 ## Entry
 

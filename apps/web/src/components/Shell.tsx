@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { APP_NAME } from '@lorekeeper/shared';
 import { useCategories, useMeta } from '../lib/queries';
 import { useUI, type Route } from '../lib/store';
@@ -96,8 +97,19 @@ export function Sidebar() {
 }
 
 export function TopBar({ searchRef }: { searchRef: React.RefObject<HTMLInputElement | null> }) {
-  const { filters, setFilters, set, route } = useUI();
+  const { filters, setFilters, set } = useUI();
   const meta = useMeta().data;
+  // Keep typing instant: the field is local state, the query follows ~120 ms after the last keystroke.
+  const [text, setText] = useState(filters.q);
+  useEffect(() => setText(filters.q), [filters.q]);
+  useEffect(() => {
+    if (text === filters.q) return;
+    const t = setTimeout(() => {
+      setFilters({ q: text });
+      if (useUI.getState().route !== 'library') set({ route: 'library' });
+    }, 120);
+    return () => clearTimeout(t);
+  }, [text, filters.q, setFilters, set]);
   return (
     <header className="topbar">
       <div className="search">
@@ -107,11 +119,8 @@ export function TopBar({ searchRef }: { searchRef: React.RefObject<HTMLInputElem
           type="search"
           aria-label="Search titles"
           placeholder={`Search ${meta?.entries?.toLocaleString() ?? ''} titles, tags, notes…`}
-          value={filters.q}
-          onChange={(e) => {
-            setFilters({ q: e.target.value });
-            if (route !== 'library') set({ route: 'library' });
-          }}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Escape') {
               (e.target as HTMLInputElement).blur();
@@ -121,19 +130,13 @@ export function TopBar({ searchRef }: { searchRef: React.RefObject<HTMLInputElem
         <kbd>/</kbd>
       </div>
       <div className="spacer" />
-      <button
-        className="btn"
-        onClick={() => set({ palette: true })}
-        aria-label="Open command palette"
-      >
-        <Icon name="search" size={14} /> <kbd>⌘K</kbd>
+      <button className="btn" onClick={() => set({ palette: true })}>
+        <Icon name="search" size={14} /> <span className="sr-only">Open command palette</span>
+        <kbd aria-hidden="true">⌘K</kbd>
       </button>
-      <button
-        className="btn ghost"
-        onClick={() => set({ help: true })}
-        aria-label="Keyboard shortcuts"
-      >
-        <kbd>?</kbd>
+      <button className="btn ghost" onClick={() => set({ help: true })}>
+        <span className="sr-only">Keyboard shortcuts</span>
+        <kbd aria-hidden="true">?</kbd>
       </button>
       <button className="btn primary" onClick={() => set({ quickAdd: true })}>
         <Icon name="plus" size={16} /> Add title

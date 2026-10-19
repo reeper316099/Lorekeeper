@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useFocusTrap } from '../lib/focus';
 import { readableTextColor, type Entry, type Status } from '@lorekeeper/shared';
 import { coverUrl } from '../lib/api';
 import { useUI } from '../lib/store';
@@ -240,6 +241,8 @@ export function Modal({
   onClose: () => void;
   children: ReactNode;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useFocusTrap(ref, true);
   useEffect(() => {
     const key = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', key);
@@ -248,7 +251,14 @@ export function Modal({
   return (
     <>
       <div className="scrim" onClick={onClose} />
-      <div className="modal" role="dialog" aria-modal="true" aria-label={title}>
+      <div
+        ref={ref}
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        tabIndex={-1}
+      >
         <h2>{title}</h2>
         {children}
       </div>

@@ -4,6 +4,7 @@ import { Dashboard } from './components/Dashboard';
 import { Drawer } from './components/Drawer';
 import { Library } from './components/Library';
 import { AniListPage } from './components/AniList';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { CategoriesPage, TagsPage } from './components/Managers';
 import { ImportPage } from './components/ImportWizard';
 import { Palette } from './components/Palette';
@@ -94,17 +95,31 @@ export function App() {
 
   return (
     <div className={`app ${sidebarCollapsed ? 'collapsed' : ''}`}>
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
+      >
+        Skip to main content
+      </a>
       <Sidebar />
       <div className="main">
         <TopBar searchRef={searchRef} />
-        <main className="page" id="main">
-          {route === 'library' && <Library />}
-          {route === 'dashboard' && <Dashboard />}
-          {route === 'categories' && <CategoriesPage />}
-          {route === 'tags' && <TagsPage />}
-          {route === 'anilist' && <AniListPage />}
-          {route === 'import' && <ImportPage />}
-          {route === 'settings' && <SettingsPage />}
+        <main className="page" id="main" tabIndex={-1}>
+          <ErrorBoundary resetKey={route}>
+            <div key={route} className="route-enter">
+              {route === 'library' && <Library />}
+              {route === 'dashboard' && <Dashboard />}
+              {route === 'categories' && <CategoriesPage />}
+              {route === 'tags' && <TagsPage />}
+              {route === 'anilist' && <AniListPage />}
+              {route === 'import' && <ImportPage />}
+              {route === 'settings' && <SettingsPage />}
+            </div>
+          </ErrorBoundary>
         </main>
       </div>
       <Drawer />

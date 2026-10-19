@@ -5,35 +5,60 @@ import type { Store } from './storage/store.js';
 
 type Doc = { id: string; title: string; alt: string; tags: string; notes: string };
 
+const docOf = (e: Entry): Doc => ({
+  id: e.id,
+  title: e.title,
+  alt: e.altTitles.join(' '),
+  tags: e.tags.join(' '),
+  notes: [e.notes.general, e.notes.extra1, e.notes.extra2].filter(Boolean).join(' '),
+});
+
 export class SearchIndex {
   private ms?: MiniSearch<Doc>;
   private builtAt = -1;
+  /** The entry object each document was built from. Entries are replaced, never mutated, so identity tells us what changed. */
+  private seen = new Map<string, Entry>();
 
   constructor(private store: Store) {}
 
   private ensure(): MiniSearch<Doc> {
     if (this.ms && this.builtAt === this.store.version) return this.ms;
-    const ms = new MiniSearch<Doc>({
-      fields: ['title', 'alt', 'tags', 'notes'],
-      searchOptions: {
-        boost: { title: 6, alt: 3, tags: 2, notes: 1 },
-        prefix: true,
-        fuzzy: (term) => (term.length > 4 ? 0.2 : false),
-        combineWith: 'AND',
-      },
-    });
-    ms.addAll(
-      this.store.all().map((e) => ({
-        id: e.id,
-        title: e.title,
-        alt: e.altTitles.join(' '),
-        tags: e.tags.join(' '),
-        notes: [e.notes.general, e.notes.extra1, e.notes.extra2].filter(Boolean).join(' '),
-      })),
-    );
-    this.ms = ms;
+    const all = this.store.all();
+    if (!this.ms) {
+      this.ms = new MiniSearch<Doc>({
+        fields: ['title', 'alt', 'tags', 'notes'],
+        searchOptions: {
+          boost: { title: 6, alt: 3, tags: 2, notes: 1 },
+          prefix: true,
+          // Allow roughly one typo for mid-length words and two for long ones.
+          fuzzy: (term) => (term.length >= 7 ? 0.3 : term.length > 4 ? 0.2 : false),
+          combineWith: 'AND',
+        },
+      });
+      this.ms.addAll(all.map(docOf));
+      this.seen = new Map(all.map((e) => [e.id, e]));
+    } else {
+      // Incremental update: only touch entries whose object changed.
+      const live = new Set<string>();
+      for (const e of all) {
+        live.add(e.id);
+        const prev = this.seen.get(e.id);
+        if (prev === e) continue;
+        if (prev) this.ms.replace(docOf(e));
+        else this.ms.add(docOf(e));
+        this.seen.set(e.id, e);
+      }
+      if (this.seen.size !== live.size) {
+        for (const id of [...this.seen.keys()]) {
+          if (!live.has(id)) {
+            this.ms.discard(id);
+            this.seen.delete(id);
+          }
+        }
+      }
+    }
     this.builtAt = this.store.version;
-    return ms;
+    return this.ms;
   }
 
   /** Ranked entry ids with the matched terms (for highlighting). */
@@ -93,8 +118,22 @@ export function normalizeQueryKeys(raw: Record<string, unknown>): Record<string,
   return Object.fromEntries(Object.entries(raw).map(([k, v]) => [k.replace(/\[\]$/, ''), v]));
 }
 
+const collator = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true });
+const titleOrder = new WeakMap<Store, { v: number; list: Entry[] }>();
+
+/** All entries ordered by title, cached per store version (sorting 10k titles on every request is slow). */
+function sortedByTitle(store: Store): Entry[] {
+  const hit = titleOrder.get(store);
+  if (hit && hit.v === store.version) return hit.list;
+  const list = [...store.all()].sort((a, b) => collator.compare(a.title, b.title));
+  titleOrder.set(store, { v: store.version, list });
+  return list;
+}
+
 export function queryEntries(store: Store, index: SearchIndex, q: EntryQuery) {
-  let list: Entry[] = store.all();
+  const sort = q.sort ?? (q.q?.trim() ? 'relevance' : 'title');
+  const presorted = sort === 'title' && !q.q?.trim();
+  let list: Entry[] = presorted ? sortedByTitle(store) : store.all();
   const rank = new Map<string, number>();
   if (q.q?.trim()) {
     const hits = index.search(q.q, 5000);
@@ -136,7 +175,6 @@ export function queryEntries(store: Store, index: SearchIndex, q: EntryQuery) {
     return true;
   });
 
-  const sort = q.sort ?? (q.q?.trim() ? 'relevance' : 'title');
   const dir = q.order === 'asc' ? 1 : -1;
   const catName = (e: Entry) => store.categories.find((c) => c.id === e.categoryId)?.name ?? '';
   const cmp = (a: Entry, b: Entry): number => {
@@ -154,12 +192,14 @@ export function queryEntries(store: Store, index: SearchIndex, q: EntryQuery) {
       case 'relevance':
         return rank.size ? (rank.get(a.id)! - rank.get(b.id)!) * dir : 0;
       default:
-        return (
-          a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true }) * dir
-        );
+        return collator.compare(a.title, b.title) * dir;
     }
   };
-  list = [...list].sort(sort === 'relevance' ? (a, b) => rank.get(a.id)! - rank.get(b.id)! : cmp);
+  if (presorted) {
+    if (q.order === 'desc') list = [...list].reverse();
+  } else {
+    list = [...list].sort(sort === 'relevance' ? (a, b) => rank.get(a.id)! - rank.get(b.id)! : cmp);
+  }
   const total = list.length;
   const start = (q.page - 1) * q.limit;
   return { items: list.slice(start, start + q.limit), total, page: q.page, limit: q.limit };

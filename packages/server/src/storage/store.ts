@@ -296,11 +296,43 @@ export class Store extends EventEmitter {
     this.allCache = undefined;
   }
 
+  private flushes = new Map<
+    string,
+    { inflight: Promise<void> | null; queued: Promise<void> | null }
+  >();
+
+  /**
+   * Write a file with burst coalescing: while one write runs, any number of further requests share a
+   * single follow-up write that serializes the *latest* data. Every caller still resolves only after
+   * a write that includes its change has finished.
+   */
+  private persist(file: string, get: () => unknown): Promise<void> {
+    const st = this.flushes.get(file) ?? { inflight: null, queued: null };
+    this.flushes.set(file, st);
+    const start = (): Promise<void> => {
+      const p: Promise<void> = this.writeJson(file, get()).finally(() => {
+        if (st.inflight === p) st.inflight = null;
+      });
+      st.inflight = p;
+      return p;
+    };
+    if (st.queued) return st.queued;
+    if (!st.inflight) return start();
+    const queued: Promise<void> = st.inflight
+      .catch(() => undefined)
+      .then(() => {
+        st.queued = null;
+        return start();
+      });
+    st.queued = queued;
+    return queued;
+  }
+
   private async commit(catIds: string[], event = 'change'): Promise<void> {
     this.bump();
     for (const id of new Set(catIds)) {
       const c = this.categories.find((x) => x.id === id);
-      if (c) await this.writeJson(this.catFile(c), this.byCat.get(id) ?? []);
+      if (c) await this.persist(this.catFile(c), () => this.byCat.get(id) ?? []);
     }
     this.emit(event);
   }

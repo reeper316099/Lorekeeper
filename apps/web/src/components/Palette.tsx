@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import type { Entry } from '@lorekeeper/shared';
 import { api, get } from '../lib/api';
 import { useLookup } from '../lib/helpers';
+import { useFocusTrap } from '../lib/focus';
 import { useUI, type Route } from '../lib/store';
 import { Icon } from './ui';
 
@@ -25,6 +26,8 @@ export function Palette() {
   const [q, setQ] = useState('');
   const [idx, setIdx] = useState(0);
   const ref = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(dialogRef, palette);
   const look = useLookup();
   useEffect(() => {
     if (palette) {
@@ -194,10 +197,12 @@ export function Palette() {
     <>
       <div className="scrim" onClick={() => set({ palette: false })} />
       <div
+        ref={dialogRef}
         className="modal palette"
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
+        tabIndex={-1}
         onKeyDown={onKey}
       >
         <div className="search" style={{ maxWidth: 'none' }}>

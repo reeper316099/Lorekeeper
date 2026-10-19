@@ -251,3 +251,41 @@ describe('backups & migrations', () => {
     void store;
   });
 });
+
+describe('write coalescing & incremental search', () => {
+  it('coalesces bursts of writes but persists the final state', async () => {
+    const { store, dir } = await mk();
+    const c = await store.createCategory({ library: 'reading', name: 'Burst' });
+    const e = await store.createEntry({ title: 'Counter', categoryId: c.id });
+    const real = store.writeJson.bind(store);
+    let writes = 0;
+    store.writeJson = async (f, d) => {
+      writes++;
+      await new Promise((r) => setTimeout(r, 15));
+      return real(f, d);
+    };
+    await Promise.all(Array.from({ length: 30 }, () => store.setProgress(e.id, { delta: 1 })));
+    store.writeJson = real;
+    expect(writes).toBeLessThan(10);
+    const onDisk = JSON.parse(await fs.readFile(path.join(dir, 'data/reading/burst.json'), 'utf8'));
+    expect(onDisk[0].current.number).toBe(30);
+  });
+
+  it('keeps the search index in sync after edits, deletes and adds', async () => {
+    const { store } = await mk();
+    const { SearchIndex } = await import('../src/search.js');
+    const c = await store.createCategory({ library: 'reading', name: 'Idx' });
+    const a = await store.createEntry({ title: 'Quartz Lantern', categoryId: c.id });
+    const b = await store.createEntry({ title: 'Amber Harbor', categoryId: c.id });
+    const idx = new SearchIndex(store);
+    expect(idx.search('quartz').map((h) => h.id)).toEqual([a.id]);
+    await store.updateEntry(a.id, { title: 'Violet Orchard' });
+    expect(idx.search('quartz')).toEqual([]);
+    expect(idx.search('violet').map((h) => h.id)).toEqual([a.id]);
+    await store.deleteEntry(b.id);
+    expect(idx.search('amber')).toEqual([]);
+    const n = await store.createEntry({ title: 'Amber Fresh', categoryId: c.id });
+    expect(idx.search('amber').map((h) => h.id)).toEqual([n.id]);
+    expect(idx.search('orchrd').map((h) => h.id)).toEqual([a.id]); // one typo still finds it
+  });
+});

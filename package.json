@@ -25,7 +25,10 @@
     "prepare": "simple-git-hooks",
     "build:desktop": "npm run dist -w @lorekeeper/desktop",
     "dev:desktop": "concurrently -k -n web,app \"npm:dev:web\" \"wait-on tcp:127.0.0.1:5173 && npm run bundle:dev -w @lorekeeper/desktop && npm run dev -w @lorekeeper/desktop\"",
-    "e2e": "npm run build -w @lorekeeper/desktop && playwright test"
+    "e2e": "npm run build -w @lorekeeper/desktop && playwright test",
+    "perf": "tsx scripts/perf.ts",
+    "screenshots": "npm run build -w @lorekeeper/desktop && SCREENSHOTS=1 playwright test e2e/screenshots.spec.ts",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run e2e"
   },
   "simple-git-hooks": {
     "pre-commit": "node scripts/check-no-spreadsheets.mjs --staged"
@@ -34,6 +37,7 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
+    "axe-core": "^4.14.0",
     "concurrently": "^10.0.6",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",

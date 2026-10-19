@@ -31,6 +31,7 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur: 160ms;
 
+  --accent-text: color-mix(in oklab, var(--accent) 50%, var(--text));
   --success: #3ecf8e;
   --warning: #f5b544;
   --danger: #ef5a5a;
@@ -58,6 +59,10 @@
     0 0 0 1px color-mix(in oklab, var(--accent) 55%, transparent),
     0 8px 28px color-mix(in oklab, var(--accent) 28%, transparent);
   --scrim: rgba(5, 6, 10, 0.6);
+  /* readable status text on tinted chips (AA) */
+  --success-ink: #5fe0a6;
+  --warning-ink: #f7c46a;
+  --danger-ink: #ff8f8f;
 }
 
 :root[data-theme='light'] {
@@ -77,6 +82,9 @@
     0 0 0 1px color-mix(in oklab, var(--accent) 50%, transparent),
     0 8px 24px color-mix(in oklab, var(--accent) 22%, transparent);
   --scrim: rgba(30, 24, 12, 0.35);
+  --success-ink: #0b6b41;
+  --warning-ink: #7a4f00;
+  --danger-ink: #a82222;
 }
 
 :root {

@@ -8,6 +8,7 @@ import { activeFilterCount, useUI, type ColumnKey } from '../lib/store';
 import { useQueryClient } from '@tanstack/react-query';
 import { ProgressCell, ScoreSelect, StatusSelect, TagChips } from './cells';
 import { FilterBar } from './FilterBar';
+import { QueryError } from './ErrorBoundary';
 import { Cover, Empty, Icon, Popover } from './ui';
 
 const COL_DEF: Record<ColumnKey, { label: string; width: string; sort?: string }> = {
@@ -52,6 +53,14 @@ function TableView({
     if (idx >= 0) virt.scrollToIndex(idx, { align: 'auto' });
   }, [cursor, items, virt]);
 
+  const ariaSort = (key?: string): 'ascending' | 'descending' | 'none' | undefined =>
+    !key
+      ? undefined
+      : filters.sort === key
+        ? filters.order === 'asc'
+          ? 'ascending'
+          : 'descending'
+        : 'none';
   const allSel = items.length > 0 && items.every((e) => selected.includes(e.id));
   const sortBy = (key?: string) => {
     if (!key) return;
@@ -70,28 +79,35 @@ function TableView({
       aria-label="Library"
       aria-rowcount={items.length}
     >
-      <div className="thead" style={{ gridTemplateColumns: template }} role="row">
-        <input
-          type="checkbox"
-          aria-label="Select all"
-          checked={allSel}
-          onChange={() => set({ selected: allSel ? [] : items.map((e) => e.id) })}
-        />
-        <button onClick={() => sortBy('title')}>
-          Title {filters.sort === 'title' && (filters.order === 'asc' ? '↑' : '↓')}
-        </button>
-        {columns.map((c) => (
-          <button
-            key={c}
-            onClick={() => sortBy(COL_DEF[c].sort)}
-            style={{ cursor: COL_DEF[c].sort ? 'pointer' : 'default' }}
-          >
-            {COL_DEF[c].label}{' '}
-            {COL_DEF[c].sort === filters.sort && (filters.order === 'asc' ? '↑' : '↓')}
-          </button>
-        ))}
+      <div role="rowgroup" className="thead-group">
+        <div className="thead" style={{ gridTemplateColumns: template }} role="row">
+          <div role="columnheader">
+            <input
+              type="checkbox"
+              aria-label="Select all"
+              checked={allSel}
+              onChange={() => set({ selected: allSel ? [] : items.map((e) => e.id) })}
+            />
+          </div>
+          <div role="columnheader" aria-sort={ariaSort('title')}>
+            <button onClick={() => sortBy('title')}>
+              Title {filters.sort === 'title' && (filters.order === 'asc' ? '↑' : '↓')}
+            </button>
+          </div>
+          {columns.map((c) => (
+            <div key={c} role="columnheader" aria-sort={ariaSort(COL_DEF[c].sort)}>
+              <button
+                onClick={() => sortBy(COL_DEF[c].sort)}
+                style={{ cursor: COL_DEF[c].sort ? 'pointer' : 'default' }}
+              >
+                {COL_DEF[c].label}{' '}
+                {COL_DEF[c].sort === filters.sort && (filters.order === 'asc' ? '↑' : '↓')}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <div style={{ height: virt.getTotalSize(), position: 'relative' }}>
+      <div role="rowgroup" style={{ height: virt.getTotalSize(), position: 'relative' }}>
         {vItems.map((v) => {
           const e = items[v.index]!;
           const isSel = selected.includes(e.id);
@@ -110,12 +126,14 @@ function TableView({
               }}
               onClick={() => set({ cursor: e.id })}
             >
-              <input
-                type="checkbox"
-                aria-label={`Select ${e.title}`}
-                checked={isSel}
-                onChange={() => toggleSelected(e.id)}
-              />
+              <div role="cell">
+                <input
+                  type="checkbox"
+                  aria-label={`Select ${e.title}`}
+                  checked={isSel}
+                  onChange={() => toggleSelected(e.id)}
+                />
+              </div>
               <div className="cell-title" role="cell">
                 {density === 'comfortable' && <Cover entry={e} color={color} size={30} />}
                 <button
@@ -126,7 +144,7 @@ function TableView({
                   {e.title}
                 </button>
                 {e.favorite && (
-                  <span style={{ color: 'var(--warning)' }}>
+                  <span style={{ color: 'var(--warning-ink)' }}>
                     <Icon name="star" size={13} />
                   </span>
                 )}
@@ -417,8 +435,18 @@ function ColumnChooser() {
 
 export function Library() {
   const { filters, view, set, cursor } = useUI();
-  const { items, total, isLoading, isFetching, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useEntries(filters);
+  const {
+    items,
+    total,
+    isLoading,
+    isFetching,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    isError,
+    error,
+    refetch,
+  } = useEntries(filters);
   const meta = useMeta().data;
   const update = useUpdateEntry();
   const progress = useProgress();
@@ -455,7 +483,7 @@ export function Library() {
     return () => document.removeEventListener('keydown', onKey);
   }, [items, cursor, set, progress, update]);
 
-  const empty = !isLoading && total === 0;
+  const empty = !isLoading && !isError && total === 0;
   const hasFilters = activeFilterCount(filters) > 0 || filters.q.trim() !== '';
 
   return (
@@ -484,6 +512,9 @@ export function Library() {
           </div>
         </div>
       </div>
+      {isError && !items.length && (
+        <QueryError what="your library" error={error} onRetry={() => void refetch()} />
+      )}
       {isLoading && (
         <div style={{ padding: 'var(--space-5)', display: 'grid', gap: 10 }}>
           {Array.from({ length: 8 }, (_, i) => (

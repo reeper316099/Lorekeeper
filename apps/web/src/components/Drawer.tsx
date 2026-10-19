@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useFocusTrap } from '../lib/focus';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { emptyProgress, type ActivityRecord, type Entry, type Link } from '@lorekeeper/shared';
 import { api, get } from '../lib/api';
@@ -97,7 +98,7 @@ function LinkRow({ l }: { l: Link }) {
           target="_blank"
           rel="noopener noreferrer"
           className="truncate"
-          style={{ color: 'var(--accent)' }}
+          style={{ color: 'var(--accent-text)' }}
           title={l.url}
         >
           {text}
@@ -421,6 +422,8 @@ function Body({ entry }: { entry: Entry }) {
 export function Drawer() {
   const { drawerId, set } = useUI();
   const { data: entry, isError } = useEntry(drawerId);
+  const panelRef = useRef<HTMLElement>(null);
+  useFocusTrap(panelRef, !!drawerId);
   useEffect(() => {
     if (!drawerId) return;
     const key = (e: KeyboardEvent) =>
@@ -441,7 +444,14 @@ export function Drawer() {
         style={{ background: 'transparent', backdropFilter: 'none' }}
         onClick={() => set({ drawerId: null })}
       />
-      <aside className="drawer" role="dialog" aria-label="Title details">
+      <aside
+        ref={panelRef}
+        className="drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Title details"
+        tabIndex={-1}
+      >
         {entry ? (
           <Body key={entry.id} entry={entry} />
         ) : (

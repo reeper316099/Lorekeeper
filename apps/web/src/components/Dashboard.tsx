@@ -5,7 +5,9 @@ import { timeAgo, useLookup } from '../lib/helpers';
 import { invalidateAll, useProgress } from '../lib/queries';
 import { useOverview, type Brief } from '../lib/stats';
 import { useUI } from '../lib/store';
+import { CountUp } from './CountUp';
 import { Donut, HBars, Heatmap, Sparkline, VBars } from './charts';
+import { QueryError } from './ErrorBoundary';
 import { Cover, Empty, GENERIC_STATUS, Icon } from './ui';
 
 const STATUS_COLORS: Record<string, string> = {
@@ -54,7 +56,9 @@ function Stat({
   return (
     <div className="stat">
       <div className="muted label">{label}</div>
-      <div className="stat-value">{value}</div>
+      <div className="stat-value">
+        {typeof value === 'number' ? <CountUp value={value} /> : value}
+      </div>
       <div className="muted" style={{ fontSize: 'var(--text-xs)' }}>
         {hint}
       </div>
@@ -194,7 +198,7 @@ function Welcome() {
 
 export function Dashboard() {
   const [lib, setLib] = useState<'all' | 'reading' | 'watching'>('all');
-  const { data: o, isLoading } = useOverview(lib);
+  const { data: o, isLoading, isError, error, refetch } = useOverview(lib);
   const { set, setFilters, resetFilters } = useUI();
   const look = useLookup();
   const [focusTag, setFocusTag] = useState('');
@@ -206,10 +210,22 @@ export function Dashboard() {
     return out;
   }, [o]);
 
+  if (isError && !o)
+    return <QueryError what="the dashboard" error={error} onRetry={() => void refetch()} />;
   if (isLoading || !o)
     return (
-      <div className="page-pad">
-        <div className="skeleton" style={{ height: 120 }} />
+      <div className="page-pad dash" aria-busy="true" aria-label="Loading dashboard">
+        <div className="stats">
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className="skeleton" style={{ height: 108 }} />
+          ))}
+        </div>
+        <div className="skeleton" style={{ height: 220 }} />
+        <div className="dgrid">
+          {Array.from({ length: 6 }, (_, i) => (
+            <div key={i} className="skeleton" style={{ height: 200 }} />
+          ))}
+        </div>
       </div>
     );
   if (o.totals.entries === 0 && look.cats.length === 0) return <Welcome />;
@@ -244,12 +260,7 @@ export function Dashboard() {
       </div>
 
       <div className="stats">
-        <Stat
-          label="Total titles"
-          value={o.totals.entries.toLocaleString()}
-          hint="in your library"
-          spark={spark}
-        />
+        <Stat label="Total titles" value={o.totals.entries} hint="in your library" spark={spark} />
         <Stat
           label="Reading vs watching"
           value={`${o.totals.reading} / ${o.totals.watching}`}

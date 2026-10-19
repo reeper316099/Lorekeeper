@@ -276,7 +276,7 @@ kbd {
   background: var(--surface-2);
 }
 .btn.danger {
-  color: var(--danger);
+  color: var(--danger-ink);
 }
 .btn.sm {
   padding: 4px 10px;
@@ -330,15 +330,15 @@ kbd {
 }
 .chip.tone-completed {
   background: color-mix(in oklab, var(--success) 20%, transparent);
-  color: var(--success);
+  color: var(--success-ink);
 }
 .chip.tone-on_hold {
   background: color-mix(in oklab, var(--warning) 20%, transparent);
-  color: var(--warning);
+  color: var(--warning-ink);
 }
 .chip.tone-dropped {
   background: color-mix(in oklab, var(--danger) 20%, transparent);
-  color: var(--danger);
+  color: var(--danger-ink);
 }
 .chip.tone-planned {
   color: var(--text-muted);
@@ -353,7 +353,7 @@ kbd {
 }
 .chip.behind {
   background: color-mix(in oklab, var(--warning) 22%, transparent);
-  color: var(--warning);
+  color: var(--warning-ink);
 }
 .chip button {
   background: none;
@@ -1249,4 +1249,110 @@ input[type='checkbox'] {
 }
 .cand-title:hover {
   color: var(--accent);
+}
+
+/* ---------- polish: motion, skip link, focus ---------- */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 100;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus {
+  top: 12px;
+}
+.page:focus {
+  outline: none;
+}
+.route-enter {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  animation: route-in 220ms var(--ease);
+}
+@keyframes route-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.dash > .stats > *,
+.dash .dgrid > * {
+  animation: rise 420ms var(--ease) backwards;
+}
+.dash .dgrid > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.dash .dgrid > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.dash .dgrid > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.dash .dgrid > *:nth-child(5) {
+  animation-delay: 160ms;
+}
+.dash .dgrid > *:nth-child(6) {
+  animation-delay: 200ms;
+}
+.dash > .stats > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.dash > .stats > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.dash > .stats > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.dash > .stats > *:nth-child(5) {
+  animation-delay: 160ms;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+}
+.trow {
+  animation: row-in 180ms var(--ease) backwards;
+}
+@keyframes row-in {
+  from {
+    opacity: 0;
+  }
+}
+.bar > i {
+  transition: width 360ms var(--ease);
+}
+.btn,
+.chip,
+.nav-item,
+.step {
+  transition-property: background, border-color, color, box-shadow, transform, filter;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--ease);
+}
+@media (forced-colors: active) {
+  .btn.primary,
+  .chip {
+    border: 1px solid CanvasText;
+  }
+  :focus-visible {
+    outline: 2px solid Highlight;
+  }
+}
+
+/* chips sit on top of cover art, so give them their own legible backing in both themes */
+.card .art .chip {
+  background: rgba(10, 10, 14, 0.62);
+  color: #ffe2a3;
+  backdrop-filter: blur(4px);
 }

@@ -195,7 +195,7 @@ function ExportPanel() {
         Templates:{' '}
         <button
           className="linklike"
-          style={{ color: 'var(--accent)' }}
+          style={{ color: 'var(--accent-text)' }}
           onClick={() => void dl('/export/csv-template?library=reading', 'reading-template.csv')}
         >
           reading CSV
@@ -203,7 +203,7 @@ function ExportPanel() {
         {' · '}
         <button
           className="linklike"
-          style={{ color: 'var(--accent)' }}
+          style={{ color: 'var(--accent-text)' }}
           onClick={() => void dl('/export/csv-template?library=watching', 'watching-template.csv')}
         >
           watching CSV
@@ -573,7 +573,7 @@ export function ImportPage() {
               {report.tagSuggestions.length} tags look like typos or duplicates.{' '}
               <button
                 className="linklike"
-                style={{ color: 'var(--accent)' }}
+                style={{ color: 'var(--accent-text)' }}
                 onClick={() => set({ route: 'tags' })}
               >
                 Review tag cleanup →

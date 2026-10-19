@@ -251,7 +251,7 @@ export function AniListPanel({ entry }: { entry: Entry }) {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: 'var(--accent)', marginLeft: 'auto' }}
+          style={{ color: 'var(--accent-text)', marginLeft: 'auto' }}
         >
           Open on AniList ↗
         </a>
@@ -277,7 +277,7 @@ export function AniListPanel({ entry }: { entry: Entry }) {
           {desc.length > 220 && (
             <button
               className="linklike"
-              style={{ color: 'var(--accent)' }}
+              style={{ color: 'var(--accent-text)' }}
               onClick={() => setMore(!more)}
             >
               {more ? 'Show less' : 'Read more'}
@@ -461,13 +461,7 @@ function QueueTab() {
       )}
       <div className="seg" role="tablist" aria-label="Queue" style={{ justifySelf: 'start' }}>
         {(Object.keys(labels) as QueueItem['status'][]).map((s) => (
-          <button
-            key={s}
-            role="tab"
-            aria-selected={status === s}
-            aria-pressed={status === s}
-            onClick={() => setStatus(s)}
-          >
+          <button key={s} role="tab" aria-selected={status === s} onClick={() => setStatus(s)}>
             {labels[s]} {st ? `(${st.queue[s]})` : ''}
           </button>
         ))}
@@ -766,20 +760,10 @@ export function AniListPage() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
         <h1>AniList</h1>
         <div className="seg" role="tablist" aria-label="AniList sections">
-          <button
-            role="tab"
-            aria-selected={tab === 'queue'}
-            aria-pressed={tab === 'queue'}
-            onClick={() => setTab('queue')}
-          >
+          <button role="tab" aria-selected={tab === 'queue'} onClick={() => setTab('queue')}>
             Match review
           </button>
-          <button
-            role="tab"
-            aria-selected={tab === 'import'}
-            aria-pressed={tab === 'import'}
-            onClick={() => setTab('import')}
-          >
+          <button role="tab" aria-selected={tab === 'import'} onClick={() => setTab('import')}>
             Import from account
           </button>
         </div>
