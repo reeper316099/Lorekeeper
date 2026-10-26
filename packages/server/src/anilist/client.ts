@@ -255,18 +255,90 @@ export class AniListClient {
     }
   }
 
+  private imageBase(href: string): string {
+    return path.join(
+      this.o.dataDir,
+      'anilist',
+      'cache',
+      `img-${createHash('sha1').update(href).digest('hex').slice(0, 20)}`,
+    );
+  }
+
+  // ---------- cleanup ----------
+  /** Delete a cached cover (covers/<id>.<ext>). Only plain cover file names are accepted. */
+  async removeCover(file: string): Promise<boolean> {
+    if (!/^\d+\.(jpg|png|webp|gif)$/.test(file)) return false;
+    return fs.rm(path.join(this.o.dataDir, 'covers', file)).then(
+      () => true,
+      () => false,
+    );
+  }
+
+  /** Forget everything cached about one title: its metadata and the artwork downloaded for it. */
+  async purgeMedia(id: number): Promise<void> {
+    const file = this.cachePath(`media-${id}`);
+    try {
+      const cached = JSON.parse(await fs.readFile(file, 'utf8')) as {
+        data?: {
+          Media?: {
+            coverImage?: { large?: string | null; extraLarge?: string | null };
+            bannerImage?: string | null;
+          };
+        };
+      };
+      const m = cached.data?.Media;
+      for (const url of [m?.coverImage?.large, m?.coverImage?.extraLarge, m?.bannerImage]) {
+        const u = url ? AniListClient.allowedImage(url) : null;
+        if (!u) continue;
+        for (const ext of Object.values(EXT_BY_TYPE))
+          await fs.rm(`${this.imageBase(u.href)}.${ext}`, { force: true });
+      }
+    } catch {
+      /* nothing cached for this title */
+    }
+    await fs.rm(file, { force: true });
+  }
+
+  async cacheStats(): Promise<{ files: number; bytes: number }> {
+    const dir = path.join(this.o.dataDir, 'anilist', 'cache');
+    let files = 0;
+    let bytes = 0;
+    for (const name of await fs.readdir(dir).catch(() => [] as string[])) {
+      const st = await fs.stat(path.join(dir, name)).catch(() => null);
+      if (st?.isFile()) {
+        files++;
+        bytes += st.size;
+      }
+    }
+    return { files, bytes };
+  }
+
+  /** Remove every cached response and image. Covers of matched titles live in covers/ and are untouched. */
+  async clearCache(): Promise<{ files: number; bytes: number }> {
+    const stats = await this.cacheStats();
+    const dir = path.join(this.o.dataDir, 'anilist', 'cache');
+    for (const name of await fs.readdir(dir).catch(() => [] as string[]))
+      await fs.rm(path.join(dir, name), { force: true });
+    return stats;
+  }
+
+  /** Delete cover files that no entry references any more. */
+  async pruneCovers(inUse: Set<string>): Promise<number> {
+    const dir = path.join(this.o.dataDir, 'covers');
+    let removed = 0;
+    for (const name of await fs.readdir(dir).catch(() => [] as string[])) {
+      if (!inUse.has(name) && (await this.removeCover(name))) removed++;
+    }
+    return removed;
+  }
+
   async fetchImage(
     url: string,
     signal?: AbortSignal,
   ): Promise<{ bytes: Buffer; contentType: string }> {
     const u = AniListClient.allowedImage(url);
     if (!u) throw new AniListError('Image host not allowed', 400);
-    const base = path.join(
-      this.o.dataDir,
-      'anilist',
-      'cache',
-      `img-${createHash('sha1').update(u.href).digest('hex').slice(0, 20)}`,
-    );
+    const base = this.imageBase(u.href);
     for (const [type, ext] of Object.entries(EXT_BY_TYPE)) {
       try {
         return { bytes: await fs.readFile(`${base}.${ext}`), contentType: type };

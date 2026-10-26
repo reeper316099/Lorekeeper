@@ -352,9 +352,28 @@ export class AniListService {
       links: e.links.filter((l) => l.kind !== 'anilist'),
     });
     // `external` is merged shallowly by updateEntry, so replace it through the store directly.
-    return this.store
-      .replaceEntries([{ ...out, external }])
-      .then(() => this.store.getEntry(entryId)!);
+    await this.store.replaceEntries([{ ...out, external }]);
+
+    // Free what only this link needed: the cover file and the cached metadata/artwork.
+    const others = this.store.all().filter((o) => o.id !== entryId);
+    const { cover, anilistId } = e.external;
+    if (cover && !others.some((o) => o.external.cover === cover))
+      await this.client.removeCover(cover);
+    if (anilistId && !others.some((o) => o.external.anilistId === anilistId))
+      await this.client.purgeMedia(anilistId);
+    return this.store.getEntry(entryId)!;
+  }
+
+  /** Clear cached AniList responses/images and drop covers nothing points at. */
+  async clearCaches(): Promise<{ files: number; bytes: number; coversRemoved: number }> {
+    const stats = await this.client.clearCache();
+    const inUse = new Set(
+      this.store
+        .all()
+        .map((e) => e.external.cover)
+        .filter((c): c is string => !!c),
+    );
+    return { ...stats, coversRemoved: await this.client.pruneCovers(inUse) };
   }
 
   async addSuggestedTags(entryId: string): Promise<Entry> {

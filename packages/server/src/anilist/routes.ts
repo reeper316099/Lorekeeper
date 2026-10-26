@@ -114,6 +114,8 @@ export function registerAniListRoutes(opts: AniListRouteOptions = {}) {
       await store.writeJson(path.join(store.dir, 'anilist', 'match-queue.json'), q);
       return cands;
     });
+    app.get('/anilist/cache', async () => client.cacheStats());
+    app.post('/anilist/cache/clear', async () => svc.clearCaches());
     app.post('/anilist/entries/:id/unmatch', async (req) => svc.unmatch(idParam(req)));
     app.post('/anilist/entries/:id/suggested-tags', async (req) =>
       friendly(svc.addSuggestedTags(idParam(req))),

@@ -252,6 +252,53 @@ describe('AniList matching', () => {
     expect(un.links.some((l: { kind: string }) => l.kind === 'anilist')).toBe(false);
   });
 
+  it('unmatch deletes the cover and cached data, but keeps a cover another title still uses', async () => {
+    const t = await setup({ catalog: [media(7, 'Shared Cover Tale')] });
+    const a = await t.store.createEntry({ title: 'Shared Cover Tale', categoryId: t.reading.id });
+    const b = await t.store.createEntry({
+      title: 'Shared Cover Tale Copy',
+      categoryId: t.reading.id,
+    });
+    const exists = (p: string) =>
+      fs.access(path.join(t.dir, p)).then(
+        () => true,
+        () => false,
+      );
+    await t.call('POST', `/anilist/match/${a.id}/confirm`, { mediaId: 7 });
+    await t.call('POST', `/anilist/match/${b.id}/confirm`, { mediaId: 7 });
+    expect(await exists('covers/7.jpg')).toBe(true);
+    expect(await exists('anilist/cache/media-7.json')).toBe(true);
+
+    // one title still points at the cover, so nothing is deleted yet
+    await t.call('POST', `/anilist/entries/${a.id}/unmatch`);
+    expect(await exists('covers/7.jpg')).toBe(true);
+
+    const un = (await t.call('POST', `/anilist/entries/${b.id}/unmatch`)).body;
+    expect(un.external.cover).toBeUndefined();
+    expect(await exists('covers/7.jpg')).toBe(false);
+    expect(await exists('anilist/cache/media-7.json')).toBe(false);
+    const leftovers = (await fs.readdir(path.join(t.dir, 'anilist', 'cache'))).filter((n) =>
+      n.startsWith('img-'),
+    );
+    expect(leftovers).toEqual([]);
+  });
+
+  it('clears the AniList cache and orphaned covers on request, keeping covers in use', async () => {
+    const t = await setup({ catalog: [media(1, 'Kept Title'), media(2, 'Dropped Title')] });
+    const a = await t.store.createEntry({ title: 'Kept Title', categoryId: t.reading.id });
+    await t.call('POST', `/anilist/match/${a.id}/confirm`, { mediaId: 1 });
+    await t.call('GET', `/anilist/search?entryId=${a.id}&q=Dropped`);
+    await fs.writeFile(path.join(t.dir, 'covers', '99.jpg'), 'orphan');
+    expect((await t.call('GET', '/anilist/cache')).body.files).toBeGreaterThan(0);
+    const r = (await t.call('POST', '/anilist/cache/clear')).body;
+    expect(r.files).toBeGreaterThan(0);
+    expect(r.coversRemoved).toBe(1);
+    expect((await t.call('GET', '/anilist/cache')).body).toEqual({ files: 0, bytes: 0 });
+    await expect(fs.access(path.join(t.dir, 'covers', '1.jpg'))).resolves.toBeUndefined();
+    await expect(fs.access(path.join(t.dir, 'covers', '99.jpg'))).rejects.toThrow();
+    expect(t.store.getEntry(a.id)!.external.cover).toBe('1.jpg');
+  });
+
   it('handles offline and cancellation gracefully', async () => {
     const t = await setup({ catalog: [media(1, 'Some Title')], offline: true });
     await t.store.createEntry({ title: 'Some Title', categoryId: t.reading.id });

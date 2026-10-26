@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { useFocusTrap } from '../lib/focus';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { emptyProgress, type ActivityRecord, type Entry, type Link } from '@lorekeeper/shared';
+import {
+  emptyProgress,
+  parseLink,
+  type ActivityRecord,
+  type Entry,
+  type Link,
+} from '@lorekeeper/shared';
 import { api, get } from '../lib/api';
 import { behindOf, timeAgo, useLookup } from '../lib/helpers';
 import {
@@ -84,36 +90,148 @@ function TagEditor({ tags, onChange }: { tags: string[]; onChange: (t: string[])
   );
 }
 
-function LinkRow({ l }: { l: Link }) {
-  const icon = l.kind === 'youtube' ? 'bolt' : 'link';
-  const text = l.label ?? l.url ?? l.raw ?? '';
+type LinkHint = 'site' | 'youtube' | 'other';
+
+/** View, add, edit and remove the entry's links. Pasted text is normalized (scheme-less URLs get https://). */
+function LinksEditor({ links, onChange }: { links: Link[]; onChange: (links: Link[]) => void }) {
+  const [text, setText] = useState('');
+  const [hint, setHint] = useState<LinkHint>('site');
+  const [editing, setEditing] = useState<number | null>(null);
+  const [draft, setDraft] = useState('');
+
+  const add = () => {
+    const l = parseLink(text, hint);
+    if (!l) return;
+    // The first link fills the main spreadsheet column ("YouTube Link"/"Link"), later ones "Other Links".
+    onChange([
+      ...links,
+      { ...l, slot: links.some((x) => x.slot === 'primary') ? 'other' : 'primary' },
+    ]);
+    setText('');
+  };
+  const remove = (i: number) => onChange(links.filter((_, j) => j !== i));
+  const save = (i: number) => {
+    const old = links[i]!;
+    const l = parseLink(draft, old.kind === 'anilist' ? 'other' : old.kind);
+    if (!l) remove(i);
+    else onChange(links.map((x, j) => (j === i ? { ...l, slot: old.slot } : x)));
+    setEditing(null);
+  };
+
   return (
-    <div style={{ display: 'flex', gap: 8, alignItems: 'center', minWidth: 0 }}>
-      <span style={{ color: l.kind === 'youtube' ? 'var(--danger)' : 'var(--text-muted)' }}>
-        <Icon name={icon} size={15} />
-      </span>
-      {l.url ? (
-        <a
-          href={l.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="truncate"
-          style={{ color: 'var(--accent-text)' }}
-          title={l.url}
+    <div className="field">
+      <span className="label">Links</span>
+      {links.length === 0 && (
+        <div className="muted" style={{ fontSize: 'var(--text-sm)' }}>
+          No links yet. Add a YouTube recap, a reading site, or any note.
+        </div>
+      )}
+      <div style={{ display: 'grid', gap: 6 }}>
+        {links.map((l, i) => {
+          const label = l.label ?? l.url ?? l.raw ?? '';
+          return editing === i ? (
+            <form
+              key={i}
+              style={{ display: 'flex', gap: 6 }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                save(i);
+              }}
+            >
+              <input
+                className="input"
+                aria-label="Edit link"
+                value={draft}
+                autoFocus
+                onChange={(e) => setDraft(e.target.value)}
+                onKeyDown={(e) => e.key === 'Escape' && (e.stopPropagation(), setEditing(null))}
+              />
+              <button className="btn sm primary">Save</button>
+              <button type="button" className="btn sm ghost" onClick={() => setEditing(null)}>
+                Cancel
+              </button>
+            </form>
+          ) : (
+            <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'center', minWidth: 0 }}>
+              <span
+                style={{ color: l.kind === 'youtube' ? 'var(--danger-ink)' : 'var(--text-muted)' }}
+              >
+                <Icon name={l.kind === 'youtube' ? 'bolt' : 'link'} size={15} />
+              </span>
+              {l.url ? (
+                <a
+                  href={l.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="truncate"
+                  style={{ color: 'var(--accent-text)' }}
+                  title={l.url}
+                >
+                  {label}
+                </a>
+              ) : (
+                <span className="truncate" title={label}>
+                  {label}
+                </span>
+              )}
+              {l.channel && <span className="chip">{l.channel}</span>}
+              {l.date && (
+                <span className="muted" style={{ fontSize: 'var(--text-xs)' }}>
+                  {l.date}
+                </span>
+              )}
+              <span style={{ marginLeft: 'auto', display: 'flex', gap: 2, flex: 'none' }}>
+                <button
+                  className="btn ghost sm"
+                  aria-label={`Edit link ${label}`}
+                  onClick={() => {
+                    setDraft(l.raw ?? l.url ?? l.label ?? '');
+                    setEditing(i);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn ghost sm icon"
+                  aria-label={`Remove link ${label}`}
+                  onClick={() => remove(i)}
+                >
+                  <Icon name="close" size={13} />
+                </button>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      <form
+        style={{ display: 'flex', gap: 6 }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          add();
+        }}
+      >
+        <select
+          className="select"
+          style={{ width: 'auto' }}
+          aria-label="Link type"
+          value={hint}
+          onChange={(e) => setHint(e.target.value as LinkHint)}
         >
-          {text}
-        </a>
-      ) : (
-        <span className="truncate" title={text}>
-          {text}
-        </span>
-      )}
-      {l.channel && <span className="chip">{l.channel}</span>}
-      {l.date && (
-        <span className="muted" style={{ fontSize: 'var(--text-xs)' }}>
-          {l.date}
-        </span>
-      )}
+          <option value="site">Website</option>
+          <option value="youtube">YouTube</option>
+          <option value="other">Other</option>
+        </select>
+        <input
+          className="input"
+          aria-label="Add a link"
+          placeholder="Paste a link or note…"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button className="btn sm" disabled={!text.trim()}>
+          Add
+        </button>
+      </form>
     </div>
   );
 }
@@ -362,16 +480,7 @@ function Body({ entry }: { entry: Entry }) {
           </div>
         ))}
 
-        {entry.links.length > 0 && (
-          <div className="field">
-            <span className="label">Links</span>
-            <div style={{ display: 'grid', gap: 6 }}>
-              {entry.links.map((l, i) => (
-                <LinkRow key={i} l={l} />
-              ))}
-            </div>
-          </div>
-        )}
+        <LinksEditor links={entry.links} onChange={(links) => patch({ links })} />
 
         <AniListPanel entry={entry} />
 

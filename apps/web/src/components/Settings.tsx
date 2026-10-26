@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import type { Scales, Settings } from '@lorekeeper/shared';
-import { api } from '../lib/api';
+import { api, get } from '../lib/api';
 import { useMeta, useScales, useSettings, useQueryClientInvalidate } from '../lib/queries';
 import { getBridge } from '../lib/bridge';
 import { useUI } from '../lib/store';
@@ -50,6 +50,46 @@ export function useSyncSettings() {
   useEffect(() => {
     if (data) set({ theme: data.theme, accent: data.accent, density: data.density });
   }, [data, set]);
+}
+
+function AniListData() {
+  const qc = useQueryClient();
+  const toast = useUI((s) => s.toast);
+  const stats = useQuery({
+    queryKey: ['anilist', 'cache'],
+    queryFn: () => get<{ files: number; bytes: number }>('/anilist/cache'),
+  });
+  const mb = ((stats.data?.bytes ?? 0) / 1024 / 1024).toFixed(1);
+  const clear = async () => {
+    if (!confirm('Delete cached AniList data? Covers of matched titles are kept.')) return;
+    try {
+      const r = await api<{ files: number; coversRemoved: number }>('POST', '/anilist/cache/clear');
+      void qc.invalidateQueries({ queryKey: ['anilist'] });
+      toast({
+        tone: 'success',
+        message: `Removed ${r.files} cached files and ${r.coversRemoved} unused covers`,
+      });
+    } catch (e) {
+      toast({ tone: 'error', message: (e as Error).message });
+    }
+  };
+  return (
+    <section className="dcard">
+      <header>
+        <h3>AniList data</h3>
+      </header>
+      <div className="muted" style={{ fontSize: 'var(--text-sm)' }}>
+        Cached responses and artwork speed things up and work offline. Unmatching a title deletes
+        its cover and cached data automatically.
+      </div>
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <span>{stats.data ? `${stats.data.files} files · ${mb} MB cached` : '…'}</span>
+        <button className="btn" onClick={() => void clear()}>
+          Clear AniList cache
+        </button>
+      </div>
+    </section>
+  );
 }
 
 export function SettingsPage() {
@@ -288,6 +328,8 @@ export function SettingsPage() {
           </div>
         </div>
       </section>
+
+      <AniListData />
 
       <section className="dcard">
         <header>
