@@ -1,0 +1,9025 @@
+{
+ "parseProgress": [
+  {
+   "in": null,
+   "out": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   }
+  },
+  {
+   "in": "",
+   "out": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   }
+  },
+  {
+   "in": "  ",
+   "out": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   }
+  },
+  {
+   "in": " ",
+   "out": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   }
+  },
+  {
+   "in": 0,
+   "out": {
+    "raw": "0",
+    "number": 0,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 1,
+   "out": {
+    "raw": "1",
+    "number": 1,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 7,
+   "out": {
+    "raw": "7",
+    "number": 7,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 7.5,
+   "out": {
+    "raw": "7.5",
+    "number": 7.5,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 10,
+   "out": {
+    "raw": "10",
+    "number": 10,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 15,
+   "out": {
+    "raw": "15",
+    "number": 15,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 46,
+   "out": {
+    "raw": "46",
+    "number": 46,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 111,
+   "out": {
+    "raw": "111",
+    "number": 111,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 1.5,
+   "out": {
+    "raw": "1.5",
+    "number": 1.5,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 100,
+   "out": {
+    "raw": "100",
+    "number": 100,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": 123,
+   "out": {
+    "raw": "123",
+    "number": 123,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "007",
+   "out": {
+    "raw": "007",
+    "number": 7,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": " 111 ",
+   "out": {
+    "raw": "111",
+    "number": 111,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "12",
+   "out": {
+    "raw": "12",
+    "number": 12,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "x",
+   "out": {
+    "raw": "x",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": true,
+   "out": {
+    "raw": "true",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "End of S1",
+   "out": {
+    "raw": "End of S1",
+    "number": null,
+    "season": 1,
+    "kind": "end"
+   }
+  },
+  {
+   "in": "Ended of S2",
+   "out": {
+    "raw": "Ended of S2",
+    "number": null,
+    "season": 2,
+    "kind": "end"
+   }
+  },
+  {
+   "in": "Beginning of S2",
+   "out": {
+    "raw": "Beginning of S2",
+    "number": null,
+    "season": 2,
+    "kind": "start"
+   }
+  },
+  {
+   "in": "Start of Season 4",
+   "out": {
+    "raw": "Start of Season 4",
+    "number": null,
+    "season": 4,
+    "kind": "start"
+   }
+  },
+  {
+   "in": "begin s3",
+   "out": {
+    "raw": "begin s3",
+    "number": null,
+    "season": 3,
+    "kind": "start"
+   }
+  },
+  {
+   "in": "S2 E1",
+   "out": {
+    "raw": "S2 E1",
+    "season": 2,
+    "number": 1,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "s3e12",
+   "out": {
+    "raw": "s3e12",
+    "season": 3,
+    "number": 12,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": {
+    "raw": "Season 2, Episode 4",
+    "season": 2,
+    "number": 4,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "S1-E10",
+   "out": {
+    "raw": "S1-E10",
+    "season": 1,
+    "number": 10,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "s1 ep 2",
+   "out": {
+    "raw": "s1 ep 2",
+    "season": 1,
+    "number": 2,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "49?",
+   "out": {
+    "raw": "49?",
+    "number": 49,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "12 ?",
+   "out": {
+    "raw": "12 ?",
+    "number": 12,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Done",
+   "out": {
+    "raw": "Done",
+    "number": null,
+    "season": null,
+    "kind": "complete"
+   }
+  },
+  {
+   "in": "Completed",
+   "out": {
+    "raw": "Completed",
+    "number": null,
+    "season": null,
+    "kind": "complete"
+   }
+  },
+  {
+   "in": "Complete",
+   "out": {
+    "raw": "Complete",
+    "number": null,
+    "season": null,
+    "kind": "complete"
+   }
+  },
+  {
+   "in": "Finished",
+   "out": {
+    "raw": "Finished",
+    "number": null,
+    "season": null,
+    "kind": "complete"
+   }
+  },
+  {
+   "in": "Finished?",
+   "out": {
+    "raw": "Finished?",
+    "number": null,
+    "season": null,
+    "kind": "complete"
+   }
+  },
+  {
+   "in": "End",
+   "out": {
+    "raw": "End",
+    "number": null,
+    "season": null,
+    "kind": "end"
+   }
+  },
+  {
+   "in": "Ended",
+   "out": {
+    "raw": "Ended",
+    "number": null,
+    "season": null,
+    "kind": "end"
+   }
+  },
+  {
+   "in": "N/A",
+   "out": {
+    "raw": "N/A",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": {
+    "raw": "A few chapters after Season 3?",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "ep 5",
+   "out": {
+    "raw": "ep 5",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "7 - Good",
+   "out": {
+    "raw": "7 - Good",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": {
+    "raw": "9 - Amazing",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": {
+    "raw": "10 - Masterpiece",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "8/10",
+   "out": {
+    "raw": "8/10",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Great",
+   "out": {
+    "raw": "Great",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "0 - none",
+   "out": {
+    "raw": "0 - none",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "00",
+   "out": {
+    "raw": "00",
+    "number": 0,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": " 12 ",
+   "out": {
+    "raw": "12",
+    "number": 12,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "　S2 E3",
+   "out": {
+    "raw": "S2 E3",
+    "season": 2,
+    "number": 3,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "﻿44",
+   "out": {
+    "raw": "44",
+    "number": 44,
+    "season": null,
+    "kind": "number"
+   }
+  },
+  {
+   "in": "Plan to Read",
+   "out": {
+    "raw": "Plan to Read",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "plan  to   watch",
+   "out": {
+    "raw": "plan  to   watch",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "On Hold",
+   "out": {
+    "raw": "On Hold",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "ON HOLD",
+   "out": {
+    "raw": "ON HOLD",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Re-Reading",
+   "out": {
+    "raw": "Re-Reading",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "rewatching",
+   "out": {
+    "raw": "rewatching",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Dropped",
+   "out": {
+    "raw": "Dropped",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "paused",
+   "out": {
+    "raw": "paused",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "in progress",
+   "out": {
+    "raw": "in progress",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "backlog",
+   "out": {
+    "raw": "backlog",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "???",
+   "out": {
+    "raw": "???",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": {
+    "raw": "Youtube, Inkreader",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "YouTube",
+   "out": {
+    "raw": "YouTube",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": {
+    "raw": "yt; Inkreader / ClipHub",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "a,,b; ;",
+   "out": {
+    "raw": "a,,b; ;",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": {
+    "raw": "Action,  Isekai ,",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": {
+    "raw": "Quest-like, Quest-Like",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": {
+    "raw": "Romance,Slapstick",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Tag\nOther",
+   "out": {
+    "raw": "Tag\nOther",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Café, café",
+   "out": {
+    "raw": "Café, café",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": {
+    "raw": "ünï, ÜNÏ",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": {
+    "raw": "youtu.be/nQ5pQCTXeB0?si=abc",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": {
+    "raw": "tapas.io/episode/2",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "https://example.com/a",
+   "out": {
+    "raw": "https://example.com/a",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": {
+    "raw": "see https://example.com/a.",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": {
+    "raw": "https://www.youtube.com/watch?v=abc123",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": {
+    "raw": "http://anilist.co/anime/1",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": {
+    "raw": "https://example.org/path(1)",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": {
+    "raw": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Notes only, no link",
+   "out": {
+    "raw": "Notes only, no link",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "www.example.com",
+   "out": {
+    "raw": "www.example.com",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "example",
+   "out": {
+    "raw": "example",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "by: someone",
+   "out": {
+    "raw": "by: someone",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": {
+    "raw": "Title (12/25/2025)",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "bad url https://",
+   "out": {
+    "raw": "bad url https://",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "a b.com",
+   "out": {
+    "raw": "a b.com",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": {
+    "raw": "The Quiet Harbor",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "  The Last Door ",
+   "out": {
+    "raw": "The Last Door",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": {
+    "raw": "A Tale of Two Clocks",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "An Ode",
+   "out": {
+    "raw": "An Ode",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": {
+    "raw": "“Quoted’s” Plan!",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": {
+    "raw": "Ünïcode Café",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": {
+    "raw": "Ｔｈｅ Ｑｕｉｅｔ",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "日本語タイトル",
+   "out": {
+    "raw": "日本語タイトル",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "THE",
+   "out": {
+    "raw": "THE",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "!!!",
+   "out": {
+    "raw": "!!!",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": {
+    "raw": "Mr. Marlow",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Mr Marlow",
+   "out": {
+    "raw": "Mr Marlow",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Misc.",
+   "out": {
+    "raw": "Misc.",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Sci-Fi",
+   "out": {
+    "raw": "Sci-Fi",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Slice of Life",
+   "out": {
+    "raw": "Slice of Life",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": {
+    "raw": "Weird__Name",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "日本",
+   "out": {
+    "raw": "日本",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "---",
+   "out": {
+    "raw": "---",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "Ça va?",
+   "out": {
+    "raw": "Ça va?",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#B71C1C",
+   "out": {
+    "raw": "#B71C1C",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#FFEB3B",
+   "out": {
+    "raw": "#FFEB3B",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "B71C1C",
+   "out": {
+    "raw": "B71C1C",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#fff",
+   "out": {
+    "raw": "#fff",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "zzz",
+   "out": {
+    "raw": "zzz",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#000000",
+   "out": {
+    "raw": "#000000",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#ffffff",
+   "out": {
+    "raw": "#ffffff",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  },
+  {
+   "in": "#808080",
+   "out": {
+    "raw": "#808080",
+    "number": null,
+    "season": null,
+    "kind": "text"
+   }
+  }
+ ],
+ "progressCell": [
+  {
+   "in": null,
+   "out": null
+  },
+  {
+   "in": "",
+   "out": null
+  },
+  {
+   "in": "  ",
+   "out": null
+  },
+  {
+   "in": " ",
+   "out": null
+  },
+  {
+   "in": 0,
+   "out": 0
+  },
+  {
+   "in": 1,
+   "out": 1
+  },
+  {
+   "in": 7,
+   "out": 7
+  },
+  {
+   "in": 7.5,
+   "out": "7.5"
+  },
+  {
+   "in": 10,
+   "out": 10
+  },
+  {
+   "in": 15,
+   "out": 15
+  },
+  {
+   "in": 46,
+   "out": 46
+  },
+  {
+   "in": 111,
+   "out": 111
+  },
+  {
+   "in": 1.5,
+   "out": "1.5"
+  },
+  {
+   "in": 100,
+   "out": 100
+  },
+  {
+   "in": 123,
+   "out": 123
+  },
+  {
+   "in": "007",
+   "out": 7
+  },
+  {
+   "in": " 111 ",
+   "out": 111
+  },
+  {
+   "in": "12",
+   "out": 12
+  },
+  {
+   "in": "x",
+   "out": "x"
+  },
+  {
+   "in": true,
+   "out": "true"
+  },
+  {
+   "in": "End of S1",
+   "out": "End of S1"
+  },
+  {
+   "in": "Ended of S2",
+   "out": "Ended of S2"
+  },
+  {
+   "in": "Beginning of S2",
+   "out": "Beginning of S2"
+  },
+  {
+   "in": "Start of Season 4",
+   "out": "Start of Season 4"
+  },
+  {
+   "in": "begin s3",
+   "out": "begin s3"
+  },
+  {
+   "in": "S2 E1",
+   "out": "S2 E1"
+  },
+  {
+   "in": "s3e12",
+   "out": "s3e12"
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": "Season 2, Episode 4"
+  },
+  {
+   "in": "S1-E10",
+   "out": "S1-E10"
+  },
+  {
+   "in": "s1 ep 2",
+   "out": "s1 ep 2"
+  },
+  {
+   "in": "49?",
+   "out": "49?"
+  },
+  {
+   "in": "12 ?",
+   "out": "12 ?"
+  },
+  {
+   "in": "Done",
+   "out": "Done"
+  },
+  {
+   "in": "Completed",
+   "out": "Completed"
+  },
+  {
+   "in": "Complete",
+   "out": "Complete"
+  },
+  {
+   "in": "Finished",
+   "out": "Finished"
+  },
+  {
+   "in": "Finished?",
+   "out": "Finished?"
+  },
+  {
+   "in": "End",
+   "out": "End"
+  },
+  {
+   "in": "Ended",
+   "out": "Ended"
+  },
+  {
+   "in": "N/A",
+   "out": "N/A"
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": "A few chapters after Season 3?"
+  },
+  {
+   "in": "ep 5",
+   "out": "ep 5"
+  },
+  {
+   "in": "7 - Good",
+   "out": "7 - Good"
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": "9 - Amazing"
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": "10 - Masterpiece"
+  },
+  {
+   "in": "8/10",
+   "out": "8/10"
+  },
+  {
+   "in": "Great",
+   "out": "Great"
+  },
+  {
+   "in": "0 - none",
+   "out": "0 - none"
+  },
+  {
+   "in": "00",
+   "out": 0
+  },
+  {
+   "in": " 12 ",
+   "out": 12
+  },
+  {
+   "in": "　S2 E3",
+   "out": "S2 E3"
+  },
+  {
+   "in": "﻿44",
+   "out": 44
+  },
+  {
+   "in": "Plan to Read",
+   "out": "Plan to Read"
+  },
+  {
+   "in": "plan  to   watch",
+   "out": "plan  to   watch"
+  },
+  {
+   "in": "On Hold",
+   "out": "On Hold"
+  },
+  {
+   "in": "ON HOLD",
+   "out": "ON HOLD"
+  },
+  {
+   "in": "Re-Reading",
+   "out": "Re-Reading"
+  },
+  {
+   "in": "rewatching",
+   "out": "rewatching"
+  },
+  {
+   "in": "Dropped",
+   "out": "Dropped"
+  },
+  {
+   "in": "paused",
+   "out": "paused"
+  },
+  {
+   "in": "in progress",
+   "out": "in progress"
+  },
+  {
+   "in": "backlog",
+   "out": "backlog"
+  },
+  {
+   "in": "???",
+   "out": "???"
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": "Youtube, Inkreader"
+  },
+  {
+   "in": "YouTube",
+   "out": "YouTube"
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": "yt; Inkreader / ClipHub"
+  },
+  {
+   "in": "a,,b; ;",
+   "out": "a,,b; ;"
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": "Action,  Isekai ,"
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": "Quest-like, Quest-Like"
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": "Romance,Slapstick"
+  },
+  {
+   "in": "Tag\nOther",
+   "out": "Tag\nOther"
+  },
+  {
+   "in": "Café, café",
+   "out": "Café, café"
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": "ünï, ÜNÏ"
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": "youtu.be/nQ5pQCTXeB0?si=abc"
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": "tapas.io/episode/2"
+  },
+  {
+   "in": "https://example.com/a",
+   "out": "https://example.com/a"
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": "see https://example.com/a."
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": "https://www.youtube.com/watch?v=abc123"
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": "http://anilist.co/anime/1"
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": "https://example.org/path(1)"
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": "(S1 #full) Some Title (3/3/26) By: PanelPilot"
+  },
+  {
+   "in": "Notes only, no link",
+   "out": "Notes only, no link"
+  },
+  {
+   "in": "www.example.com",
+   "out": "www.example.com"
+  },
+  {
+   "in": "example",
+   "out": "example"
+  },
+  {
+   "in": "by: someone",
+   "out": "by: someone"
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": "Title (12/25/2025)"
+  },
+  {
+   "in": "bad url https://",
+   "out": "bad url https://"
+  },
+  {
+   "in": "a b.com",
+   "out": "a b.com"
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": "The Quiet Harbor"
+  },
+  {
+   "in": "  The Last Door ",
+   "out": "The Last Door"
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": "A Tale of Two Clocks"
+  },
+  {
+   "in": "An Ode",
+   "out": "An Ode"
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": "“Quoted’s” Plan!"
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": "Ünïcode Café"
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": "Ｔｈｅ Ｑｕｉｅｔ"
+  },
+  {
+   "in": "日本語タイトル",
+   "out": "日本語タイトル"
+  },
+  {
+   "in": "THE",
+   "out": "THE"
+  },
+  {
+   "in": "!!!",
+   "out": "!!!"
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": "Mr. Marlow"
+  },
+  {
+   "in": "Mr Marlow",
+   "out": "Mr Marlow"
+  },
+  {
+   "in": "Misc.",
+   "out": "Misc."
+  },
+  {
+   "in": "Sci-Fi",
+   "out": "Sci-Fi"
+  },
+  {
+   "in": "Slice of Life",
+   "out": "Slice of Life"
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": "Weird__Name"
+  },
+  {
+   "in": "日本",
+   "out": "日本"
+  },
+  {
+   "in": "---",
+   "out": "---"
+  },
+  {
+   "in": "Ça va?",
+   "out": "Ça va?"
+  },
+  {
+   "in": "#B71C1C",
+   "out": "#B71C1C"
+  },
+  {
+   "in": "#FFEB3B",
+   "out": "#FFEB3B"
+  },
+  {
+   "in": "B71C1C",
+   "out": "B71C1C"
+  },
+  {
+   "in": "#fff",
+   "out": "#fff"
+  },
+  {
+   "in": "zzz",
+   "out": "zzz"
+  },
+  {
+   "in": "#000000",
+   "out": "#000000"
+  },
+  {
+   "in": "#ffffff",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#808080",
+   "out": "#808080"
+  }
+ ],
+ "behindBy": [
+  {
+   "in": [
+    111,
+    110
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    111,
+    "End"
+   ],
+   "out": null
+  },
+  {
+   "in": [
+    5,
+    5
+   ],
+   "out": 0
+  },
+  {
+   "in": [
+    "S2 E4",
+    "S2 E1"
+   ],
+   "out": 3
+  },
+  {
+   "in": [
+    "S2 E4",
+    "S1 E1"
+   ],
+   "out": null
+  },
+  {
+   "in": [
+    null,
+    3
+   ],
+   "out": null
+  },
+  {
+   "in": [
+    3,
+    null
+   ],
+   "out": null
+  },
+  {
+   "in": [
+    2.5,
+    1
+   ],
+   "out": 1.5
+  }
+ ],
+ "parseLink": [
+  {
+   "in": null,
+   "out": null
+  },
+  {
+   "in": "",
+   "out": null
+  },
+  {
+   "in": "  ",
+   "out": null
+  },
+  {
+   "in": " ",
+   "out": null
+  },
+  {
+   "in": 0,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "0",
+    "raw": "0",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 1,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "1",
+    "raw": "1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 7,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "7",
+    "raw": "7",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 7.5,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "7.5",
+    "raw": "7.5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 10,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "10",
+    "raw": "10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 15,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "15",
+    "raw": "15",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 46,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "46",
+    "raw": "46",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 111,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "111",
+    "raw": "111",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 1.5,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "1.5",
+    "raw": "1.5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 100,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "100",
+    "raw": "100",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 123,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "123",
+    "raw": "123",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "007",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "007",
+    "raw": "007",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 111 ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "111",
+    "raw": "111",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "12",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "12",
+    "raw": "12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "x",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "x",
+    "raw": "x",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": true,
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "true",
+    "raw": "true",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "End of S1",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "End of S1",
+    "raw": "End of S1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ended of S2",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Ended of S2",
+    "raw": "Ended of S2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Beginning of S2",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Beginning of S2",
+    "raw": "Beginning of S2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Start of Season 4",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Start of Season 4",
+    "raw": "Start of Season 4",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "begin s3",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "begin s3",
+    "raw": "begin s3",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "S2 E1",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "S2 E1",
+    "raw": "S2 E1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "s3e12",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "s3e12",
+    "raw": "s3e12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Season 2, Episode 4",
+    "raw": "Season 2, Episode 4",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "S1-E10",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "S1-E10",
+    "raw": "S1-E10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "s1 ep 2",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "s1 ep 2",
+    "raw": "s1 ep 2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "49?",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "49?",
+    "raw": "49?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "12 ?",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "12 ?",
+    "raw": "12 ?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Done",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Done",
+    "raw": "Done",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Completed",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Completed",
+    "raw": "Completed",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Complete",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Complete",
+    "raw": "Complete",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Finished",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Finished",
+    "raw": "Finished",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Finished?",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Finished?",
+    "raw": "Finished?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "End",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "End",
+    "raw": "End",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ended",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Ended",
+    "raw": "Ended",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "N/A",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "N/A",
+    "raw": "N/A",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "A few chapters after Season 3?",
+    "raw": "A few chapters after Season 3?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ep 5",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "ep 5",
+    "raw": "ep 5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "7 - Good",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "7 - Good",
+    "raw": "7 - Good",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "9 - Amazing",
+    "raw": "9 - Amazing",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "10 - Masterpiece",
+    "raw": "10 - Masterpiece",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "8/10",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "8/10",
+    "raw": "8/10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Great",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Great",
+    "raw": "Great",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "0 - none",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "0 - none",
+    "raw": "0 - none",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "00",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "00",
+    "raw": "00",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 12 ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "12",
+    "raw": "12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "　S2 E3",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "S2 E3",
+    "raw": "S2 E3",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "﻿44",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "44",
+    "raw": "44",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Plan to Read",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Plan to Read",
+    "raw": "Plan to Read",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "plan  to   watch",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "plan  to   watch",
+    "raw": "plan  to   watch",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "On Hold",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "On Hold",
+    "raw": "On Hold",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ON HOLD",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "ON HOLD",
+    "raw": "ON HOLD",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Re-Reading",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Re-Reading",
+    "raw": "Re-Reading",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "rewatching",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "rewatching",
+    "raw": "rewatching",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Dropped",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Dropped",
+    "raw": "Dropped",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "paused",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "paused",
+    "raw": "paused",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "in progress",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "in progress",
+    "raw": "in progress",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "backlog",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "backlog",
+    "raw": "backlog",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "???",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "???",
+    "raw": "???",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Youtube, Inkreader",
+    "raw": "Youtube, Inkreader",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "YouTube",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "YouTube",
+    "raw": "YouTube",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "yt; Inkreader / ClipHub",
+    "raw": "yt; Inkreader / ClipHub",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "a,,b; ;",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "a,,b; ;",
+    "raw": "a,,b; ;",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Action,  Isekai ,",
+    "raw": "Action,  Isekai ,",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Quest-like, Quest-Like",
+    "raw": "Quest-like, Quest-Like",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Romance,Slapstick",
+    "raw": "Romance,Slapstick",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Tag\nOther",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Tag\nOther",
+    "raw": "Tag\nOther",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Café, café",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Café, café",
+    "raw": "Café, café",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "ünï, ÜNÏ",
+    "raw": "ünï, ÜNÏ",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": {
+    "kind": "youtube",
+    "url": "https://youtu.be/nQ5pQCTXeB0?si=abc",
+    "label": null,
+    "raw": "youtu.be/nQ5pQCTXeB0?si=abc",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": {
+    "kind": "site",
+    "url": "https://tapas.io/episode/2",
+    "label": null,
+    "raw": "tapas.io/episode/2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://example.com/a",
+   "out": {
+    "kind": "site",
+    "url": "https://example.com/a",
+    "label": null,
+    "raw": "https://example.com/a",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": {
+    "kind": "site",
+    "url": "https://example.com/a",
+    "label": "see https://example.com/a.",
+    "raw": "see https://example.com/a.",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": {
+    "kind": "youtube",
+    "url": "https://www.youtube.com/watch?v=abc123",
+    "label": null,
+    "raw": "https://www.youtube.com/watch?v=abc123",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": {
+    "kind": "anilist",
+    "url": "http://anilist.co/anime/1",
+    "label": null,
+    "raw": "http://anilist.co/anime/1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": {
+    "kind": "site",
+    "url": "https://example.org/path(1",
+    "label": null,
+    "raw": "https://example.org/path(1)",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+    "raw": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+    "channel": "PanelPilot",
+    "date": "3/3/26"
+   }
+  },
+  {
+   "in": "Notes only, no link",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Notes only, no link",
+    "raw": "Notes only, no link",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "www.example.com",
+   "out": {
+    "kind": "site",
+    "url": "https://www.example.com",
+    "label": null,
+    "raw": "www.example.com",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "example",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "example",
+    "raw": "example",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "by: someone",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "by: someone",
+    "raw": "by: someone",
+    "channel": "someone",
+    "date": null
+   }
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Title (12/25/2025)",
+    "raw": "Title (12/25/2025)",
+    "channel": null,
+    "date": "12/25/2025"
+   }
+  },
+  {
+   "in": "bad url https://",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "bad url https://",
+    "raw": "bad url https://",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "a b.com",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "a b.com",
+    "raw": "a b.com",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "The Quiet Harbor",
+    "raw": "The Quiet Harbor",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "  The Last Door ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "The Last Door",
+    "raw": "The Last Door",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "A Tale of Two Clocks",
+    "raw": "A Tale of Two Clocks",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "An Ode",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "An Ode",
+    "raw": "An Ode",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "“Quoted’s” Plan!",
+    "raw": "“Quoted’s” Plan!",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Ünïcode Café",
+    "raw": "Ünïcode Café",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Ｔｈｅ Ｑｕｉｅｔ",
+    "raw": "Ｔｈｅ Ｑｕｉｅｔ",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "日本語タイトル",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "日本語タイトル",
+    "raw": "日本語タイトル",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "THE",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "THE",
+    "raw": "THE",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "!!!",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "!!!",
+    "raw": "!!!",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Mr. Marlow",
+    "raw": "Mr. Marlow",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Mr Marlow",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Mr Marlow",
+    "raw": "Mr Marlow",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Misc.",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Misc.",
+    "raw": "Misc.",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Sci-Fi",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Sci-Fi",
+    "raw": "Sci-Fi",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Slice of Life",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Slice of Life",
+    "raw": "Slice of Life",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Weird__Name",
+    "raw": "Weird__Name",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "日本",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "日本",
+    "raw": "日本",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "---",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "---",
+    "raw": "---",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ça va?",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "Ça va?",
+    "raw": "Ça va?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#B71C1C",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#B71C1C",
+    "raw": "#B71C1C",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#FFEB3B",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#FFEB3B",
+    "raw": "#FFEB3B",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "B71C1C",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "B71C1C",
+    "raw": "B71C1C",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#fff",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#fff",
+    "raw": "#fff",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "zzz",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "zzz",
+    "raw": "zzz",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#000000",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#000000",
+    "raw": "#000000",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#ffffff",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#ffffff",
+    "raw": "#ffffff",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#808080",
+   "out": {
+    "kind": "other",
+    "url": null,
+    "label": "#808080",
+    "raw": "#808080",
+    "channel": null,
+    "date": null
+   }
+  }
+ ],
+ "parseLinkYouTube": [
+  {
+   "in": null,
+   "out": null
+  },
+  {
+   "in": "",
+   "out": null
+  },
+  {
+   "in": "  ",
+   "out": null
+  },
+  {
+   "in": " ",
+   "out": null
+  },
+  {
+   "in": 0,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "0",
+    "raw": "0",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 1,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "1",
+    "raw": "1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 7,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "7",
+    "raw": "7",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 7.5,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "7.5",
+    "raw": "7.5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 10,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "10",
+    "raw": "10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 15,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "15",
+    "raw": "15",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 46,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "46",
+    "raw": "46",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 111,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "111",
+    "raw": "111",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 1.5,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "1.5",
+    "raw": "1.5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 100,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "100",
+    "raw": "100",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": 123,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "123",
+    "raw": "123",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "007",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "007",
+    "raw": "007",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 111 ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "111",
+    "raw": "111",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "12",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "12",
+    "raw": "12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "x",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "x",
+    "raw": "x",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": true,
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "true",
+    "raw": "true",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "End of S1",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "End of S1",
+    "raw": "End of S1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ended of S2",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Ended of S2",
+    "raw": "Ended of S2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Beginning of S2",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Beginning of S2",
+    "raw": "Beginning of S2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Start of Season 4",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Start of Season 4",
+    "raw": "Start of Season 4",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "begin s3",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "begin s3",
+    "raw": "begin s3",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "S2 E1",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "S2 E1",
+    "raw": "S2 E1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "s3e12",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "s3e12",
+    "raw": "s3e12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Season 2, Episode 4",
+    "raw": "Season 2, Episode 4",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "S1-E10",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "S1-E10",
+    "raw": "S1-E10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "s1 ep 2",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "s1 ep 2",
+    "raw": "s1 ep 2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "49?",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "49?",
+    "raw": "49?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "12 ?",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "12 ?",
+    "raw": "12 ?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Done",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Done",
+    "raw": "Done",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Completed",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Completed",
+    "raw": "Completed",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Complete",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Complete",
+    "raw": "Complete",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Finished",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Finished",
+    "raw": "Finished",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Finished?",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Finished?",
+    "raw": "Finished?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "End",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "End",
+    "raw": "End",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ended",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Ended",
+    "raw": "Ended",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "N/A",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "N/A",
+    "raw": "N/A",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "A few chapters after Season 3?",
+    "raw": "A few chapters after Season 3?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ep 5",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "ep 5",
+    "raw": "ep 5",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "7 - Good",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "7 - Good",
+    "raw": "7 - Good",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "9 - Amazing",
+    "raw": "9 - Amazing",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "10 - Masterpiece",
+    "raw": "10 - Masterpiece",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "8/10",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "8/10",
+    "raw": "8/10",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Great",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Great",
+    "raw": "Great",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "0 - none",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "0 - none",
+    "raw": "0 - none",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "00",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "00",
+    "raw": "00",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " 12 ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "12",
+    "raw": "12",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "　S2 E3",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "S2 E3",
+    "raw": "S2 E3",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "﻿44",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "44",
+    "raw": "44",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Plan to Read",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Plan to Read",
+    "raw": "Plan to Read",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "plan  to   watch",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "plan  to   watch",
+    "raw": "plan  to   watch",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "On Hold",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "On Hold",
+    "raw": "On Hold",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ON HOLD",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "ON HOLD",
+    "raw": "ON HOLD",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Re-Reading",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Re-Reading",
+    "raw": "Re-Reading",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "rewatching",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "rewatching",
+    "raw": "rewatching",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Dropped",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Dropped",
+    "raw": "Dropped",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "paused",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "paused",
+    "raw": "paused",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "in progress",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "in progress",
+    "raw": "in progress",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "backlog",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "backlog",
+    "raw": "backlog",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "???",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "???",
+    "raw": "???",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Youtube, Inkreader",
+    "raw": "Youtube, Inkreader",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "YouTube",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "YouTube",
+    "raw": "YouTube",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "yt; Inkreader / ClipHub",
+    "raw": "yt; Inkreader / ClipHub",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "a,,b; ;",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "a,,b; ;",
+    "raw": "a,,b; ;",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Action,  Isekai ,",
+    "raw": "Action,  Isekai ,",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Quest-like, Quest-Like",
+    "raw": "Quest-like, Quest-Like",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Romance,Slapstick",
+    "raw": "Romance,Slapstick",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Tag\nOther",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Tag\nOther",
+    "raw": "Tag\nOther",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Café, café",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Café, café",
+    "raw": "Café, café",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "ünï, ÜNÏ",
+    "raw": "ünï, ÜNÏ",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": {
+    "kind": "youtube",
+    "url": "https://youtu.be/nQ5pQCTXeB0?si=abc",
+    "label": null,
+    "raw": "youtu.be/nQ5pQCTXeB0?si=abc",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": {
+    "kind": "youtube",
+    "url": "https://tapas.io/episode/2",
+    "label": null,
+    "raw": "tapas.io/episode/2",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://example.com/a",
+   "out": {
+    "kind": "youtube",
+    "url": "https://example.com/a",
+    "label": null,
+    "raw": "https://example.com/a",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": {
+    "kind": "youtube",
+    "url": "https://example.com/a",
+    "label": "see https://example.com/a.",
+    "raw": "see https://example.com/a.",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": {
+    "kind": "youtube",
+    "url": "https://www.youtube.com/watch?v=abc123",
+    "label": null,
+    "raw": "https://www.youtube.com/watch?v=abc123",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": {
+    "kind": "anilist",
+    "url": "http://anilist.co/anime/1",
+    "label": null,
+    "raw": "http://anilist.co/anime/1",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": {
+    "kind": "youtube",
+    "url": "https://example.org/path(1",
+    "label": null,
+    "raw": "https://example.org/path(1)",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+    "raw": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+    "channel": "PanelPilot",
+    "date": "3/3/26"
+   }
+  },
+  {
+   "in": "Notes only, no link",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Notes only, no link",
+    "raw": "Notes only, no link",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "www.example.com",
+   "out": {
+    "kind": "youtube",
+    "url": "https://www.example.com",
+    "label": null,
+    "raw": "www.example.com",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "example",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "example",
+    "raw": "example",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "by: someone",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "by: someone",
+    "raw": "by: someone",
+    "channel": "someone",
+    "date": null
+   }
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Title (12/25/2025)",
+    "raw": "Title (12/25/2025)",
+    "channel": null,
+    "date": "12/25/2025"
+   }
+  },
+  {
+   "in": "bad url https://",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "bad url https://",
+    "raw": "bad url https://",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "a b.com",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "a b.com",
+    "raw": "a b.com",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "The Quiet Harbor",
+    "raw": "The Quiet Harbor",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "  The Last Door ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "The Last Door",
+    "raw": "The Last Door",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "A Tale of Two Clocks",
+    "raw": "A Tale of Two Clocks",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "An Ode",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "An Ode",
+    "raw": "An Ode",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "“Quoted’s” Plan!",
+    "raw": "“Quoted’s” Plan!",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Ünïcode Café",
+    "raw": "Ünïcode Café",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Ｔｈｅ Ｑｕｉｅｔ",
+    "raw": "Ｔｈｅ Ｑｕｉｅｔ",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "日本語タイトル",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "日本語タイトル",
+    "raw": "日本語タイトル",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "THE",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "THE",
+    "raw": "THE",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "!!!",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "!!!",
+    "raw": "!!!",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Mr. Marlow",
+    "raw": "Mr. Marlow",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Mr Marlow",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Mr Marlow",
+    "raw": "Mr Marlow",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Misc.",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Misc.",
+    "raw": "Misc.",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Sci-Fi",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Sci-Fi",
+    "raw": "Sci-Fi",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Slice of Life",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Slice of Life",
+    "raw": "Slice of Life",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Weird__Name",
+    "raw": "Weird__Name",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "日本",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "日本",
+    "raw": "日本",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "---",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "---",
+    "raw": "---",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "Ça va?",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "Ça va?",
+    "raw": "Ça va?",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#B71C1C",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#B71C1C",
+    "raw": "#B71C1C",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#FFEB3B",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#FFEB3B",
+    "raw": "#FFEB3B",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "B71C1C",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "B71C1C",
+    "raw": "B71C1C",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#fff",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#fff",
+    "raw": "#fff",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "zzz",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "zzz",
+    "raw": "zzz",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#000000",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#000000",
+    "raw": "#000000",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#ffffff",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#ffffff",
+    "raw": "#ffffff",
+    "channel": null,
+    "date": null
+   }
+  },
+  {
+   "in": "#808080",
+   "out": {
+    "kind": "youtube",
+    "url": null,
+    "label": "#808080",
+    "raw": "#808080",
+    "channel": null,
+    "date": null
+   }
+  }
+ ],
+ "splitTags": [
+  {
+   "in": null,
+   "out": []
+  },
+  {
+   "in": "",
+   "out": []
+  },
+  {
+   "in": "  ",
+   "out": []
+  },
+  {
+   "in": " ",
+   "out": []
+  },
+  {
+   "in": 0,
+   "out": [
+    "0"
+   ]
+  },
+  {
+   "in": 1,
+   "out": [
+    "1"
+   ]
+  },
+  {
+   "in": 7,
+   "out": [
+    "7"
+   ]
+  },
+  {
+   "in": 7.5,
+   "out": [
+    "7.5"
+   ]
+  },
+  {
+   "in": 10,
+   "out": [
+    "10"
+   ]
+  },
+  {
+   "in": 15,
+   "out": [
+    "15"
+   ]
+  },
+  {
+   "in": 46,
+   "out": [
+    "46"
+   ]
+  },
+  {
+   "in": 111,
+   "out": [
+    "111"
+   ]
+  },
+  {
+   "in": 1.5,
+   "out": [
+    "1.5"
+   ]
+  },
+  {
+   "in": 100,
+   "out": [
+    "100"
+   ]
+  },
+  {
+   "in": 123,
+   "out": [
+    "123"
+   ]
+  },
+  {
+   "in": "007",
+   "out": [
+    "007"
+   ]
+  },
+  {
+   "in": " 111 ",
+   "out": [
+    "111"
+   ]
+  },
+  {
+   "in": "12",
+   "out": [
+    "12"
+   ]
+  },
+  {
+   "in": "x",
+   "out": [
+    "x"
+   ]
+  },
+  {
+   "in": true,
+   "out": [
+    "true"
+   ]
+  },
+  {
+   "in": "End of S1",
+   "out": [
+    "End of S1"
+   ]
+  },
+  {
+   "in": "Ended of S2",
+   "out": [
+    "Ended of S2"
+   ]
+  },
+  {
+   "in": "Beginning of S2",
+   "out": [
+    "Beginning of S2"
+   ]
+  },
+  {
+   "in": "Start of Season 4",
+   "out": [
+    "Start of Season 4"
+   ]
+  },
+  {
+   "in": "begin s3",
+   "out": [
+    "begin s3"
+   ]
+  },
+  {
+   "in": "S2 E1",
+   "out": [
+    "S2 E1"
+   ]
+  },
+  {
+   "in": "s3e12",
+   "out": [
+    "s3e12"
+   ]
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": [
+    "Season 2",
+    "Episode 4"
+   ]
+  },
+  {
+   "in": "S1-E10",
+   "out": [
+    "S1-E10"
+   ]
+  },
+  {
+   "in": "s1 ep 2",
+   "out": [
+    "s1 ep 2"
+   ]
+  },
+  {
+   "in": "49?",
+   "out": [
+    "49?"
+   ]
+  },
+  {
+   "in": "12 ?",
+   "out": [
+    "12 ?"
+   ]
+  },
+  {
+   "in": "Done",
+   "out": [
+    "Done"
+   ]
+  },
+  {
+   "in": "Completed",
+   "out": [
+    "Completed"
+   ]
+  },
+  {
+   "in": "Complete",
+   "out": [
+    "Complete"
+   ]
+  },
+  {
+   "in": "Finished",
+   "out": [
+    "Finished"
+   ]
+  },
+  {
+   "in": "Finished?",
+   "out": [
+    "Finished?"
+   ]
+  },
+  {
+   "in": "End",
+   "out": [
+    "End"
+   ]
+  },
+  {
+   "in": "Ended",
+   "out": [
+    "Ended"
+   ]
+  },
+  {
+   "in": "N/A",
+   "out": [
+    "N/A"
+   ]
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": [
+    "A few chapters after Season 3?"
+   ]
+  },
+  {
+   "in": "ep 5",
+   "out": [
+    "ep 5"
+   ]
+  },
+  {
+   "in": "7 - Good",
+   "out": [
+    "7 - Good"
+   ]
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": [
+    "9 - Amazing"
+   ]
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": [
+    "10 - Masterpiece"
+   ]
+  },
+  {
+   "in": "8/10",
+   "out": [
+    "8/10"
+   ]
+  },
+  {
+   "in": "Great",
+   "out": [
+    "Great"
+   ]
+  },
+  {
+   "in": "0 - none",
+   "out": [
+    "0 - none"
+   ]
+  },
+  {
+   "in": "00",
+   "out": [
+    "00"
+   ]
+  },
+  {
+   "in": " 12 ",
+   "out": [
+    "12"
+   ]
+  },
+  {
+   "in": "　S2 E3",
+   "out": [
+    "S2 E3"
+   ]
+  },
+  {
+   "in": "﻿44",
+   "out": [
+    "44"
+   ]
+  },
+  {
+   "in": "Plan to Read",
+   "out": [
+    "Plan to Read"
+   ]
+  },
+  {
+   "in": "plan  to   watch",
+   "out": [
+    "plan to watch"
+   ]
+  },
+  {
+   "in": "On Hold",
+   "out": [
+    "On Hold"
+   ]
+  },
+  {
+   "in": "ON HOLD",
+   "out": [
+    "ON HOLD"
+   ]
+  },
+  {
+   "in": "Re-Reading",
+   "out": [
+    "Re-Reading"
+   ]
+  },
+  {
+   "in": "rewatching",
+   "out": [
+    "rewatching"
+   ]
+  },
+  {
+   "in": "Dropped",
+   "out": [
+    "Dropped"
+   ]
+  },
+  {
+   "in": "paused",
+   "out": [
+    "paused"
+   ]
+  },
+  {
+   "in": "in progress",
+   "out": [
+    "in progress"
+   ]
+  },
+  {
+   "in": "backlog",
+   "out": [
+    "backlog"
+   ]
+  },
+  {
+   "in": "???",
+   "out": [
+    "???"
+   ]
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": [
+    "Youtube",
+    "Inkreader"
+   ]
+  },
+  {
+   "in": "YouTube",
+   "out": [
+    "YouTube"
+   ]
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": [
+    "yt",
+    "Inkreader / ClipHub"
+   ]
+  },
+  {
+   "in": "a,,b; ;",
+   "out": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": [
+    "Action",
+    "Isekai"
+   ]
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": [
+    "Quest-like"
+   ]
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": [
+    "Romance",
+    "Slapstick"
+   ]
+  },
+  {
+   "in": "Tag\nOther",
+   "out": [
+    "Tag",
+    "Other"
+   ]
+  },
+  {
+   "in": "Café, café",
+   "out": [
+    "Café"
+   ]
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": [
+    "ünï"
+   ]
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": [
+    "youtu.be/nQ5pQCTXeB0?si=abc"
+   ]
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": [
+    "tapas.io/episode/2"
+   ]
+  },
+  {
+   "in": "https://example.com/a",
+   "out": [
+    "https://example.com/a"
+   ]
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": [
+    "see https://example.com/a."
+   ]
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": [
+    "https://www.youtube.com/watch?v=abc123"
+   ]
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": [
+    "http://anilist.co/anime/1"
+   ]
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": [
+    "https://example.org/path(1)"
+   ]
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": [
+    "(S1 #full) Some Title (3/3/26) By: PanelPilot"
+   ]
+  },
+  {
+   "in": "Notes only, no link",
+   "out": [
+    "Notes only",
+    "no link"
+   ]
+  },
+  {
+   "in": "www.example.com",
+   "out": [
+    "www.example.com"
+   ]
+  },
+  {
+   "in": "example",
+   "out": [
+    "example"
+   ]
+  },
+  {
+   "in": "by: someone",
+   "out": [
+    "by: someone"
+   ]
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": [
+    "Title (12/25/2025)"
+   ]
+  },
+  {
+   "in": "bad url https://",
+   "out": [
+    "bad url https://"
+   ]
+  },
+  {
+   "in": "a b.com",
+   "out": [
+    "a b.com"
+   ]
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": [
+    "The Quiet Harbor"
+   ]
+  },
+  {
+   "in": "  The Last Door ",
+   "out": [
+    "The Last Door"
+   ]
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": [
+    "A Tale of Two Clocks"
+   ]
+  },
+  {
+   "in": "An Ode",
+   "out": [
+    "An Ode"
+   ]
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": [
+    "“Quoted’s” Plan!"
+   ]
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": [
+    "Ünïcode Café"
+   ]
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": [
+    "Ｔｈｅ Ｑｕｉｅｔ"
+   ]
+  },
+  {
+   "in": "日本語タイトル",
+   "out": [
+    "日本語タイトル"
+   ]
+  },
+  {
+   "in": "THE",
+   "out": [
+    "THE"
+   ]
+  },
+  {
+   "in": "!!!",
+   "out": [
+    "!!!"
+   ]
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": [
+    "Mr. Marlow"
+   ]
+  },
+  {
+   "in": "Mr Marlow",
+   "out": [
+    "Mr Marlow"
+   ]
+  },
+  {
+   "in": "Misc.",
+   "out": [
+    "Misc."
+   ]
+  },
+  {
+   "in": "Sci-Fi",
+   "out": [
+    "Sci-Fi"
+   ]
+  },
+  {
+   "in": "Slice of Life",
+   "out": [
+    "Slice of Life"
+   ]
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": [
+    "Weird__Name"
+   ]
+  },
+  {
+   "in": "日本",
+   "out": [
+    "日本"
+   ]
+  },
+  {
+   "in": "---",
+   "out": [
+    "---"
+   ]
+  },
+  {
+   "in": "Ça va?",
+   "out": [
+    "Ça va?"
+   ]
+  },
+  {
+   "in": "#B71C1C",
+   "out": [
+    "#B71C1C"
+   ]
+  },
+  {
+   "in": "#FFEB3B",
+   "out": [
+    "#FFEB3B"
+   ]
+  },
+  {
+   "in": "B71C1C",
+   "out": [
+    "B71C1C"
+   ]
+  },
+  {
+   "in": "#fff",
+   "out": [
+    "#fff"
+   ]
+  },
+  {
+   "in": "zzz",
+   "out": [
+    "zzz"
+   ]
+  },
+  {
+   "in": "#000000",
+   "out": [
+    "#000000"
+   ]
+  },
+  {
+   "in": "#ffffff",
+   "out": [
+    "#ffffff"
+   ]
+  },
+  {
+   "in": "#808080",
+   "out": [
+    "#808080"
+   ]
+  }
+ ],
+ "parseSources": [
+  {
+   "in": null,
+   "out": []
+  },
+  {
+   "in": "",
+   "out": []
+  },
+  {
+   "in": "  ",
+   "out": []
+  },
+  {
+   "in": " ",
+   "out": []
+  },
+  {
+   "in": 0,
+   "out": [
+    "0"
+   ]
+  },
+  {
+   "in": 1,
+   "out": [
+    "1"
+   ]
+  },
+  {
+   "in": 7,
+   "out": [
+    "7"
+   ]
+  },
+  {
+   "in": 7.5,
+   "out": [
+    "7.5"
+   ]
+  },
+  {
+   "in": 10,
+   "out": [
+    "10"
+   ]
+  },
+  {
+   "in": 15,
+   "out": [
+    "15"
+   ]
+  },
+  {
+   "in": 46,
+   "out": [
+    "46"
+   ]
+  },
+  {
+   "in": 111,
+   "out": [
+    "111"
+   ]
+  },
+  {
+   "in": 1.5,
+   "out": [
+    "1.5"
+   ]
+  },
+  {
+   "in": 100,
+   "out": [
+    "100"
+   ]
+  },
+  {
+   "in": 123,
+   "out": [
+    "123"
+   ]
+  },
+  {
+   "in": "007",
+   "out": [
+    "007"
+   ]
+  },
+  {
+   "in": " 111 ",
+   "out": [
+    "111"
+   ]
+  },
+  {
+   "in": "12",
+   "out": [
+    "12"
+   ]
+  },
+  {
+   "in": "x",
+   "out": [
+    "x"
+   ]
+  },
+  {
+   "in": true,
+   "out": [
+    "true"
+   ]
+  },
+  {
+   "in": "End of S1",
+   "out": [
+    "End of S1"
+   ]
+  },
+  {
+   "in": "Ended of S2",
+   "out": [
+    "Ended of S2"
+   ]
+  },
+  {
+   "in": "Beginning of S2",
+   "out": [
+    "Beginning of S2"
+   ]
+  },
+  {
+   "in": "Start of Season 4",
+   "out": [
+    "Start of Season 4"
+   ]
+  },
+  {
+   "in": "begin s3",
+   "out": [
+    "begin s3"
+   ]
+  },
+  {
+   "in": "S2 E1",
+   "out": [
+    "S2 E1"
+   ]
+  },
+  {
+   "in": "s3e12",
+   "out": [
+    "s3e12"
+   ]
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": [
+    "Season 2",
+    "Episode 4"
+   ]
+  },
+  {
+   "in": "S1-E10",
+   "out": [
+    "S1-E10"
+   ]
+  },
+  {
+   "in": "s1 ep 2",
+   "out": [
+    "s1 ep 2"
+   ]
+  },
+  {
+   "in": "49?",
+   "out": [
+    "49?"
+   ]
+  },
+  {
+   "in": "12 ?",
+   "out": [
+    "12 ?"
+   ]
+  },
+  {
+   "in": "Done",
+   "out": [
+    "Done"
+   ]
+  },
+  {
+   "in": "Completed",
+   "out": [
+    "Completed"
+   ]
+  },
+  {
+   "in": "Complete",
+   "out": [
+    "Complete"
+   ]
+  },
+  {
+   "in": "Finished",
+   "out": [
+    "Finished"
+   ]
+  },
+  {
+   "in": "Finished?",
+   "out": [
+    "Finished?"
+   ]
+  },
+  {
+   "in": "End",
+   "out": [
+    "End"
+   ]
+  },
+  {
+   "in": "Ended",
+   "out": [
+    "Ended"
+   ]
+  },
+  {
+   "in": "N/A",
+   "out": [
+    "N",
+    "A"
+   ]
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": [
+    "A few chapters after Season 3?"
+   ]
+  },
+  {
+   "in": "ep 5",
+   "out": [
+    "ep 5"
+   ]
+  },
+  {
+   "in": "7 - Good",
+   "out": [
+    "7 - Good"
+   ]
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": [
+    "9 - Amazing"
+   ]
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": [
+    "10 - Masterpiece"
+   ]
+  },
+  {
+   "in": "8/10",
+   "out": [
+    "8",
+    "10"
+   ]
+  },
+  {
+   "in": "Great",
+   "out": [
+    "Great"
+   ]
+  },
+  {
+   "in": "0 - none",
+   "out": [
+    "0 - none"
+   ]
+  },
+  {
+   "in": "00",
+   "out": [
+    "00"
+   ]
+  },
+  {
+   "in": " 12 ",
+   "out": [
+    "12"
+   ]
+  },
+  {
+   "in": "　S2 E3",
+   "out": [
+    "S2 E3"
+   ]
+  },
+  {
+   "in": "﻿44",
+   "out": [
+    "44"
+   ]
+  },
+  {
+   "in": "Plan to Read",
+   "out": [
+    "Plan to Read"
+   ]
+  },
+  {
+   "in": "plan  to   watch",
+   "out": [
+    "plan to watch"
+   ]
+  },
+  {
+   "in": "On Hold",
+   "out": [
+    "On Hold"
+   ]
+  },
+  {
+   "in": "ON HOLD",
+   "out": [
+    "ON HOLD"
+   ]
+  },
+  {
+   "in": "Re-Reading",
+   "out": [
+    "Re-Reading"
+   ]
+  },
+  {
+   "in": "rewatching",
+   "out": [
+    "rewatching"
+   ]
+  },
+  {
+   "in": "Dropped",
+   "out": [
+    "Dropped"
+   ]
+  },
+  {
+   "in": "paused",
+   "out": [
+    "paused"
+   ]
+  },
+  {
+   "in": "in progress",
+   "out": [
+    "in progress"
+   ]
+  },
+  {
+   "in": "backlog",
+   "out": [
+    "backlog"
+   ]
+  },
+  {
+   "in": "???",
+   "out": [
+    "???"
+   ]
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": [
+    "YouTube",
+    "Inkreader"
+   ]
+  },
+  {
+   "in": "YouTube",
+   "out": [
+    "YouTube"
+   ]
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": [
+    "YouTube",
+    "Inkreader",
+    "ClipHub"
+   ]
+  },
+  {
+   "in": "a,,b; ;",
+   "out": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": [
+    "Action",
+    "Isekai"
+   ]
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": [
+    "Quest-like"
+   ]
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": [
+    "Romance",
+    "Slapstick"
+   ]
+  },
+  {
+   "in": "Tag\nOther",
+   "out": [
+    "Tag",
+    "Other"
+   ]
+  },
+  {
+   "in": "Café, café",
+   "out": [
+    "Café"
+   ]
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": [
+    "ünï"
+   ]
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": [
+    "youtu.be",
+    "nQ5pQCTXeB0?si=abc"
+   ]
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": [
+    "tapas.io",
+    "episode",
+    "2"
+   ]
+  },
+  {
+   "in": "https://example.com/a",
+   "out": [
+    "https:",
+    "example.com",
+    "a"
+   ]
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": [
+    "see https:",
+    "example.com",
+    "a."
+   ]
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": [
+    "https:",
+    "www.youtube.com",
+    "watch?v=abc123"
+   ]
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": [
+    "http:",
+    "anilist.co",
+    "anime",
+    "1"
+   ]
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": [
+    "https:",
+    "example.org",
+    "path(1)"
+   ]
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": [
+    "(S1 #full) Some Title (3",
+    "3",
+    "26) By: PanelPilot"
+   ]
+  },
+  {
+   "in": "Notes only, no link",
+   "out": [
+    "Notes only",
+    "no link"
+   ]
+  },
+  {
+   "in": "www.example.com",
+   "out": [
+    "www.example.com"
+   ]
+  },
+  {
+   "in": "example",
+   "out": [
+    "example"
+   ]
+  },
+  {
+   "in": "by: someone",
+   "out": [
+    "by: someone"
+   ]
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": [
+    "Title (12",
+    "25",
+    "2025)"
+   ]
+  },
+  {
+   "in": "bad url https://",
+   "out": [
+    "bad url https:"
+   ]
+  },
+  {
+   "in": "a b.com",
+   "out": [
+    "a b.com"
+   ]
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": [
+    "The Quiet Harbor"
+   ]
+  },
+  {
+   "in": "  The Last Door ",
+   "out": [
+    "The Last Door"
+   ]
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": [
+    "A Tale of Two Clocks"
+   ]
+  },
+  {
+   "in": "An Ode",
+   "out": [
+    "An Ode"
+   ]
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": [
+    "“Quoted’s” Plan!"
+   ]
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": [
+    "Ünïcode Café"
+   ]
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": [
+    "Ｔｈｅ Ｑｕｉｅｔ"
+   ]
+  },
+  {
+   "in": "日本語タイトル",
+   "out": [
+    "日本語タイトル"
+   ]
+  },
+  {
+   "in": "THE",
+   "out": [
+    "THE"
+   ]
+  },
+  {
+   "in": "!!!",
+   "out": [
+    "!!!"
+   ]
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": [
+    "Mr. Marlow"
+   ]
+  },
+  {
+   "in": "Mr Marlow",
+   "out": [
+    "Mr Marlow"
+   ]
+  },
+  {
+   "in": "Misc.",
+   "out": [
+    "Misc."
+   ]
+  },
+  {
+   "in": "Sci-Fi",
+   "out": [
+    "Sci-Fi"
+   ]
+  },
+  {
+   "in": "Slice of Life",
+   "out": [
+    "Slice of Life"
+   ]
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": [
+    "Weird__Name"
+   ]
+  },
+  {
+   "in": "日本",
+   "out": [
+    "日本"
+   ]
+  },
+  {
+   "in": "---",
+   "out": [
+    "---"
+   ]
+  },
+  {
+   "in": "Ça va?",
+   "out": [
+    "Ça va?"
+   ]
+  },
+  {
+   "in": "#B71C1C",
+   "out": [
+    "#B71C1C"
+   ]
+  },
+  {
+   "in": "#FFEB3B",
+   "out": [
+    "#FFEB3B"
+   ]
+  },
+  {
+   "in": "B71C1C",
+   "out": [
+    "B71C1C"
+   ]
+  },
+  {
+   "in": "#fff",
+   "out": [
+    "#fff"
+   ]
+  },
+  {
+   "in": "zzz",
+   "out": [
+    "zzz"
+   ]
+  },
+  {
+   "in": "#000000",
+   "out": [
+    "#000000"
+   ]
+  },
+  {
+   "in": "#ffffff",
+   "out": [
+    "#ffffff"
+   ]
+  },
+  {
+   "in": "#808080",
+   "out": [
+    "#808080"
+   ]
+  }
+ ],
+ "parseStatus": [
+  {
+   "in": null,
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": true
+   }
+  },
+  {
+   "in": "",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": true
+   }
+  },
+  {
+   "in": "  ",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": true
+   }
+  },
+  {
+   "in": " ",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": true
+   }
+  },
+  {
+   "in": 0,
+   "out": {
+    "ok": false,
+    "raw": "0"
+   }
+  },
+  {
+   "in": 1,
+   "out": {
+    "ok": false,
+    "raw": "1"
+   }
+  },
+  {
+   "in": 7,
+   "out": {
+    "ok": false,
+    "raw": "7"
+   }
+  },
+  {
+   "in": 7.5,
+   "out": {
+    "ok": false,
+    "raw": "7.5"
+   }
+  },
+  {
+   "in": 10,
+   "out": {
+    "ok": false,
+    "raw": "10"
+   }
+  },
+  {
+   "in": 15,
+   "out": {
+    "ok": false,
+    "raw": "15"
+   }
+  },
+  {
+   "in": 46,
+   "out": {
+    "ok": false,
+    "raw": "46"
+   }
+  },
+  {
+   "in": 111,
+   "out": {
+    "ok": false,
+    "raw": "111"
+   }
+  },
+  {
+   "in": 1.5,
+   "out": {
+    "ok": false,
+    "raw": "1.5"
+   }
+  },
+  {
+   "in": 100,
+   "out": {
+    "ok": false,
+    "raw": "100"
+   }
+  },
+  {
+   "in": 123,
+   "out": {
+    "ok": false,
+    "raw": "123"
+   }
+  },
+  {
+   "in": "007",
+   "out": {
+    "ok": false,
+    "raw": "007"
+   }
+  },
+  {
+   "in": " 111 ",
+   "out": {
+    "ok": false,
+    "raw": "111"
+   }
+  },
+  {
+   "in": "12",
+   "out": {
+    "ok": false,
+    "raw": "12"
+   }
+  },
+  {
+   "in": "x",
+   "out": {
+    "ok": false,
+    "raw": "x"
+   }
+  },
+  {
+   "in": true,
+   "out": {
+    "ok": false,
+    "raw": "true"
+   }
+  },
+  {
+   "in": "End of S1",
+   "out": {
+    "ok": false,
+    "raw": "End of S1"
+   }
+  },
+  {
+   "in": "Ended of S2",
+   "out": {
+    "ok": false,
+    "raw": "Ended of S2"
+   }
+  },
+  {
+   "in": "Beginning of S2",
+   "out": {
+    "ok": false,
+    "raw": "Beginning of S2"
+   }
+  },
+  {
+   "in": "Start of Season 4",
+   "out": {
+    "ok": false,
+    "raw": "Start of Season 4"
+   }
+  },
+  {
+   "in": "begin s3",
+   "out": {
+    "ok": false,
+    "raw": "begin s3"
+   }
+  },
+  {
+   "in": "S2 E1",
+   "out": {
+    "ok": false,
+    "raw": "S2 E1"
+   }
+  },
+  {
+   "in": "s3e12",
+   "out": {
+    "ok": false,
+    "raw": "s3e12"
+   }
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": {
+    "ok": false,
+    "raw": "Season 2, Episode 4"
+   }
+  },
+  {
+   "in": "S1-E10",
+   "out": {
+    "ok": false,
+    "raw": "S1-E10"
+   }
+  },
+  {
+   "in": "s1 ep 2",
+   "out": {
+    "ok": false,
+    "raw": "s1 ep 2"
+   }
+  },
+  {
+   "in": "49?",
+   "out": {
+    "ok": false,
+    "raw": "49?"
+   }
+  },
+  {
+   "in": "12 ?",
+   "out": {
+    "ok": false,
+    "raw": "12 ?"
+   }
+  },
+  {
+   "in": "Done",
+   "out": {
+    "ok": true,
+    "status": "completed",
+    "blank": false
+   }
+  },
+  {
+   "in": "Completed",
+   "out": {
+    "ok": true,
+    "status": "completed",
+    "blank": false
+   }
+  },
+  {
+   "in": "Complete",
+   "out": {
+    "ok": true,
+    "status": "completed",
+    "blank": false
+   }
+  },
+  {
+   "in": "Finished",
+   "out": {
+    "ok": true,
+    "status": "completed",
+    "blank": false
+   }
+  },
+  {
+   "in": "Finished?",
+   "out": {
+    "ok": false,
+    "raw": "Finished?"
+   }
+  },
+  {
+   "in": "End",
+   "out": {
+    "ok": false,
+    "raw": "End"
+   }
+  },
+  {
+   "in": "Ended",
+   "out": {
+    "ok": false,
+    "raw": "Ended"
+   }
+  },
+  {
+   "in": "N/A",
+   "out": {
+    "ok": false,
+    "raw": "N/A"
+   }
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": {
+    "ok": false,
+    "raw": "A few chapters after Season 3?"
+   }
+  },
+  {
+   "in": "ep 5",
+   "out": {
+    "ok": false,
+    "raw": "ep 5"
+   }
+  },
+  {
+   "in": "7 - Good",
+   "out": {
+    "ok": false,
+    "raw": "7 - Good"
+   }
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": {
+    "ok": false,
+    "raw": "9 - Amazing"
+   }
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": {
+    "ok": false,
+    "raw": "10 - Masterpiece"
+   }
+  },
+  {
+   "in": "8/10",
+   "out": {
+    "ok": false,
+    "raw": "8/10"
+   }
+  },
+  {
+   "in": "Great",
+   "out": {
+    "ok": false,
+    "raw": "Great"
+   }
+  },
+  {
+   "in": "0 - none",
+   "out": {
+    "ok": false,
+    "raw": "0 - none"
+   }
+  },
+  {
+   "in": "00",
+   "out": {
+    "ok": false,
+    "raw": "00"
+   }
+  },
+  {
+   "in": " 12 ",
+   "out": {
+    "ok": false,
+    "raw": "12"
+   }
+  },
+  {
+   "in": "　S2 E3",
+   "out": {
+    "ok": false,
+    "raw": "S2 E3"
+   }
+  },
+  {
+   "in": "﻿44",
+   "out": {
+    "ok": false,
+    "raw": "44"
+   }
+  },
+  {
+   "in": "Plan to Read",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": false
+   }
+  },
+  {
+   "in": "plan  to   watch",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": false
+   }
+  },
+  {
+   "in": "On Hold",
+   "out": {
+    "ok": true,
+    "status": "on_hold",
+    "blank": false
+   }
+  },
+  {
+   "in": "ON HOLD",
+   "out": {
+    "ok": true,
+    "status": "on_hold",
+    "blank": false
+   }
+  },
+  {
+   "in": "Re-Reading",
+   "out": {
+    "ok": true,
+    "status": "repeating",
+    "blank": false
+   }
+  },
+  {
+   "in": "rewatching",
+   "out": {
+    "ok": true,
+    "status": "repeating",
+    "blank": false
+   }
+  },
+  {
+   "in": "Dropped",
+   "out": {
+    "ok": true,
+    "status": "dropped",
+    "blank": false
+   }
+  },
+  {
+   "in": "paused",
+   "out": {
+    "ok": true,
+    "status": "on_hold",
+    "blank": false
+   }
+  },
+  {
+   "in": "in progress",
+   "out": {
+    "ok": true,
+    "status": "in_progress",
+    "blank": false
+   }
+  },
+  {
+   "in": "backlog",
+   "out": {
+    "ok": true,
+    "status": "planned",
+    "blank": false
+   }
+  },
+  {
+   "in": "???",
+   "out": {
+    "ok": false,
+    "raw": "???"
+   }
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": {
+    "ok": false,
+    "raw": "Youtube, Inkreader"
+   }
+  },
+  {
+   "in": "YouTube",
+   "out": {
+    "ok": false,
+    "raw": "YouTube"
+   }
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": {
+    "ok": false,
+    "raw": "yt; Inkreader / ClipHub"
+   }
+  },
+  {
+   "in": "a,,b; ;",
+   "out": {
+    "ok": false,
+    "raw": "a,,b; ;"
+   }
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": {
+    "ok": false,
+    "raw": "Action,  Isekai ,"
+   }
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": {
+    "ok": false,
+    "raw": "Quest-like, Quest-Like"
+   }
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": {
+    "ok": false,
+    "raw": "Romance,Slapstick"
+   }
+  },
+  {
+   "in": "Tag\nOther",
+   "out": {
+    "ok": false,
+    "raw": "Tag\nOther"
+   }
+  },
+  {
+   "in": "Café, café",
+   "out": {
+    "ok": false,
+    "raw": "Café, café"
+   }
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": {
+    "ok": false,
+    "raw": "ünï, ÜNÏ"
+   }
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": {
+    "ok": false,
+    "raw": "youtu.be/nQ5pQCTXeB0?si=abc"
+   }
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": {
+    "ok": false,
+    "raw": "tapas.io/episode/2"
+   }
+  },
+  {
+   "in": "https://example.com/a",
+   "out": {
+    "ok": false,
+    "raw": "https://example.com/a"
+   }
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": {
+    "ok": false,
+    "raw": "see https://example.com/a."
+   }
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": {
+    "ok": false,
+    "raw": "https://www.youtube.com/watch?v=abc123"
+   }
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": {
+    "ok": false,
+    "raw": "http://anilist.co/anime/1"
+   }
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": {
+    "ok": false,
+    "raw": "https://example.org/path(1)"
+   }
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": {
+    "ok": false,
+    "raw": "(S1 #full) Some Title (3/3/26) By: PanelPilot"
+   }
+  },
+  {
+   "in": "Notes only, no link",
+   "out": {
+    "ok": false,
+    "raw": "Notes only, no link"
+   }
+  },
+  {
+   "in": "www.example.com",
+   "out": {
+    "ok": false,
+    "raw": "www.example.com"
+   }
+  },
+  {
+   "in": "example",
+   "out": {
+    "ok": false,
+    "raw": "example"
+   }
+  },
+  {
+   "in": "by: someone",
+   "out": {
+    "ok": false,
+    "raw": "by: someone"
+   }
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": {
+    "ok": false,
+    "raw": "Title (12/25/2025)"
+   }
+  },
+  {
+   "in": "bad url https://",
+   "out": {
+    "ok": false,
+    "raw": "bad url https://"
+   }
+  },
+  {
+   "in": "a b.com",
+   "out": {
+    "ok": false,
+    "raw": "a b.com"
+   }
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": {
+    "ok": false,
+    "raw": "The Quiet Harbor"
+   }
+  },
+  {
+   "in": "  The Last Door ",
+   "out": {
+    "ok": false,
+    "raw": "The Last Door"
+   }
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": {
+    "ok": false,
+    "raw": "A Tale of Two Clocks"
+   }
+  },
+  {
+   "in": "An Ode",
+   "out": {
+    "ok": false,
+    "raw": "An Ode"
+   }
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": {
+    "ok": false,
+    "raw": "“Quoted’s” Plan!"
+   }
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": {
+    "ok": false,
+    "raw": "Ünïcode Café"
+   }
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": {
+    "ok": false,
+    "raw": "Ｔｈｅ Ｑｕｉｅｔ"
+   }
+  },
+  {
+   "in": "日本語タイトル",
+   "out": {
+    "ok": false,
+    "raw": "日本語タイトル"
+   }
+  },
+  {
+   "in": "THE",
+   "out": {
+    "ok": false,
+    "raw": "THE"
+   }
+  },
+  {
+   "in": "!!!",
+   "out": {
+    "ok": false,
+    "raw": "!!!"
+   }
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": {
+    "ok": false,
+    "raw": "Mr. Marlow"
+   }
+  },
+  {
+   "in": "Mr Marlow",
+   "out": {
+    "ok": false,
+    "raw": "Mr Marlow"
+   }
+  },
+  {
+   "in": "Misc.",
+   "out": {
+    "ok": false,
+    "raw": "Misc."
+   }
+  },
+  {
+   "in": "Sci-Fi",
+   "out": {
+    "ok": false,
+    "raw": "Sci-Fi"
+   }
+  },
+  {
+   "in": "Slice of Life",
+   "out": {
+    "ok": false,
+    "raw": "Slice of Life"
+   }
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": {
+    "ok": false,
+    "raw": "Weird__Name"
+   }
+  },
+  {
+   "in": "日本",
+   "out": {
+    "ok": false,
+    "raw": "日本"
+   }
+  },
+  {
+   "in": "---",
+   "out": {
+    "ok": false,
+    "raw": "---"
+   }
+  },
+  {
+   "in": "Ça va?",
+   "out": {
+    "ok": false,
+    "raw": "Ça va?"
+   }
+  },
+  {
+   "in": "#B71C1C",
+   "out": {
+    "ok": false,
+    "raw": "#B71C1C"
+   }
+  },
+  {
+   "in": "#FFEB3B",
+   "out": {
+    "ok": false,
+    "raw": "#FFEB3B"
+   }
+  },
+  {
+   "in": "B71C1C",
+   "out": {
+    "ok": false,
+    "raw": "B71C1C"
+   }
+  },
+  {
+   "in": "#fff",
+   "out": {
+    "ok": false,
+    "raw": "#fff"
+   }
+  },
+  {
+   "in": "zzz",
+   "out": {
+    "ok": false,
+    "raw": "zzz"
+   }
+  },
+  {
+   "in": "#000000",
+   "out": {
+    "ok": false,
+    "raw": "#000000"
+   }
+  },
+  {
+   "in": "#ffffff",
+   "out": {
+    "ok": false,
+    "raw": "#ffffff"
+   }
+  },
+  {
+   "in": "#808080",
+   "out": {
+    "ok": false,
+    "raw": "#808080"
+   }
+  }
+ ],
+ "parseScore": [
+  {
+   "in": null,
+   "out": null
+  },
+  {
+   "in": "",
+   "out": null
+  },
+  {
+   "in": "  ",
+   "out": null
+  },
+  {
+   "in": " ",
+   "out": null
+  },
+  {
+   "in": 0,
+   "out": null
+  },
+  {
+   "in": 1,
+   "out": 1
+  },
+  {
+   "in": 7,
+   "out": 7
+  },
+  {
+   "in": 7.5,
+   "out": 7
+  },
+  {
+   "in": 10,
+   "out": 10
+  },
+  {
+   "in": 15,
+   "out": 10
+  },
+  {
+   "in": 46,
+   "out": 10
+  },
+  {
+   "in": 111,
+   "out": null
+  },
+  {
+   "in": 1.5,
+   "out": 1
+  },
+  {
+   "in": 100,
+   "out": null
+  },
+  {
+   "in": 123,
+   "out": null
+  },
+  {
+   "in": "007",
+   "out": null
+  },
+  {
+   "in": " 111 ",
+   "out": null
+  },
+  {
+   "in": "12",
+   "out": 10
+  },
+  {
+   "in": "x",
+   "out": null
+  },
+  {
+   "in": true,
+   "out": null
+  },
+  {
+   "in": "End of S1",
+   "out": null
+  },
+  {
+   "in": "Ended of S2",
+   "out": null
+  },
+  {
+   "in": "Beginning of S2",
+   "out": null
+  },
+  {
+   "in": "Start of Season 4",
+   "out": null
+  },
+  {
+   "in": "begin s3",
+   "out": null
+  },
+  {
+   "in": "S2 E1",
+   "out": null
+  },
+  {
+   "in": "s3e12",
+   "out": null
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": null
+  },
+  {
+   "in": "S1-E10",
+   "out": null
+  },
+  {
+   "in": "s1 ep 2",
+   "out": null
+  },
+  {
+   "in": "49?",
+   "out": 10
+  },
+  {
+   "in": "12 ?",
+   "out": 10
+  },
+  {
+   "in": "Done",
+   "out": null
+  },
+  {
+   "in": "Completed",
+   "out": null
+  },
+  {
+   "in": "Complete",
+   "out": null
+  },
+  {
+   "in": "Finished",
+   "out": null
+  },
+  {
+   "in": "Finished?",
+   "out": null
+  },
+  {
+   "in": "End",
+   "out": null
+  },
+  {
+   "in": "Ended",
+   "out": null
+  },
+  {
+   "in": "N/A",
+   "out": null
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": null
+  },
+  {
+   "in": "ep 5",
+   "out": null
+  },
+  {
+   "in": "7 - Good",
+   "out": 7
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": 9
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": 10
+  },
+  {
+   "in": "8/10",
+   "out": 8
+  },
+  {
+   "in": "Great",
+   "out": null
+  },
+  {
+   "in": "0 - none",
+   "out": null
+  },
+  {
+   "in": "00",
+   "out": null
+  },
+  {
+   "in": " 12 ",
+   "out": 10
+  },
+  {
+   "in": "　S2 E3",
+   "out": null
+  },
+  {
+   "in": "﻿44",
+   "out": 10
+  },
+  {
+   "in": "Plan to Read",
+   "out": null
+  },
+  {
+   "in": "plan  to   watch",
+   "out": null
+  },
+  {
+   "in": "On Hold",
+   "out": null
+  },
+  {
+   "in": "ON HOLD",
+   "out": null
+  },
+  {
+   "in": "Re-Reading",
+   "out": null
+  },
+  {
+   "in": "rewatching",
+   "out": null
+  },
+  {
+   "in": "Dropped",
+   "out": null
+  },
+  {
+   "in": "paused",
+   "out": null
+  },
+  {
+   "in": "in progress",
+   "out": null
+  },
+  {
+   "in": "backlog",
+   "out": null
+  },
+  {
+   "in": "???",
+   "out": null
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": null
+  },
+  {
+   "in": "YouTube",
+   "out": null
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": null
+  },
+  {
+   "in": "a,,b; ;",
+   "out": null
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": null
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": null
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": null
+  },
+  {
+   "in": "Tag\nOther",
+   "out": null
+  },
+  {
+   "in": "Café, café",
+   "out": null
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": null
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": null
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": null
+  },
+  {
+   "in": "https://example.com/a",
+   "out": null
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": null
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": null
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": null
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": null
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": null
+  },
+  {
+   "in": "Notes only, no link",
+   "out": null
+  },
+  {
+   "in": "www.example.com",
+   "out": null
+  },
+  {
+   "in": "example",
+   "out": null
+  },
+  {
+   "in": "by: someone",
+   "out": null
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": null
+  },
+  {
+   "in": "bad url https://",
+   "out": null
+  },
+  {
+   "in": "a b.com",
+   "out": null
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": null
+  },
+  {
+   "in": "  The Last Door ",
+   "out": null
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": null
+  },
+  {
+   "in": "An Ode",
+   "out": null
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": null
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": null
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": null
+  },
+  {
+   "in": "日本語タイトル",
+   "out": null
+  },
+  {
+   "in": "THE",
+   "out": null
+  },
+  {
+   "in": "!!!",
+   "out": null
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": null
+  },
+  {
+   "in": "Mr Marlow",
+   "out": null
+  },
+  {
+   "in": "Misc.",
+   "out": null
+  },
+  {
+   "in": "Sci-Fi",
+   "out": null
+  },
+  {
+   "in": "Slice of Life",
+   "out": null
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": null
+  },
+  {
+   "in": "日本",
+   "out": null
+  },
+  {
+   "in": "---",
+   "out": null
+  },
+  {
+   "in": "Ça va?",
+   "out": null
+  },
+  {
+   "in": "#B71C1C",
+   "out": null
+  },
+  {
+   "in": "#FFEB3B",
+   "out": null
+  },
+  {
+   "in": "B71C1C",
+   "out": null
+  },
+  {
+   "in": "#fff",
+   "out": null
+  },
+  {
+   "in": "zzz",
+   "out": null
+  },
+  {
+   "in": "#000000",
+   "out": null
+  },
+  {
+   "in": "#ffffff",
+   "out": null
+  },
+  {
+   "in": "#808080",
+   "out": null
+  }
+ ],
+ "cleanText": [
+  {
+   "in": null,
+   "out": null
+  },
+  {
+   "in": "",
+   "out": null
+  },
+  {
+   "in": "  ",
+   "out": null
+  },
+  {
+   "in": " ",
+   "out": null
+  },
+  {
+   "in": 0,
+   "out": "0"
+  },
+  {
+   "in": 1,
+   "out": "1"
+  },
+  {
+   "in": 7,
+   "out": "7"
+  },
+  {
+   "in": 7.5,
+   "out": "7.5"
+  },
+  {
+   "in": 10,
+   "out": "10"
+  },
+  {
+   "in": 15,
+   "out": "15"
+  },
+  {
+   "in": 46,
+   "out": "46"
+  },
+  {
+   "in": 111,
+   "out": "111"
+  },
+  {
+   "in": 1.5,
+   "out": "1.5"
+  },
+  {
+   "in": 100,
+   "out": "100"
+  },
+  {
+   "in": 123,
+   "out": "123"
+  },
+  {
+   "in": "007",
+   "out": "007"
+  },
+  {
+   "in": " 111 ",
+   "out": "111"
+  },
+  {
+   "in": "12",
+   "out": "12"
+  },
+  {
+   "in": "x",
+   "out": "x"
+  },
+  {
+   "in": true,
+   "out": "true"
+  },
+  {
+   "in": "End of S1",
+   "out": "End of S1"
+  },
+  {
+   "in": "Ended of S2",
+   "out": "Ended of S2"
+  },
+  {
+   "in": "Beginning of S2",
+   "out": "Beginning of S2"
+  },
+  {
+   "in": "Start of Season 4",
+   "out": "Start of Season 4"
+  },
+  {
+   "in": "begin s3",
+   "out": "begin s3"
+  },
+  {
+   "in": "S2 E1",
+   "out": "S2 E1"
+  },
+  {
+   "in": "s3e12",
+   "out": "s3e12"
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": "Season 2, Episode 4"
+  },
+  {
+   "in": "S1-E10",
+   "out": "S1-E10"
+  },
+  {
+   "in": "s1 ep 2",
+   "out": "s1 ep 2"
+  },
+  {
+   "in": "49?",
+   "out": "49?"
+  },
+  {
+   "in": "12 ?",
+   "out": "12 ?"
+  },
+  {
+   "in": "Done",
+   "out": "Done"
+  },
+  {
+   "in": "Completed",
+   "out": "Completed"
+  },
+  {
+   "in": "Complete",
+   "out": "Complete"
+  },
+  {
+   "in": "Finished",
+   "out": "Finished"
+  },
+  {
+   "in": "Finished?",
+   "out": "Finished?"
+  },
+  {
+   "in": "End",
+   "out": "End"
+  },
+  {
+   "in": "Ended",
+   "out": "Ended"
+  },
+  {
+   "in": "N/A",
+   "out": "N/A"
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": "A few chapters after Season 3?"
+  },
+  {
+   "in": "ep 5",
+   "out": "ep 5"
+  },
+  {
+   "in": "7 - Good",
+   "out": "7 - Good"
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": "9 - Amazing"
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": "10 - Masterpiece"
+  },
+  {
+   "in": "8/10",
+   "out": "8/10"
+  },
+  {
+   "in": "Great",
+   "out": "Great"
+  },
+  {
+   "in": "0 - none",
+   "out": "0 - none"
+  },
+  {
+   "in": "00",
+   "out": "00"
+  },
+  {
+   "in": " 12 ",
+   "out": "12"
+  },
+  {
+   "in": "　S2 E3",
+   "out": "S2 E3"
+  },
+  {
+   "in": "﻿44",
+   "out": "44"
+  },
+  {
+   "in": "Plan to Read",
+   "out": "Plan to Read"
+  },
+  {
+   "in": "plan  to   watch",
+   "out": "plan  to   watch"
+  },
+  {
+   "in": "On Hold",
+   "out": "On Hold"
+  },
+  {
+   "in": "ON HOLD",
+   "out": "ON HOLD"
+  },
+  {
+   "in": "Re-Reading",
+   "out": "Re-Reading"
+  },
+  {
+   "in": "rewatching",
+   "out": "rewatching"
+  },
+  {
+   "in": "Dropped",
+   "out": "Dropped"
+  },
+  {
+   "in": "paused",
+   "out": "paused"
+  },
+  {
+   "in": "in progress",
+   "out": "in progress"
+  },
+  {
+   "in": "backlog",
+   "out": "backlog"
+  },
+  {
+   "in": "???",
+   "out": "???"
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": "Youtube, Inkreader"
+  },
+  {
+   "in": "YouTube",
+   "out": "YouTube"
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": "yt; Inkreader / ClipHub"
+  },
+  {
+   "in": "a,,b; ;",
+   "out": "a,,b; ;"
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": "Action,  Isekai ,"
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": "Quest-like, Quest-Like"
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": "Romance,Slapstick"
+  },
+  {
+   "in": "Tag\nOther",
+   "out": "Tag\nOther"
+  },
+  {
+   "in": "Café, café",
+   "out": "Café, café"
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": "ünï, ÜNÏ"
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": "youtu.be/nQ5pQCTXeB0?si=abc"
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": "tapas.io/episode/2"
+  },
+  {
+   "in": "https://example.com/a",
+   "out": "https://example.com/a"
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": "see https://example.com/a."
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": "https://www.youtube.com/watch?v=abc123"
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": "http://anilist.co/anime/1"
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": "https://example.org/path(1)"
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": "(S1 #full) Some Title (3/3/26) By: PanelPilot"
+  },
+  {
+   "in": "Notes only, no link",
+   "out": "Notes only, no link"
+  },
+  {
+   "in": "www.example.com",
+   "out": "www.example.com"
+  },
+  {
+   "in": "example",
+   "out": "example"
+  },
+  {
+   "in": "by: someone",
+   "out": "by: someone"
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": "Title (12/25/2025)"
+  },
+  {
+   "in": "bad url https://",
+   "out": "bad url https://"
+  },
+  {
+   "in": "a b.com",
+   "out": "a b.com"
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": "The Quiet Harbor"
+  },
+  {
+   "in": "  The Last Door ",
+   "out": "The Last Door"
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": "A Tale of Two Clocks"
+  },
+  {
+   "in": "An Ode",
+   "out": "An Ode"
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": "“Quoted’s” Plan!"
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": "Ünïcode Café"
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": "Ｔｈｅ Ｑｕｉｅｔ"
+  },
+  {
+   "in": "日本語タイトル",
+   "out": "日本語タイトル"
+  },
+  {
+   "in": "THE",
+   "out": "THE"
+  },
+  {
+   "in": "!!!",
+   "out": "!!!"
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": "Mr. Marlow"
+  },
+  {
+   "in": "Mr Marlow",
+   "out": "Mr Marlow"
+  },
+  {
+   "in": "Misc.",
+   "out": "Misc."
+  },
+  {
+   "in": "Sci-Fi",
+   "out": "Sci-Fi"
+  },
+  {
+   "in": "Slice of Life",
+   "out": "Slice of Life"
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": "Weird__Name"
+  },
+  {
+   "in": "日本",
+   "out": "日本"
+  },
+  {
+   "in": "---",
+   "out": "---"
+  },
+  {
+   "in": "Ça va?",
+   "out": "Ça va?"
+  },
+  {
+   "in": "#B71C1C",
+   "out": "#B71C1C"
+  },
+  {
+   "in": "#FFEB3B",
+   "out": "#FFEB3B"
+  },
+  {
+   "in": "B71C1C",
+   "out": "B71C1C"
+  },
+  {
+   "in": "#fff",
+   "out": "#fff"
+  },
+  {
+   "in": "zzz",
+   "out": "zzz"
+  },
+  {
+   "in": "#000000",
+   "out": "#000000"
+  },
+  {
+   "in": "#ffffff",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#808080",
+   "out": "#808080"
+  }
+ ],
+ "normalizeTitle": [
+  {
+   "in": "",
+   "out": ""
+  },
+  {
+   "in": "  ",
+   "out": ""
+  },
+  {
+   "in": " ",
+   "out": ""
+  },
+  {
+   "in": "007",
+   "out": "007"
+  },
+  {
+   "in": " 111 ",
+   "out": "111"
+  },
+  {
+   "in": "12",
+   "out": "12"
+  },
+  {
+   "in": "x",
+   "out": "x"
+  },
+  {
+   "in": "End of S1",
+   "out": "end of s1"
+  },
+  {
+   "in": "Ended of S2",
+   "out": "ended of s2"
+  },
+  {
+   "in": "Beginning of S2",
+   "out": "beginning of s2"
+  },
+  {
+   "in": "Start of Season 4",
+   "out": "start of season 4"
+  },
+  {
+   "in": "begin s3",
+   "out": "begin s3"
+  },
+  {
+   "in": "S2 E1",
+   "out": "s2 e1"
+  },
+  {
+   "in": "s3e12",
+   "out": "s3e12"
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": "season 2 episode 4"
+  },
+  {
+   "in": "S1-E10",
+   "out": "s1e10"
+  },
+  {
+   "in": "s1 ep 2",
+   "out": "s1 ep 2"
+  },
+  {
+   "in": "49?",
+   "out": "49"
+  },
+  {
+   "in": "12 ?",
+   "out": "12"
+  },
+  {
+   "in": "Done",
+   "out": "done"
+  },
+  {
+   "in": "Completed",
+   "out": "completed"
+  },
+  {
+   "in": "Complete",
+   "out": "complete"
+  },
+  {
+   "in": "Finished",
+   "out": "finished"
+  },
+  {
+   "in": "Finished?",
+   "out": "finished"
+  },
+  {
+   "in": "End",
+   "out": "end"
+  },
+  {
+   "in": "Ended",
+   "out": "ended"
+  },
+  {
+   "in": "N/A",
+   "out": "na"
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": "few chapters after season 3"
+  },
+  {
+   "in": "ep 5",
+   "out": "ep 5"
+  },
+  {
+   "in": "7 - Good",
+   "out": "7 good"
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": "9 amazing"
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": "10 masterpiece"
+  },
+  {
+   "in": "8/10",
+   "out": "810"
+  },
+  {
+   "in": "Great",
+   "out": "great"
+  },
+  {
+   "in": "0 - none",
+   "out": "0 none"
+  },
+  {
+   "in": "00",
+   "out": "00"
+  },
+  {
+   "in": " 12 ",
+   "out": "12"
+  },
+  {
+   "in": "　S2 E3",
+   "out": "s2 e3"
+  },
+  {
+   "in": "﻿44",
+   "out": "44"
+  },
+  {
+   "in": "Plan to Read",
+   "out": "plan to read"
+  },
+  {
+   "in": "plan  to   watch",
+   "out": "plan to watch"
+  },
+  {
+   "in": "On Hold",
+   "out": "on hold"
+  },
+  {
+   "in": "ON HOLD",
+   "out": "on hold"
+  },
+  {
+   "in": "Re-Reading",
+   "out": "rereading"
+  },
+  {
+   "in": "rewatching",
+   "out": "rewatching"
+  },
+  {
+   "in": "Dropped",
+   "out": "dropped"
+  },
+  {
+   "in": "paused",
+   "out": "paused"
+  },
+  {
+   "in": "in progress",
+   "out": "in progress"
+  },
+  {
+   "in": "backlog",
+   "out": "backlog"
+  },
+  {
+   "in": "???",
+   "out": "???"
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": "youtube inkreader"
+  },
+  {
+   "in": "YouTube",
+   "out": "youtube"
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": "yt inkreader cliphub"
+  },
+  {
+   "in": "a,,b; ;",
+   "out": "ab"
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": "action isekai"
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": "questlike questlike"
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": "romanceslapstick"
+  },
+  {
+   "in": "Tag\nOther",
+   "out": "tag other"
+  },
+  {
+   "in": "Café, café",
+   "out": "cafe cafe"
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": "uni uni"
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": "youtubenq5pqctxeb0siabc"
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": "tapasioepisode2"
+  },
+  {
+   "in": "https://example.com/a",
+   "out": "httpsexamplecoma"
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": "see httpsexamplecoma"
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": "httpswwwyoutubecomwatchvabc123"
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": "httpanilistcoanime1"
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": "httpsexampleorgpath1"
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": "s1 full some title 3326 by panelpilot"
+  },
+  {
+   "in": "Notes only, no link",
+   "out": "notes only no link"
+  },
+  {
+   "in": "www.example.com",
+   "out": "wwwexamplecom"
+  },
+  {
+   "in": "example",
+   "out": "example"
+  },
+  {
+   "in": "by: someone",
+   "out": "by someone"
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": "title 12252025"
+  },
+  {
+   "in": "bad url https://",
+   "out": "bad url https"
+  },
+  {
+   "in": "a b.com",
+   "out": "bcom"
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": "quiet harbor"
+  },
+  {
+   "in": "  The Last Door ",
+   "out": "last door"
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": "tale of two clocks"
+  },
+  {
+   "in": "An Ode",
+   "out": "ode"
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": "quoteds plan"
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": "unicode cafe"
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": "quiet"
+  },
+  {
+   "in": "日本語タイトル",
+   "out": "日本語タイトル"
+  },
+  {
+   "in": "THE",
+   "out": "the"
+  },
+  {
+   "in": "!!!",
+   "out": "!!!"
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": "mr marlow"
+  },
+  {
+   "in": "Mr Marlow",
+   "out": "mr marlow"
+  },
+  {
+   "in": "Misc.",
+   "out": "misc"
+  },
+  {
+   "in": "Sci-Fi",
+   "out": "scifi"
+  },
+  {
+   "in": "Slice of Life",
+   "out": "slice of life"
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": "weirdname"
+  },
+  {
+   "in": "日本",
+   "out": "日本"
+  },
+  {
+   "in": "---",
+   "out": "---"
+  },
+  {
+   "in": "Ça va?",
+   "out": "ca va"
+  },
+  {
+   "in": "#B71C1C",
+   "out": "b71c1c"
+  },
+  {
+   "in": "#FFEB3B",
+   "out": "ffeb3b"
+  },
+  {
+   "in": "B71C1C",
+   "out": "b71c1c"
+  },
+  {
+   "in": "#fff",
+   "out": "fff"
+  },
+  {
+   "in": "zzz",
+   "out": "zzz"
+  },
+  {
+   "in": "#000000",
+   "out": "000000"
+  },
+  {
+   "in": "#ffffff",
+   "out": "ffffff"
+  },
+  {
+   "in": "#808080",
+   "out": "808080"
+  }
+ ],
+ "slugify": [
+  {
+   "in": "",
+   "out": "category"
+  },
+  {
+   "in": "  ",
+   "out": "category"
+  },
+  {
+   "in": " ",
+   "out": "category"
+  },
+  {
+   "in": "007",
+   "out": "007"
+  },
+  {
+   "in": " 111 ",
+   "out": "111"
+  },
+  {
+   "in": "12",
+   "out": "12"
+  },
+  {
+   "in": "x",
+   "out": "x"
+  },
+  {
+   "in": "End of S1",
+   "out": "end-of-s1"
+  },
+  {
+   "in": "Ended of S2",
+   "out": "ended-of-s2"
+  },
+  {
+   "in": "Beginning of S2",
+   "out": "beginning-of-s2"
+  },
+  {
+   "in": "Start of Season 4",
+   "out": "start-of-season-4"
+  },
+  {
+   "in": "begin s3",
+   "out": "begin-s3"
+  },
+  {
+   "in": "S2 E1",
+   "out": "s2-e1"
+  },
+  {
+   "in": "s3e12",
+   "out": "s3e12"
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": "season-2-episode-4"
+  },
+  {
+   "in": "S1-E10",
+   "out": "s1-e10"
+  },
+  {
+   "in": "s1 ep 2",
+   "out": "s1-ep-2"
+  },
+  {
+   "in": "49?",
+   "out": "49"
+  },
+  {
+   "in": "12 ?",
+   "out": "12"
+  },
+  {
+   "in": "Done",
+   "out": "done"
+  },
+  {
+   "in": "Completed",
+   "out": "completed"
+  },
+  {
+   "in": "Complete",
+   "out": "complete"
+  },
+  {
+   "in": "Finished",
+   "out": "finished"
+  },
+  {
+   "in": "Finished?",
+   "out": "finished"
+  },
+  {
+   "in": "End",
+   "out": "end"
+  },
+  {
+   "in": "Ended",
+   "out": "ended"
+  },
+  {
+   "in": "N/A",
+   "out": "n-a"
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": "a-few-chapters-after-season-3"
+  },
+  {
+   "in": "ep 5",
+   "out": "ep-5"
+  },
+  {
+   "in": "7 - Good",
+   "out": "7-good"
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": "9-amazing"
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": "10-masterpiece"
+  },
+  {
+   "in": "8/10",
+   "out": "8-10"
+  },
+  {
+   "in": "Great",
+   "out": "great"
+  },
+  {
+   "in": "0 - none",
+   "out": "0-none"
+  },
+  {
+   "in": "00",
+   "out": "00"
+  },
+  {
+   "in": " 12 ",
+   "out": "12"
+  },
+  {
+   "in": "　S2 E3",
+   "out": "s2-e3"
+  },
+  {
+   "in": "﻿44",
+   "out": "44"
+  },
+  {
+   "in": "Plan to Read",
+   "out": "plan-to-read"
+  },
+  {
+   "in": "plan  to   watch",
+   "out": "plan-to-watch"
+  },
+  {
+   "in": "On Hold",
+   "out": "on-hold"
+  },
+  {
+   "in": "ON HOLD",
+   "out": "on-hold"
+  },
+  {
+   "in": "Re-Reading",
+   "out": "re-reading"
+  },
+  {
+   "in": "rewatching",
+   "out": "rewatching"
+  },
+  {
+   "in": "Dropped",
+   "out": "dropped"
+  },
+  {
+   "in": "paused",
+   "out": "paused"
+  },
+  {
+   "in": "in progress",
+   "out": "in-progress"
+  },
+  {
+   "in": "backlog",
+   "out": "backlog"
+  },
+  {
+   "in": "???",
+   "out": "category"
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": "youtube-inkreader"
+  },
+  {
+   "in": "YouTube",
+   "out": "youtube"
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": "yt-inkreader-cliphub"
+  },
+  {
+   "in": "a,,b; ;",
+   "out": "a-b"
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": "action-isekai"
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": "quest-like-quest-like"
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": "romance-slapstick"
+  },
+  {
+   "in": "Tag\nOther",
+   "out": "tag-other"
+  },
+  {
+   "in": "Café, café",
+   "out": "cafe-cafe"
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": "uni-uni"
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": "youtu-be-nq5pqctxeb0-si-abc"
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": "tapas-io-episode-2"
+  },
+  {
+   "in": "https://example.com/a",
+   "out": "https-example-com-a"
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": "see-https-example-com-a"
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": "https-www-youtube-com-watch-v-abc123"
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": "http-anilist-co-anime-1"
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": "https-example-org-path-1"
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": "s1-full-some-title-3-3-26-by-panelpilot"
+  },
+  {
+   "in": "Notes only, no link",
+   "out": "notes-only-no-link"
+  },
+  {
+   "in": "www.example.com",
+   "out": "www-example-com"
+  },
+  {
+   "in": "example",
+   "out": "example"
+  },
+  {
+   "in": "by: someone",
+   "out": "by-someone"
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": "title-12-25-2025"
+  },
+  {
+   "in": "bad url https://",
+   "out": "bad-url-https"
+  },
+  {
+   "in": "a b.com",
+   "out": "a-b-com"
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": "the-quiet-harbor"
+  },
+  {
+   "in": "  The Last Door ",
+   "out": "the-last-door"
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": "a-tale-of-two-clocks"
+  },
+  {
+   "in": "An Ode",
+   "out": "an-ode"
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": "quoted-s-plan"
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": "unicode-cafe"
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": "the-quiet"
+  },
+  {
+   "in": "日本語タイトル",
+   "out": "日本語タイトル"
+  },
+  {
+   "in": "THE",
+   "out": "the"
+  },
+  {
+   "in": "!!!",
+   "out": "category"
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": "mr-marlow"
+  },
+  {
+   "in": "Mr Marlow",
+   "out": "mr-marlow"
+  },
+  {
+   "in": "Misc.",
+   "out": "misc"
+  },
+  {
+   "in": "Sci-Fi",
+   "out": "sci-fi"
+  },
+  {
+   "in": "Slice of Life",
+   "out": "slice-of-life"
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": "weird-name"
+  },
+  {
+   "in": "日本",
+   "out": "日本"
+  },
+  {
+   "in": "---",
+   "out": "category"
+  },
+  {
+   "in": "Ça va?",
+   "out": "ca-va"
+  },
+  {
+   "in": "#B71C1C",
+   "out": "b71c1c"
+  },
+  {
+   "in": "#FFEB3B",
+   "out": "ffeb3b"
+  },
+  {
+   "in": "B71C1C",
+   "out": "b71c1c"
+  },
+  {
+   "in": "#fff",
+   "out": "fff"
+  },
+  {
+   "in": "zzz",
+   "out": "zzz"
+  },
+  {
+   "in": "#000000",
+   "out": "000000"
+  },
+  {
+   "in": "#ffffff",
+   "out": "ffffff"
+  },
+  {
+   "in": "#808080",
+   "out": "808080"
+  }
+ ],
+ "readableTextColor": [
+  {
+   "in": "",
+   "out": "#ffffff"
+  },
+  {
+   "in": "  ",
+   "out": "#ffffff"
+  },
+  {
+   "in": " ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "007",
+   "out": "#ffffff"
+  },
+  {
+   "in": " 111 ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "12",
+   "out": "#ffffff"
+  },
+  {
+   "in": "x",
+   "out": "#ffffff"
+  },
+  {
+   "in": "End of S1",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Ended of S2",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Beginning of S2",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Start of Season 4",
+   "out": "#ffffff"
+  },
+  {
+   "in": "begin s3",
+   "out": "#ffffff"
+  },
+  {
+   "in": "S2 E1",
+   "out": "#ffffff"
+  },
+  {
+   "in": "s3e12",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Season 2, Episode 4",
+   "out": "#ffffff"
+  },
+  {
+   "in": "S1-E10",
+   "out": "#ffffff"
+  },
+  {
+   "in": "s1 ep 2",
+   "out": "#ffffff"
+  },
+  {
+   "in": "49?",
+   "out": "#ffffff"
+  },
+  {
+   "in": "12 ?",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Done",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Completed",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Complete",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Finished",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Finished?",
+   "out": "#ffffff"
+  },
+  {
+   "in": "End",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Ended",
+   "out": "#ffffff"
+  },
+  {
+   "in": "N/A",
+   "out": "#ffffff"
+  },
+  {
+   "in": "A few chapters after Season 3?",
+   "out": "#ffffff"
+  },
+  {
+   "in": "ep 5",
+   "out": "#ffffff"
+  },
+  {
+   "in": "7 - Good",
+   "out": "#ffffff"
+  },
+  {
+   "in": " 9 - Amazing",
+   "out": "#ffffff"
+  },
+  {
+   "in": "10 - Masterpiece",
+   "out": "#ffffff"
+  },
+  {
+   "in": "8/10",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Great",
+   "out": "#ffffff"
+  },
+  {
+   "in": "0 - none",
+   "out": "#ffffff"
+  },
+  {
+   "in": "00",
+   "out": "#ffffff"
+  },
+  {
+   "in": " 12 ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "　S2 E3",
+   "out": "#ffffff"
+  },
+  {
+   "in": "﻿44",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Plan to Read",
+   "out": "#ffffff"
+  },
+  {
+   "in": "plan  to   watch",
+   "out": "#ffffff"
+  },
+  {
+   "in": "On Hold",
+   "out": "#ffffff"
+  },
+  {
+   "in": "ON HOLD",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Re-Reading",
+   "out": "#ffffff"
+  },
+  {
+   "in": "rewatching",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Dropped",
+   "out": "#ffffff"
+  },
+  {
+   "in": "paused",
+   "out": "#ffffff"
+  },
+  {
+   "in": "in progress",
+   "out": "#ffffff"
+  },
+  {
+   "in": "backlog",
+   "out": "#ffffff"
+  },
+  {
+   "in": "???",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Youtube, Inkreader",
+   "out": "#ffffff"
+  },
+  {
+   "in": "YouTube",
+   "out": "#ffffff"
+  },
+  {
+   "in": "yt; Inkreader / ClipHub",
+   "out": "#ffffff"
+  },
+  {
+   "in": "a,,b; ;",
+   "out": "#ffffff"
+  },
+  {
+   "in": " Action,  Isekai , ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Quest-like, Quest-Like",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Romance,Slapstick",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Tag\nOther",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Café, café",
+   "out": "#ffffff"
+  },
+  {
+   "in": "ünï, ÜNÏ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "youtu.be/nQ5pQCTXeB0?si=abc",
+   "out": "#ffffff"
+  },
+  {
+   "in": " tapas.io/episode/2",
+   "out": "#ffffff"
+  },
+  {
+   "in": "https://example.com/a",
+   "out": "#ffffff"
+  },
+  {
+   "in": "see https://example.com/a.",
+   "out": "#ffffff"
+  },
+  {
+   "in": "https://www.youtube.com/watch?v=abc123",
+   "out": "#ffffff"
+  },
+  {
+   "in": "http://anilist.co/anime/1",
+   "out": "#ffffff"
+  },
+  {
+   "in": "https://example.org/path(1)",
+   "out": "#ffffff"
+  },
+  {
+   "in": "(S1 #full) Some Title (3/3/26) By: PanelPilot",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Notes only, no link",
+   "out": "#ffffff"
+  },
+  {
+   "in": "www.example.com",
+   "out": "#ffffff"
+  },
+  {
+   "in": "example",
+   "out": "#ffffff"
+  },
+  {
+   "in": "by: someone",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Title (12/25/2025)",
+   "out": "#ffffff"
+  },
+  {
+   "in": "bad url https://",
+   "out": "#ffffff"
+  },
+  {
+   "in": "a b.com",
+   "out": "#ffffff"
+  },
+  {
+   "in": "The Quiet Harbor",
+   "out": "#ffffff"
+  },
+  {
+   "in": "  The Last Door ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "A Tale of Two Clocks",
+   "out": "#ffffff"
+  },
+  {
+   "in": "An Ode",
+   "out": "#ffffff"
+  },
+  {
+   "in": "“Quoted’s” Plan!",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Ünïcode Café",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Ｔｈｅ Ｑｕｉｅｔ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "日本語タイトル",
+   "out": "#ffffff"
+  },
+  {
+   "in": "THE",
+   "out": "#ffffff"
+  },
+  {
+   "in": "!!!",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Mr. Marlow",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Mr Marlow",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Misc.",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Sci-Fi",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Slice of Life",
+   "out": "#ffffff"
+  },
+  {
+   "in": "  Weird__Name  ",
+   "out": "#ffffff"
+  },
+  {
+   "in": "日本",
+   "out": "#ffffff"
+  },
+  {
+   "in": "---",
+   "out": "#ffffff"
+  },
+  {
+   "in": "Ça va?",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#B71C1C",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#FFEB3B",
+   "out": "#000000"
+  },
+  {
+   "in": "B71C1C",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#fff",
+   "out": "#ffffff"
+  },
+  {
+   "in": "zzz",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#000000",
+   "out": "#ffffff"
+  },
+  {
+   "in": "#ffffff",
+   "out": "#000000"
+  },
+  {
+   "in": "#808080",
+   "out": "#ffffff"
+  }
+ ],
+ "titleSimilarity": [
+  {
+   "in": [
+    "Quiet Harbor Without Mr. Pell",
+    "Can You Do Quiet Harbor Without Mr Pelle?"
+   ],
+   "out": 0.7
+  },
+  {
+   "in": [
+    "Silent Crown of Ash",
+    "Frozen Garden of Seven Moons"
+   ],
+   "out": 0.2857142857142857
+  },
+  {
+   "in": [
+    "The Marlow Plan",
+    "Marlow Plan"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "A",
+    "a"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "",
+    ""
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "Ünï",
+    "Uni"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "Clockwork Orchard Season 2",
+    "Clockwork Orchard 2nd Season"
+   ],
+   "out": 0.7857142857142857
+  },
+  {
+   "in": [
+    "Hollow Lantern Chronicles Of Dusk",
+    "Hollow Lantern Chronicle Of Dusk"
+   ],
+   "out": 0.9696969696969697
+  },
+  {
+   "in": [
+    "One Two Three Four Five",
+    "One Two Three Four Six"
+   ],
+   "out": 0.8695652173913043
+  },
+  {
+   "in": [
+    "kitten",
+    "sitting"
+   ],
+   "out": 0.5714285714285714
+  },
+  {
+   "in": [
+    "flaw",
+    "lawn"
+   ],
+   "out": 0.5
+  }
+ ],
+ "isNearDuplicateTitle": [
+  {
+   "in": [
+    "Quiet Harbor Without Mr. Pell",
+    "Can You Do Quiet Harbor Without Mr Pelle?"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "Silent Crown of Ash",
+    "Frozen Garden of Seven Moons"
+   ],
+   "out": false
+  },
+  {
+   "in": [
+    "The Marlow Plan",
+    "Marlow Plan"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "A",
+    "a"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "",
+    ""
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "Ünï",
+    "Uni"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "Clockwork Orchard Season 2",
+    "Clockwork Orchard 2nd Season"
+   ],
+   "out": false
+  },
+  {
+   "in": [
+    "Hollow Lantern Chronicles Of Dusk",
+    "Hollow Lantern Chronicle Of Dusk"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "One Two Three Four Five",
+    "One Two Three Four Six"
+   ],
+   "out": true
+  },
+  {
+   "in": [
+    "kitten",
+    "sitting"
+   ],
+   "out": false
+  },
+  {
+   "in": [
+    "flaw",
+    "lawn"
+   ],
+   "out": false
+  }
+ ],
+ "levenshtein": [
+  {
+   "in": [
+    "Quiet Harbor Without Mr. Pell",
+    "Can You Do Quiet Harbor Without Mr Pelle?"
+   ],
+   "out": 14
+  },
+  {
+   "in": [
+    "Silent Crown of Ash",
+    "Frozen Garden of Seven Moons"
+   ],
+   "out": 20
+  },
+  {
+   "in": [
+    "The Marlow Plan",
+    "Marlow Plan"
+   ],
+   "out": 4
+  },
+  {
+   "in": [
+    "A",
+    "a"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "",
+    ""
+   ],
+   "out": 0
+  },
+  {
+   "in": [
+    "Ünï",
+    "Uni"
+   ],
+   "out": 2
+  },
+  {
+   "in": [
+    "Clockwork Orchard Season 2",
+    "Clockwork Orchard 2nd Season"
+   ],
+   "out": 6
+  },
+  {
+   "in": [
+    "Hollow Lantern Chronicles Of Dusk",
+    "Hollow Lantern Chronicle Of Dusk"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "One Two Three Four Five",
+    "One Two Three Four Six"
+   ],
+   "out": 3
+  },
+  {
+   "in": [
+    "kitten",
+    "sitting"
+   ],
+   "out": 3
+  },
+  {
+   "in": [
+    "flaw",
+    "lawn"
+   ],
+   "out": 2
+  }
+ ],
+ "damerau": [
+  {
+   "in": [
+    "Quiet Harbor Without Mr. Pell",
+    "Can You Do Quiet Harbor Without Mr Pelle?"
+   ],
+   "out": 14
+  },
+  {
+   "in": [
+    "Silent Crown of Ash",
+    "Frozen Garden of Seven Moons"
+   ],
+   "out": 20
+  },
+  {
+   "in": [
+    "The Marlow Plan",
+    "Marlow Plan"
+   ],
+   "out": 4
+  },
+  {
+   "in": [
+    "A",
+    "a"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "",
+    ""
+   ],
+   "out": 0
+  },
+  {
+   "in": [
+    "Ünï",
+    "Uni"
+   ],
+   "out": 2
+  },
+  {
+   "in": [
+    "Clockwork Orchard Season 2",
+    "Clockwork Orchard 2nd Season"
+   ],
+   "out": 6
+  },
+  {
+   "in": [
+    "Hollow Lantern Chronicles Of Dusk",
+    "Hollow Lantern Chronicle Of Dusk"
+   ],
+   "out": 1
+  },
+  {
+   "in": [
+    "One Two Three Four Five",
+    "One Two Three Four Six"
+   ],
+   "out": 3
+  },
+  {
+   "in": [
+    "kitten",
+    "sitting"
+   ],
+   "out": 3
+  },
+  {
+   "in": [
+    "flaw",
+    "lawn"
+   ],
+   "out": 2
+  }
+ ],
+ "suggestTagMerges": [
+  {
+   "in": [
+    [
+     "Sorcery",
+     10
+    ],
+    [
+     "Sorcrey",
+     1
+    ],
+    [
+     "Fantasy",
+     8
+    ],
+    [
+     "Fantsy",
+     1
+    ],
+    [
+     "Rank Board",
+     5
+    ],
+    [
+     "Rankk Board",
+     1
+    ],
+    [
+     "Sword Arts",
+     3
+    ],
+    [
+     "Sword Artss",
+     1
+    ],
+    [
+     "Quest-like",
+     4
+    ],
+    [
+     "Quest-Like",
+     1
+    ],
+    [
+     "Sunny Days",
+     5
+    ],
+    [
+     "Sunny Days(loud)",
+     1
+    ],
+    [
+     "Romance",
+     9
+    ]
+   ],
+   "out": [
+    {
+     "from": "Sorcrey",
+     "to": "Sorcery",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Fantsy",
+     "to": "Fantasy",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Rankk Board",
+     "to": "Rank Board",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Sword Artss",
+     "to": "Sword Arts",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Quest-Like",
+     "to": "Quest-like",
+     "reason": "case",
+     "distance": 0
+    },
+    {
+     "from": "Sunny Days(loud)",
+     "to": "Sunny Days",
+     "reason": "variant",
+     "distance": 0
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "a",
+     1
+    ],
+    [
+     "A",
+     1
+    ],
+    [
+     "b",
+     2
+    ]
+   ],
+   "out": [
+    {
+     "from": "a",
+     "to": "A",
+     "reason": "case",
+     "distance": 0
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "Slice of Life",
+     3
+    ],
+    [
+     "Slice-of-life",
+     3
+    ],
+    [
+     "Slice Of Life!",
+     3
+    ]
+   ],
+   "out": [
+    {
+     "from": "Slice-of-life",
+     "to": "Slice of Life",
+     "reason": "punctuation",
+     "distance": 0
+    },
+    {
+     "from": "Slice of Life",
+     "to": "Slice Of Life!",
+     "reason": "punctuation",
+     "distance": 0
+    },
+    {
+     "from": "Slice-of-life",
+     "to": "Slice Of Life!",
+     "reason": "punctuation",
+     "distance": 0
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "Café",
+     2
+    ],
+    [
+     "Cafe",
+     5
+    ],
+    [
+     "Cafè",
+     1
+    ]
+   ],
+   "out": [
+    {
+     "from": "Café",
+     "to": "Cafe",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Cafè",
+     "to": "Café",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "Cafè",
+     "to": "Cafe",
+     "reason": "typo",
+     "distance": 1
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "ab",
+     1
+    ],
+    [
+     "ac",
+     1
+    ],
+    [
+     "abcd",
+     1
+    ],
+    [
+     "abdc",
+     1
+    ]
+   ],
+   "out": [
+    {
+     "from": "abdc",
+     "to": "abcd",
+     "reason": "typo",
+     "distance": 1
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "abcdefgh",
+     2
+    ],
+    [
+     "abcdefxy",
+     1
+    ],
+    [
+     "abcdexyz",
+     1
+    ],
+    [
+     "abxdefgh",
+     1
+    ]
+   ],
+   "out": [
+    {
+     "from": "abcdefxy",
+     "to": "abcdefgh",
+     "reason": "typo",
+     "distance": 2
+    },
+    {
+     "from": "abxdefgh",
+     "to": "abcdefgh",
+     "reason": "typo",
+     "distance": 1
+    },
+    {
+     "from": "abcdexyz",
+     "to": "abcdefxy",
+     "reason": "typo",
+     "distance": 2
+    }
+   ]
+  },
+  {
+   "in": [
+    [
+     "abcde",
+     2
+    ],
+    [
+     "abxyz",
+     1
+    ],
+    [
+     "abcxe",
+     1
+    ]
+   ],
+   "out": [
+    {
+     "from": "abcxe",
+     "to": "abcde",
+     "reason": "typo",
+     "distance": 1
+    }
+   ]
+  },
+  {
+   "in": [],
+   "out": []
+  }
+ ]
+}

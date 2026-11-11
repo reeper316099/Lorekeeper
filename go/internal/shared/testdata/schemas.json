@@ -1,0 +1,894 @@
+[
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  },
+  "ok": true,
+  "output": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "altTitles": [],
+   "mediaType": "unknown",
+   "status": null,
+   "score": null,
+   "tags": [],
+   "season": null,
+   "current": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   },
+   "consumedUpTo": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   },
+   "totalUnits": null,
+   "sources": [],
+   "links": [],
+   "notes": {
+    "general": null,
+    "extra1": null,
+    "extra2": null
+   },
+   "external": {},
+   "favorite": false,
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  }
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "altTitles": [
+    "A"
+   ],
+   "mediaType": "manhwa",
+   "status": "in_progress",
+   "score": 8,
+   "tags": [
+    "x",
+    "y"
+   ],
+   "season": "S2",
+   "current": {
+    "raw": "46",
+    "number": 46,
+    "season": null,
+    "kind": "number"
+   },
+   "consumedUpTo": {
+    "raw": "End",
+    "number": null,
+    "season": null,
+    "kind": "end"
+   },
+   "totalUnits": 120,
+   "sources": [
+    "YouTube"
+   ],
+   "links": [
+    {
+     "kind": "youtube",
+     "url": "https://youtu.be/x",
+     "label": null,
+     "raw": "youtu.be/x",
+     "channel": null,
+     "date": null
+    },
+    {
+     "kind": "other",
+     "url": null,
+     "label": null,
+     "raw": "youtu.be/x",
+     "channel": null,
+     "date": null,
+     "slot": "other"
+    }
+   ],
+   "notes": {
+    "general": "g",
+    "extra1": null,
+    "extra2": "e"
+   },
+   "external": {
+    "anilistId": 5,
+    "custom": {
+     "a": 1
+    }
+   },
+   "favorite": true,
+   "startedAt": "2026-01-01",
+   "completedAt": "2026-02-01",
+   "importRef": {
+    "file": "f.xlsx",
+    "sheet": "S",
+    "row": 4,
+    "importedAt": "2026-01-01T00:00:00.000Z"
+   }
+  },
+  "ok": true,
+  "output": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "altTitles": [
+    "A"
+   ],
+   "mediaType": "manhwa",
+   "status": "in_progress",
+   "score": 8,
+   "tags": [
+    "x",
+    "y"
+   ],
+   "season": "S2",
+   "current": {
+    "raw": "46",
+    "number": 46,
+    "season": null,
+    "kind": "number"
+   },
+   "consumedUpTo": {
+    "raw": "End",
+    "number": null,
+    "season": null,
+    "kind": "end"
+   },
+   "totalUnits": 120,
+   "sources": [
+    "YouTube"
+   ],
+   "links": [
+    {
+     "kind": "youtube",
+     "url": "https://youtu.be/x",
+     "label": null,
+     "raw": "youtu.be/x",
+     "channel": null,
+     "date": null
+    },
+    {
+     "kind": "other",
+     "url": null,
+     "label": null,
+     "raw": "youtu.be/x",
+     "slot": "other",
+     "channel": null,
+     "date": null
+    }
+   ],
+   "notes": {
+    "general": "g",
+    "extra1": null,
+    "extra2": "e"
+   },
+   "external": {
+    "anilistId": 5,
+    "custom": {
+     "a": 1
+    }
+   },
+   "favorite": true,
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "startedAt": "2026-01-01",
+   "completedAt": "2026-02-01",
+   "importRef": {
+    "file": "f.xlsx",
+    "sheet": "S",
+    "row": 4,
+    "importedAt": "2026-01-01T00:00:00.000Z"
+   }
+  }
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "extraneous": 1
+  },
+  "ok": true,
+  "output": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "altTitles": [],
+   "mediaType": "unknown",
+   "status": null,
+   "score": null,
+   "tags": [],
+   "season": null,
+   "current": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   },
+   "consumedUpTo": {
+    "raw": null,
+    "number": null,
+    "season": null,
+    "kind": null
+   },
+   "totalUnits": null,
+   "sources": [],
+   "links": [],
+   "notes": {
+    "general": null,
+    "extra1": null,
+    "extra2": null
+   },
+   "external": {},
+   "favorite": false,
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  }
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "music",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "mediaType": "comic"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "status": "finished"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "score": 11
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "score": 0
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "score": 7.5
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "current": {
+    "raw": "46",
+    "number": 46,
+    "season": null,
+    "kind": "weird"
+   }
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "links": [
+    {
+     "kind": "blog",
+     "url": "https://youtu.be/x",
+     "label": null,
+     "raw": "youtu.be/x",
+     "channel": null,
+     "date": null
+    }
+   ]
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "EntrySchema",
+  "input": {
+   "id": "e1",
+   "library": "reading",
+   "categoryId": "c1",
+   "title": "Quiet Harbor",
+   "createdAt": "2026-01-01T00:00:00.000Z",
+   "updatedAt": "2026-01-02T00:00:00.000Z",
+   "links": [
+    {
+     "kind": "youtube",
+     "url": "https://youtu.be/x",
+     "label": null,
+     "raw": "youtu.be/x",
+     "channel": null,
+     "date": null,
+     "slot": "side"
+    }
+   ]
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "CategorySchema",
+  "input": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "order": 0
+  },
+  "ok": true,
+  "output": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "order": 0
+  }
+ },
+ {
+  "schema": "CategorySchema",
+  "input": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "order": 3,
+   "icon": "heart"
+  },
+  "ok": true,
+  "output": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "icon": "heart",
+   "order": 3
+  }
+ },
+ {
+  "schema": "CategorySchema",
+  "input": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "8B2252",
+   "order": 0
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "CategorySchema",
+  "input": {
+   "id": "c1",
+   "library": "reading",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "order": 1.5
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "CategorySchema",
+  "input": {
+   "id": "c1",
+   "library": "games",
+   "name": "Romance",
+   "slug": "romance",
+   "color": "#8B2252",
+   "order": 0
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "TagSchema",
+  "input": {
+   "id": "t1",
+   "name": "Action"
+  },
+  "ok": true,
+  "output": {
+   "id": "t1",
+   "name": "Action",
+   "aliases": []
+  }
+ },
+ {
+  "schema": "TagSchema",
+  "input": {
+   "id": "t1",
+   "name": "Action",
+   "color": "#fff",
+   "aliases": [
+    "Acción"
+   ],
+   "hidden": true
+  },
+  "ok": true,
+  "output": {
+   "id": "t1",
+   "name": "Action",
+   "color": "#fff",
+   "aliases": [
+    "Acción"
+   ],
+   "hidden": true
+  }
+ },
+ {
+  "schema": "TagSchema",
+  "input": {
+   "id": "",
+   "name": "Action"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "ScalesSchema",
+  "input": {
+   "reading": {
+    "statusLabels": {
+     "planned": "Plan to Read",
+     "in_progress": "Reading",
+     "completed": "Completed",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Reading"
+    },
+    "scoreLabels": [
+     "1 - Trash",
+     "2 - Very Bad",
+     "3 - Bad",
+     "4 - Below Average",
+     "5 - Mid",
+     "6 - Decent",
+     "7 - Good",
+     "8 - Great",
+     "9 - Amazing",
+     "10 - Masterpiece"
+    ]
+   },
+   "watching": {
+    "statusLabels": {
+     "planned": "Plan to Watch",
+     "in_progress": "Watching",
+     "completed": "Finished",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Watching"
+    },
+    "scoreLabels": [
+     "1 - Terrible",
+     "2 - Bad",
+     "3 - Poor",
+     "4 - Mediocre",
+     "5 - Average",
+     "6 - Decent",
+     "7 - Good",
+     "8 - Great",
+     "9 - Excellent",
+     "10 - Masterpiece"
+    ]
+   }
+  },
+  "ok": true,
+  "output": {
+   "reading": {
+    "statusLabels": {
+     "planned": "Plan to Read",
+     "in_progress": "Reading",
+     "completed": "Completed",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Reading"
+    },
+    "scoreLabels": [
+     "1 - Trash",
+     "2 - Very Bad",
+     "3 - Bad",
+     "4 - Below Average",
+     "5 - Mid",
+     "6 - Decent",
+     "7 - Good",
+     "8 - Great",
+     "9 - Amazing",
+     "10 - Masterpiece"
+    ]
+   },
+   "watching": {
+    "statusLabels": {
+     "planned": "Plan to Watch",
+     "in_progress": "Watching",
+     "completed": "Finished",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Watching"
+    },
+    "scoreLabels": [
+     "1 - Terrible",
+     "2 - Bad",
+     "3 - Poor",
+     "4 - Mediocre",
+     "5 - Average",
+     "6 - Decent",
+     "7 - Good",
+     "8 - Great",
+     "9 - Excellent",
+     "10 - Masterpiece"
+    ]
+   }
+  }
+ },
+ {
+  "schema": "ScalesSchema",
+  "input": {
+   "reading": {
+    "statusLabels": {
+     "planned": "Plan to Read",
+     "in_progress": "Reading",
+     "completed": "Completed",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Reading"
+    },
+    "scoreLabels": [
+     "a"
+    ]
+   },
+   "watching": {
+    "statusLabels": {
+     "planned": "Plan to Watch",
+     "in_progress": "Watching",
+     "completed": "Finished",
+     "on_hold": "On Hold",
+     "dropped": "Dropped",
+     "repeating": "Re-Watching"
+    },
+    "scoreLabels": [
+     "1 - Terrible",
+     "2 - Bad",
+     "3 - Poor",
+     "4 - Mediocre",
+     "5 - Average",
+     "6 - Decent",
+     "7 - Good",
+     "8 - Great",
+     "9 - Excellent",
+     "10 - Masterpiece"
+    ]
+   }
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {},
+  "ok": true,
+  "output": {
+   "theme": "dark",
+   "accent": "#E5484D",
+   "density": "comfortable",
+   "defaultLibrary": "all",
+   "hiddenTags": [],
+   "labelOverrides": {
+    "extra1": "Left off"
+   },
+   "backup": {
+    "keep": 20,
+    "onLaunchHours": 6
+   },
+   "autoConfirmThreshold": 0.92,
+   "savedViews": []
+  }
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "theme": "light",
+   "labelOverrides": {
+    "extra2": "Notes"
+   },
+   "backup": {
+    "keep": 5
+   }
+  },
+  "ok": true,
+  "output": {
+   "theme": "light",
+   "accent": "#E5484D",
+   "density": "comfortable",
+   "defaultLibrary": "all",
+   "hiddenTags": [],
+   "labelOverrides": {
+    "extra2": "Notes"
+   },
+   "backup": {
+    "keep": 5,
+    "onLaunchHours": 6
+   },
+   "autoConfirmThreshold": 0.92,
+   "savedViews": []
+  }
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "savedViews": [
+    {
+     "id": "v",
+     "name": "N",
+     "query": {
+      "q": "x"
+     }
+    }
+   ],
+   "hiddenTags": [
+    "a"
+   ]
+  },
+  "ok": true,
+  "output": {
+   "theme": "dark",
+   "accent": "#E5484D",
+   "density": "comfortable",
+   "defaultLibrary": "all",
+   "hiddenTags": [
+    "a"
+   ],
+   "labelOverrides": {
+    "extra1": "Left off"
+   },
+   "backup": {
+    "keep": 20,
+    "onLaunchHours": 6
+   },
+   "autoConfirmThreshold": 0.92,
+   "savedViews": [
+    {
+     "id": "v",
+     "name": "N",
+     "query": {
+      "q": "x"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "theme": "blue"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "density": "tiny"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "defaultLibrary": "books"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "autoConfirmThreshold": 1.5
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "SettingsSchema",
+  "input": {
+   "backup": {
+    "keep": 0
+   }
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "MetaSchema",
+  "input": {
+   "schemaVersion": 1,
+   "appVersion": "0.1.0",
+   "createdAt": "a",
+   "lastOpenedAt": "b"
+  },
+  "ok": true,
+  "output": {
+   "schemaVersion": 1,
+   "appVersion": "0.1.0",
+   "createdAt": "a",
+   "lastOpenedAt": "b"
+  }
+ },
+ {
+  "schema": "MetaSchema",
+  "input": {
+   "schemaVersion": 1.5,
+   "appVersion": "0.1.0",
+   "createdAt": "a",
+   "lastOpenedAt": "b"
+  },
+  "ok": false,
+  "output": null
+ },
+ {
+  "schema": "ActivityRecordSchema",
+  "input": {
+   "at": "t",
+   "entryId": "e1",
+   "kind": "progress",
+   "from": 1,
+   "to": 2
+  },
+  "ok": true,
+  "output": {
+   "at": "t",
+   "entryId": "e1",
+   "kind": "progress",
+   "from": 1,
+   "to": 2
+  }
+ },
+ {
+  "schema": "ActivityRecordSchema",
+  "input": {
+   "at": "t",
+   "entryId": "e1",
+   "kind": "created"
+  },
+  "ok": true,
+  "output": {
+   "at": "t",
+   "entryId": "e1",
+   "kind": "created"
+  }
+ },
+ {
+  "schema": "ActivityRecordSchema",
+  "input": {
+   "at": "t",
+   "entryId": "e1",
+   "kind": "deleted"
+  },
+  "ok": false,
+  "output": null
+ }
+]
