@@ -523,3 +523,26 @@ func (s *Store) Tags() []shared.Tag {
 func (s *Store) ImportsDir() string                    { return s.p("imports") }
 func (s *Store) ExportsDir() string                    { return s.p("exports") }
 func (s *Store) CategoryFile(c shared.Category) string { return s.catFile(c) }
+
+// CategoryEntries is one category's entry list as of a Snapshot.
+type CategoryEntries struct {
+	ID      string
+	Entries []shared.Entry
+}
+
+// Snapshot returns the version and every category's entry list, in category order. The lists are
+// immutable (the store replaces lists, never edits them), so they are safe to read without a lock.
+func (s *Store) Snapshot() (version uint64, lists []CategoryEntries) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	for _, c := range s.categories {
+		lists = append(lists, CategoryEntries{ID: c.ID, Entries: s.byCat[c.ID]})
+	}
+	return s.version, lists
+}
+
+// Emit sends an event to every subscriber (used by background jobs).
+func (s *Store) Emit(name string, data any) { s.emit(name, data) }
+
+// EventJob is emitted by background jobs (AniList matching).
+const EventJob = "job"

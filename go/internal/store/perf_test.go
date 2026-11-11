@@ -9,6 +9,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/reeper316099/Lorekeeper/go/internal/perfdata"
 	"github.com/reeper316099/Lorekeeper/go/internal/shared"
 )
 
@@ -24,14 +25,6 @@ func TestPerfStore(t *testing.T) {
 	if v, err := strconv.Atoi(os.Getenv("PERF_N")); err == nil {
 		n = v
 	}
-	words := []string{"Silent", "Crimson", "Hollow", "Gilded", "Fallen", "Wandering", "Eternal", "Ashen", "Velvet", "Iron", "Lunar", "Broken", "Hidden", "Scarlet", "Verdant", "Frozen"}
-	nouns := []string{"Crown", "Garden", "Oath", "Tower", "Contract", "Blade", "Archive", "Throne", "Lantern", "Covenant", "Harbor", "Saga"}
-	tags := make([]string, 60)
-	for i := range tags {
-		tags[i] = fmt.Sprintf("Tag %d", i)
-	}
-	statuses := []shared.Status{"planned", "in_progress", "completed", "on_hold", "dropped"}
-
 	timeIt := func(label string, runs int, fn func()) {
 		samples := make([]float64, runs)
 		for i := range samples {
@@ -55,35 +48,7 @@ func TestPerfStore(t *testing.T) {
 		t.Fatal(err)
 	}
 	cats := []shared.Category{must(s.CreateCategory(shared.LibraryReading, "Big", "")), must(s.CreateCategory(shared.LibraryWatching, "Other", ""))}
-	now := ISO(time.Now())
-	entries := make([]shared.Entry, n)
-	for i := range entries {
-		e := shared.NewEntry()
-		ci := 1
-		e.Library = shared.LibraryWatching
-		if i%3 != 0 {
-			ci, e.Library = 0, shared.LibraryReading
-		}
-		st := statuses[i%5]
-		score := i%10 + 1
-		num := float64(i % 300)
-		raw := strconv.Itoa(i % 300)
-		kind := shared.ProgressNumber
-		gen := fmt.Sprintf("Notes about entry %d with a few words", i)
-		var extra *string
-		if i%4 == 0 {
-			x := "Left off somewhere"
-			extra = &x
-		}
-		e.ID, e.CategoryID = fmt.Sprintf("perf-%d", i), cats[ci].ID
-		e.Title = fmt.Sprintf("%s %s %d", words[i%16], nouns[(i>>4)%12], i)
-		e.Status, e.Score = &st, &score
-		e.Tags = []string{tags[i%60], tags[(i*7)%60], tags[(i*13)%60]}
-		e.Current = shared.Progress{Raw: &raw, Number: &num, Kind: &kind}
-		e.Notes = shared.Notes{General: &gen, Extra1: extra}
-		e.CreatedAt, e.UpdatedAt = now, now
-		entries[i] = e
-	}
+	entries := perfdata.Entries(n, cats[0].ID, cats[1].ID)
 	fmt.Printf("Perf run with %d synthetic entries (Go)\n\n", n)
 	timeIt("bulk insert (1 write per category)", 1, func() {
 		if err := s.InsertEntries(entries); err != nil {

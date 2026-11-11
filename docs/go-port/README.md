@@ -11,7 +11,7 @@ Goals: much smaller installer and lower memory, **no change in behaviour or on-d
 - **On-disk format is frozen.** A data folder written by the Node app must open in the Go app and vice versa (same stable 2-space JSON, same `meta.schemaVersion`, same backups layout). This is the main acceptance test for every storage phase.
 - **Node code stays in the repo until parity is proven** (final phase), so each phase can be checked against the original.
 - Work happens on the `go-port` branch. Go code lives in `go/` (module `lorekeeper`); `docs/go-port/` holds these pages.
-- Libraries: `excelize` (xlsx), `encoding/csv` + charset detection (csv), `fsnotify` (watcher), `archive/zip` (backups), Bleve or a small custom index for search (decided in phase 3), stdlib `net/http` + `chi` for routing.
+- Libraries: `excelize` (xlsx), `encoding/csv` + charset detection (csv), `fsnotify` (watcher), `archive/zip` (backups), a custom index that ports MiniSearch's scoring (decided in phase 3), stdlib `net/http` with a small custom router (to keep Fastify's 404 behaviour).
 - Same rules as before: public repo, invented fixtures only, no committed .xlsx, you do the `git push`.
 
 ## Layout
@@ -47,6 +47,7 @@ go/
 - Phase 0: done ([BASELINE.md](BASELINE.md))
 - Phase 1: done ([phase-1.md](phase-1.md))
 - Phase 2: done ([phase-2.md](phase-2.md))
+- Phase 3: done ([phase-3.md](phase-3.md))
 
 ## Per-phase doc template
 
