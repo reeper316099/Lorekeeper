@@ -3,9 +3,9 @@ package shared
 import "fmt"
 
 type Scale struct {
-	StatusLabels map[Status]string `json:"statusLabels"`
 	// ScoreLabels index 0 = score 1.
-	ScoreLabels []string `json:"scoreLabels"`
+	ScoreLabels  []string          `json:"scoreLabels"`
+	StatusLabels map[Status]string `json:"statusLabels"`
 }
 
 type Scales struct {

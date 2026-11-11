@@ -1,0 +1,43 @@
+[
+  {
+    "altTitles": [
+      "Lanterns of Paper"
+    ],
+    "categoryId": "reading-harem",
+    "consumedUpTo": {
+      "kind": null,
+      "number": null,
+      "raw": null,
+      "season": null
+    },
+    "createdAt": "2026-11-11T23:05:28.223Z",
+    "current": {
+      "kind": "number",
+      "number": 3,
+      "raw": "3",
+      "season": null
+    },
+    "external": {},
+    "favorite": false,
+    "id": "01a1ccdb-ef9f-7e8f-8918-c46b7513e558",
+    "library": "reading",
+    "links": [],
+    "mediaType": "unknown",
+    "notes": {
+      "extra1": null,
+      "extra2": null,
+      "general": null
+    },
+    "score": null,
+    "season": "S1",
+    "sources": [],
+    "status": "on_hold",
+    "tags": [
+      "Cozy Town",
+      "Comedy"
+    ],
+    "title": "Paper Lanterns",
+    "totalUnits": 24,
+    "updatedAt": "2026-11-11T23:05:28.241Z"
+  }
+]

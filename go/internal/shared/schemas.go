@@ -40,11 +40,13 @@ const (
 	ProgressText     ProgressKind = "text"
 )
 
+// Struct fields are declared in sorted JSON-key order, as the store writes sorted keys; see
+// TestJSONFieldsAreSorted.
 type Progress struct {
-	Raw    *string       `json:"raw"`
-	Number *float64      `json:"number"`
-	Season *float64      `json:"season"`
 	Kind   *ProgressKind `json:"kind"`
+	Number *float64      `json:"number"`
+	Raw    *string       `json:"raw"`
+	Season *float64      `json:"season"`
 }
 
 func EmptyProgress() Progress { return Progress{} }
@@ -76,14 +78,14 @@ const (
 )
 
 type Link struct {
-	Kind  LinkKind `json:"kind"`
-	URL   *string  `json:"url"`
-	Label *string  `json:"label"`
-	Raw   *string  `json:"raw"`
-	// Slot is which spreadsheet column it came from: the main link column or "Other Links".
-	Slot    LinkSlot `json:"slot,omitempty"`
 	Channel *string  `json:"channel"`
 	Date    *string  `json:"date"`
+	Kind    LinkKind `json:"kind"`
+	Label   *string  `json:"label"`
+	Raw     *string  `json:"raw"`
+	// Slot is which spreadsheet column it came from: the main link column or "Other Links".
+	Slot LinkSlot `json:"slot,omitempty"`
+	URL  *string  `json:"url"`
 }
 
 func (l Link) validate(path string) error {
@@ -104,41 +106,41 @@ func (l Link) validate(path string) error {
 
 type ImportRef struct {
 	File       string  `json:"file"`
-	Sheet      string  `json:"sheet"`
-	Row        float64 `json:"row"`
 	ImportedAt string  `json:"importedAt"`
+	Row        float64 `json:"row"`
+	Sheet      string  `json:"sheet"`
 }
 
 type Notes struct {
-	General *string `json:"general"`
 	Extra1  *string `json:"extra1"`
 	Extra2  *string `json:"extra2"`
+	General *string `json:"general"`
 }
 
 type Entry struct {
-	ID           string         `json:"id"`
-	Library      Library        `json:"library"`
-	CategoryID   string         `json:"categoryId"`
-	Title        string         `json:"title"`
 	AltTitles    []string       `json:"altTitles"`
-	MediaType    MediaType      `json:"mediaType"`
-	Status       *Status        `json:"status"`
-	Score        *int           `json:"score"`
-	Tags         []string       `json:"tags"`
-	Season       *string        `json:"season"`
-	Current      Progress       `json:"current"`
+	CategoryID   string         `json:"categoryId"`
+	CompletedAt  *string        `json:"completedAt,omitempty"`
 	ConsumedUpTo Progress       `json:"consumedUpTo"`
-	TotalUnits   *float64       `json:"totalUnits"`
-	Sources      []string       `json:"sources"`
-	Links        []Link         `json:"links"`
-	Notes        Notes          `json:"notes"`
+	CreatedAt    string         `json:"createdAt"`
+	Current      Progress       `json:"current"`
 	External     map[string]any `json:"external"`
 	Favorite     bool           `json:"favorite"`
-	CreatedAt    string         `json:"createdAt"`
-	UpdatedAt    string         `json:"updatedAt"`
-	StartedAt    *string        `json:"startedAt,omitempty"`
-	CompletedAt  *string        `json:"completedAt,omitempty"`
+	ID           string         `json:"id"`
 	ImportRef    *ImportRef     `json:"importRef,omitempty"`
+	Library      Library        `json:"library"`
+	Links        []Link         `json:"links"`
+	MediaType    MediaType      `json:"mediaType"`
+	Notes        Notes          `json:"notes"`
+	Score        *int           `json:"score"`
+	Season       *string        `json:"season"`
+	Sources      []string       `json:"sources"`
+	StartedAt    *string        `json:"startedAt,omitempty"`
+	Status       *Status        `json:"status"`
+	Tags         []string       `json:"tags"`
+	Title        string         `json:"title"`
+	TotalUnits   *float64       `json:"totalUnits"`
+	UpdatedAt    string         `json:"updatedAt"`
 }
 
 // NewEntry returns an Entry with every default applied (what Zod fills in for missing keys).
@@ -222,13 +224,13 @@ func (e *Entry) Validate() error {
 var reColor = regexp.MustCompile(`^#[0-9a-fA-F]{6}$`)
 
 type Category struct {
+	Color   string  `json:"color"`
+	Icon    *string `json:"icon,omitempty"`
 	ID      string  `json:"id"`
 	Library Library `json:"library"`
 	Name    string  `json:"name"`
-	Slug    string  `json:"slug"`
-	Color   string  `json:"color"`
-	Icon    *string `json:"icon,omitempty"`
 	Order   int     `json:"order"`
+	Slug    string  `json:"slug"`
 }
 
 func (c *Category) UnmarshalJSON(b []byte) error {
@@ -260,11 +262,11 @@ func (c *Category) Validate() error {
 // ---- Tag ---------------------------------------------------------------------------------
 
 type Tag struct {
+	Aliases []string `json:"aliases"`
+	Color   *string  `json:"color,omitempty"`
+	Hidden  *bool    `json:"hidden,omitempty"`
 	ID      string   `json:"id"`
 	Name    string   `json:"name"`
-	Color   *string  `json:"color,omitempty"`
-	Aliases []string `json:"aliases"`
-	Hidden  *bool    `json:"hidden,omitempty"`
 }
 
 func (t *Tag) UnmarshalJSON(b []byte) error {
@@ -327,15 +329,15 @@ type BackupSettings struct {
 }
 
 type Settings struct {
-	Theme                string            `json:"theme"`
 	Accent               string            `json:"accent"`
-	Density              string            `json:"density"`
+	AutoConfirmThreshold float64           `json:"autoConfirmThreshold"`
+	Backup               BackupSettings    `json:"backup"`
 	DefaultLibrary       string            `json:"defaultLibrary"`
+	Density              string            `json:"density"`
 	HiddenTags           []string          `json:"hiddenTags"`
 	LabelOverrides       map[string]string `json:"labelOverrides"`
-	Backup               BackupSettings    `json:"backup"`
-	AutoConfirmThreshold float64           `json:"autoConfirmThreshold"`
 	SavedViews           []SavedView       `json:"savedViews"`
+	Theme                string            `json:"theme"`
 }
 
 func DefaultSettings() Settings {
@@ -404,18 +406,28 @@ func (s *Settings) Validate() error {
 // ---- Meta / activity ---------------------------------------------------------------------
 
 type Meta struct {
-	SchemaVersion int    `json:"schemaVersion"`
 	AppVersion    string `json:"appVersion"`
 	CreatedAt     string `json:"createdAt"`
 	LastOpenedAt  string `json:"lastOpenedAt"`
+	SchemaVersion int    `json:"schemaVersion"`
 }
 
 type ActivityRecord struct {
 	At      string `json:"at"`
 	EntryID string `json:"entryId"`
 	Kind    string `json:"kind"`
-	From    any    `json:"from,omitempty"`
-	To      any    `json:"to,omitempty"`
+	// From and To are arbitrary JSON; an explicit null is kept (unlike an absent key).
+	From json.RawMessage `json:"from,omitempty"`
+	To   json.RawMessage `json:"to,omitempty"`
+}
+
+// RawJSON encodes v for ActivityRecord.From / To.
+func RawJSON(v any) json.RawMessage {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return nil
+	}
+	return b
 }
 
 func (a *ActivityRecord) UnmarshalJSON(b []byte) error {
@@ -434,6 +446,10 @@ func (a *ActivityRecord) UnmarshalJSON(b []byte) error {
 // ---- File helpers ------------------------------------------------------------------------
 
 func decodeArray[T any](b []byte, what string) ([]T, error) {
+	var syntax json.RawMessage
+	if err := json.Unmarshal(b, &syntax); err != nil {
+		return nil, err // a syntax error reports its position, like JSON.parse
+	}
 	if t := bytes.TrimSpace(b); len(t) == 0 || t[0] != '[' {
 		return nil, invalid(what, "expected an array")
 	}

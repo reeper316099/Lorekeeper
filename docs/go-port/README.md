@@ -42,6 +42,12 @@ go/
 | 6   | Wails shell        | Window, embedded UI, token bridge, menus, logger, single-instance + data-dir lock, data-dir resolution, open-external, dialogs | App runs on macOS and the web UI works end to end                                       |
 | 7   | Packaging, CI, e2e | `wails build` matrix (mac/win/linux), installers, e2e + axe against the Go server, size/memory comparison, cutover decision    | CI green on 3 OS; size table filled in; you decide whether to remove the Node code      |
 
+## Progress
+
+- Phase 0: done ([BASELINE.md](BASELINE.md))
+- Phase 1: done ([phase-1.md](phase-1.md))
+- Phase 2: done ([phase-2.md](phase-2.md))
+
 ## Per-phase doc template
 
 Each `phase-N.md` has: what was done, files added, tests (name, count, pass/fail), timings vs Node (same test area, same machine), known gaps, and anything that differs from the Node behaviour on purpose.

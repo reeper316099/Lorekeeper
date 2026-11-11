@@ -59,3 +59,9 @@ func jsNumber(f float64) string {
 	}
 	return strconv.FormatFloat(f, 'f', -1, 64)
 }
+
+// JSTrim is JavaScript's String.prototype.trim().
+func JSTrim(s string) string { return jsTrim(s) }
+
+// JSCollapse is JavaScript's s.replace(/\s+/g, " ").
+func JSCollapse(s string) string { return jsCollapse(s) }

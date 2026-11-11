@@ -1,0 +1,34 @@
+[
+  {
+    "color": "#37474F",
+    "id": "reading-romance",
+    "library": "reading",
+    "name": "Romance",
+    "order": 0,
+    "slug": "romance"
+  },
+  {
+    "color": "#880E4F",
+    "id": "reading-harem",
+    "library": "reading",
+    "name": "Harem",
+    "order": 1,
+    "slug": "harem"
+  },
+  {
+    "color": "#37474F",
+    "id": "watching-anime",
+    "library": "watching",
+    "name": "Anime",
+    "order": 0,
+    "slug": "anime"
+  },
+  {
+    "color": "#37474F",
+    "id": "watching-slice-of-life",
+    "library": "watching",
+    "name": "Slice of Life",
+    "order": 1,
+    "slug": "slice-of-life"
+  }
+]

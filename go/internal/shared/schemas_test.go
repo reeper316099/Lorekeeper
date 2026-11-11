@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -115,5 +116,25 @@ func TestDefaultsAreFresh(t *testing.T) {
 	s1.Reading.StatusLabels[StatusPlanned] = "changed"
 	if s2.Reading.StatusLabels[StatusPlanned] == "changed" {
 		t.Error("DefaultScales shares its map between calls")
+	}
+}
+
+// The store writes JSON with sorted keys in a single pass, which only works when every struct
+// declares its fields in sorted JSON-key order.
+func TestJSONFieldsAreSorted(t *testing.T) {
+	types := []any{
+		Entry{}, Progress{}, Link{}, ImportRef{}, Notes{}, Category{}, Tag{}, Scale{}, Scales{},
+		Settings{}, SavedView{}, BackupSettings{}, Meta{},
+	}
+	for _, v := range types {
+		rt := reflect.TypeOf(v)
+		prev := ""
+		for i := 0; i < rt.NumField(); i++ {
+			name, _, _ := strings.Cut(rt.Field(i).Tag.Get("json"), ",")
+			if name <= prev {
+				t.Errorf("%s: field %q is not after %q (keep JSON keys sorted)", rt.Name(), name, prev)
+			}
+			prev = name
+		}
 	}
 }

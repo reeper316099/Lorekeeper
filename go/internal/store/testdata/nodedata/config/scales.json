@@ -1,0 +1,46 @@
+{
+  "reading": {
+    "scoreLabels": [
+      "1 - Trash",
+      "2 - Very Bad",
+      "3 - Bad",
+      "4 - Below Average",
+      "5 - Mid",
+      "6 - Decent",
+      "7 - Good",
+      "8 - Great",
+      "9 - Amazing",
+      "10 - Masterpiece"
+    ],
+    "statusLabels": {
+      "completed": "Completed",
+      "dropped": "Dropped",
+      "in_progress": "Reading",
+      "on_hold": "On Hold",
+      "planned": "Plan to Read",
+      "repeating": "Re-Reading"
+    }
+  },
+  "watching": {
+    "scoreLabels": [
+      "1 - Terrible",
+      "2 - Bad",
+      "3 - Poor",
+      "4 - Mediocre",
+      "5 - Average",
+      "6 - Decent",
+      "7 - Good",
+      "8 - Great",
+      "9 - Excellent",
+      "10 - Masterpiece"
+    ],
+    "statusLabels": {
+      "completed": "Finished",
+      "dropped": "Dropped",
+      "in_progress": "Watching",
+      "on_hold": "On Hold",
+      "planned": "Plan to Watch",
+      "repeating": "Re-Watching"
+    }
+  }
+}

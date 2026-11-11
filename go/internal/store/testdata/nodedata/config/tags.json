@@ -1,0 +1,21 @@
+[
+  {
+    "aliases": [
+      "Slow Burn"
+    ],
+    "id": "cozy-town",
+    "name": "Cozy Town"
+  },
+  {
+    "aliases": [],
+    "color": "#112233",
+    "hidden": true,
+    "id": "comedy",
+    "name": "Comedy"
+  },
+  {
+    "aliases": [],
+    "id": "space",
+    "name": "Space"
+  }
+]
