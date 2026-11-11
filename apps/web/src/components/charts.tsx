@@ -256,17 +256,26 @@ export function Heatmap({ data, weeks = 26 }: { data: Record<string, number>; we
   }
   return (
     <div>
-      <div style={{ display: 'flex', gap: 3 }} role="img" aria-label="Activity heatmap">
+      <div
+        style={{
+          display: 'grid',
+          gap: 3,
+          gridTemplateColumns: `repeat(${cols.length}, minmax(0, 1fr))`,
+        }}
+        role="img"
+        aria-label="Activity heatmap"
+      >
         {cols.map((col, i) => (
-          <div key={i} style={{ display: 'grid', gap: 3 }}>
+          <div key={i} style={{ display: 'grid', gap: 3, alignContent: 'start' }}>
             {col.map((c) => (
               <span
                 key={c.key}
                 onMouseEnter={() => setHover(`${c.key}: ${c.n} update${c.n === 1 ? '' : 's'}`)}
                 onMouseLeave={() => setHover(null)}
                 style={{
-                  width: 12,
-                  height: 12,
+                  width: '100%',
+                  aspectRatio: '1',
+                  maxWidth: 14,
                   borderRadius: 3,
                   background: c.n
                     ? `color-mix(in oklab, var(--accent) ${25 + (c.n / max) * 75}%, var(--surface-3))`

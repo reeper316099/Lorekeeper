@@ -393,8 +393,8 @@ export function Dashboard() {
         <Card title="Needs a decision">
           <MiniList
             items={o.needsDecision.slice(0, 10)}
-            empty="Nothing on hold or dropped"
-            right={(b) => (b.status === 'dropped' ? 'Dropped' : 'On hold')}
+            empty="Nothing on hold"
+            right={() => 'On hold'}
           />
         </Card>
       </div>

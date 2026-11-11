@@ -100,7 +100,7 @@ export async function overview(store: Store, library?: 'reading' | 'watching') {
       .sort((a, b) => b.score! - a.score!)
       .slice(0, 10)
       .map(brief),
-    needsDecision: all.filter((e) => e.status === 'dropped' || e.status === 'on_hold').map(brief),
+    needsDecision: all.filter((e) => e.status === 'on_hold').map(brief),
     heatmap: heat,
   };
 }
