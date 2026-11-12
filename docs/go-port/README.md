@@ -49,6 +49,7 @@ go/
 - Phase 2: done ([phase-2.md](phase-2.md))
 - Phase 3: done ([phase-3.md](phase-3.md))
 - Phase 4: done ([phase-4.md](phase-4.md))
+- Phase 5: done ([phase-5.md](phase-5.md))
 
 ## Per-phase doc template
 

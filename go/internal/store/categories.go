@@ -137,7 +137,7 @@ func (s *Store) DeleteCategory(id, moveTo string) error {
 	}
 	if len(entries) > 0 {
 		if moveTo == "" {
-			return &HTTPError{409, "CATEGORY_NOT_EMPTY", "Category has entries; pass moveTo."}
+			return &HTTPError{Status: 409, Code: "CATEGORY_NOT_EMPTY", Message: "Category has entries; pass moveTo."}
 		}
 		for _, e := range entries {
 			if _, err := s.MoveEntry(e.ID, moveTo); err != nil {

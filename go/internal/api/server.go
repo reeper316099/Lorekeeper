@@ -122,7 +122,12 @@ func (s *Server) serve(w http.ResponseWriter, r *http.Request) {
 		}
 		if d, ok := val.(*Download); ok {
 			w.Header().Set("Content-Type", d.ContentType)
-			w.Header().Set("Content-Disposition", `attachment; filename="`+d.Name+`"`)
+			if d.CacheControl != "" {
+				w.Header().Set("Cache-Control", d.CacheControl)
+			}
+			if !d.Inline {
+				w.Header().Set("Content-Disposition", `attachment; filename="`+d.Name+`"`)
+			}
 			w.Header().Set("Content-Length", strconv.Itoa(len(d.Body)))
 			w.WriteHeader(http.StatusOK)
 			w.Write(d.Body)
@@ -175,8 +180,11 @@ func writeError(w http.ResponseWriter, err error) {
 	writeJSON(w, status, map[string]any{"error": body})
 }
 
-// Download is a handler result that is sent as a file attachment instead of JSON.
+// Download is a handler result that is sent as a file instead of JSON: an attachment by default,
+// or inline (images) when Inline is set.
 type Download struct {
 	Name, ContentType string
 	Body              []byte
+	Inline            bool
+	CacheControl      string
 }

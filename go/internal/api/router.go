@@ -33,6 +33,12 @@ func (c *Ctx) bodyBytes() ([]byte, error) {
 	return io.ReadAll(http.MaxBytesReader(c.W, c.R.Body, c.maxBody))
 }
 
+// RawBody reads the request body, bounded by the route's limit.
+func (c *Ctx) RawBody() ([]byte, error) { return c.bodyBytes() }
+
+// ParseObject decodes b as a JSON object (an error if it is anything else).
+func (c *Ctx) ParseObject(b []byte) (map[string]any, error) { return parseObject(b) }
+
 // Object reads the body as a JSON object (error if it is anything else, or empty).
 func (c *Ctx) Object() (map[string]any, error) {
 	b, err := c.bodyBytes()

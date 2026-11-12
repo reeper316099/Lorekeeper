@@ -58,7 +58,7 @@ func classify(err error) (int, errorBody) {
 	)
 	switch {
 	case errors.As(err, &he):
-		return he.Status, errorBody{he.Code, he.Message, nil}
+		return he.Status, errorBody{he.Code, he.Message, he.Details}
 	case errors.As(err, &ve):
 		return 400, errorBody{"VALIDATION", "Invalid request", ve.issues}
 	case errors.As(err, &sv):

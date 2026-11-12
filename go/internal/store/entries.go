@@ -316,7 +316,7 @@ func (s *Store) SetProgress(id string, op ProgressOp) (shared.Entry, error) {
 		}
 		if entry.Current.Raw != nil && entry.Current.Number == nil && entry.Current.Kind != nil {
 			s.mu.Unlock()
-			return entry, &HTTPError{422, "UNPARSEABLE_PROGRESS", "Current progress is not numeric; use set."}
+			return entry, &HTTPError{Status: 422, Code: "UNPARSEABLE_PROGRESS", Message: "Current progress is not numeric; use set."}
 		}
 		n := math.Max(0, base+op.Delta)
 		raw := formatNumber(n)
@@ -426,7 +426,7 @@ func (s *Store) MoveEntry(id, toCategoryID string) (shared.Entry, error) {
 	}
 	if from.Library != to.Library {
 		s.mu.Unlock()
-		return entry, &HTTPError{422, "LIBRARY_MISMATCH", "Cannot move between libraries."}
+		return entry, &HTTPError{Status: 422, Code: "LIBRARY_MISMATCH", Message: "Cannot move between libraries."}
 	}
 	moved := entry
 	moved.CategoryID, moved.UpdatedAt = to.ID, ISO(time.Now())

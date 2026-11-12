@@ -108,7 +108,7 @@ func (s *Store) UpdateTag(name string, patch TagPatch) (shared.Tag, error) {
 		if n := shared.JSTrim(*patch.Name); n != "" && n != oldName {
 			if slices.ContainsFunc(s.tags, func(t shared.Tag) bool { return t.ID != tag.ID && strings.EqualFold(t.Name, n) }) {
 				s.mu.Unlock()
-				return tag, &HTTPError{409, "TAG_EXISTS", "A tag with that name exists; merge instead."}
+				return tag, &HTTPError{Status: 409, Code: "TAG_EXISTS", Message: "A tag with that name exists; merge instead."}
 			}
 			tag.Name, tag.ID, rename = n, shared.Slugify(n), n
 		}

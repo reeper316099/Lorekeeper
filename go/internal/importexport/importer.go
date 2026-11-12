@@ -208,8 +208,9 @@ func strVal(p *string) string {
 	return *p
 }
 
-// mergeInto merges an incoming entry into an existing one. Returns false if nothing changed.
-func mergeInto(existing, incoming shared.Entry, mode Strategy) (shared.Entry, bool) {
+// MergeInto merges an incoming entry into an existing one (mode fill or overwrite). It returns
+// false when nothing would change.
+func MergeInto(existing, incoming shared.Entry, mode Strategy) (shared.Entry, bool) {
 	overwrite := mode == StrategyOverwrite
 	take := func(empty, hasIncoming bool) bool { return hasIncoming && (overwrite || empty) }
 	next := existing
@@ -470,7 +471,7 @@ func BuildPlan(s *store.Store, fileName string, sheets []ParsedSheet, opts Impor
 				if ex.e.CategoryID != in.CategoryID {
 					warn(WarnCategoryDiffers, sheet.Name, r.Row, title, "Existing entry is in another category; it was not moved.")
 				}
-				merged, changed := mergeInto(ex.e, in, strategy)
+				merged, changed := MergeInto(ex.e, in, strategy)
 				switch {
 				case !changed:
 					plan.Unchanged++

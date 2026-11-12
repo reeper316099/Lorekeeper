@@ -18,12 +18,14 @@ type HTTPError struct {
 	Status  int
 	Code    string
 	Message string
+	// Details is extra machine-readable data for the client (for example retryAfterSec).
+	Details any
 }
 
 func (e *HTTPError) Error() string { return e.Message }
 
 func notFound(format string, args ...any) error {
-	return &HTTPError{404, "NOT_FOUND", fmt.Sprintf(format, args...)}
+	return &HTTPError{Status: 404, Code: "NOT_FOUND", Message: fmt.Sprintf(format, args...)}
 }
 
 // Event names emitted by the Store.
@@ -313,6 +315,9 @@ func (s *Store) writeFileImpl(file string, text []byte) error {
 		return AtomicWrite(file, text)
 	})
 }
+
+// WriteJSON persists data as stable JSON through the store's serialized, atomic write path.
+func (s *Store) WriteJSON(file string, data any) error { return s.writeJSON(file, data) }
 
 // writeJSON persists data as stable JSON. The data is serialized immediately (a snapshot).
 func (s *Store) writeJSON(file string, data any) error {
