@@ -21,7 +21,8 @@ static int fullscreenCapable(void) {
 	__block int ok = 0;
 	dispatch_sync(dispatch_get_main_queue(), ^{
 		for (NSWindow *w in [NSApp windows]) {
-			if ([w collectionBehavior] & NSWindowCollectionBehaviorFullScreenPrimary) ok = 1;
+			if (([w collectionBehavior] & NSWindowCollectionBehaviorFullScreenPrimary) &&
+			    [[w standardWindowButton:NSWindowZoomButton] isEnabled]) ok = 1;
 		}
 	});
 	return ok;

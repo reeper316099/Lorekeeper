@@ -27,6 +27,7 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/menu/keys"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
+	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	wr "github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
@@ -343,6 +344,8 @@ func main() {
 			Assets:     assets,
 			Middleware: assetserver.Middleware(func(next http.Handler) http.Handler { return desktop.AssetsMiddleware(app.config)(next) }),
 		},
+		// Without Mac options Wails leaves the zoom (green) button disabled; set them so it works.
+		Mac:                &mac.Options{DisableZoom: false},
 		Menu:               app.buildMenu(),
 		LogLevel:           logger.ERROR,
 		LogLevelProduction: logger.ERROR,
