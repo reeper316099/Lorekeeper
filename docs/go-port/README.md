@@ -23,7 +23,7 @@ go/
   internal/store/     atomic writes, mutex, store, backups, migrations
   internal/search/    index + stats
   internal/api/       routes, auth, SSE
-  internal/xlsxio/    import/export (xlsx, csv, json)
+  internal/importexport/  import/export (xlsx, csv, json) + routes
   internal/anilist/   client, cache, matcher, queue, jobs
   cmd/server/         headless server (dev, tests, e2e)
   cmd/lorekeeper/     Wails desktop app (embeds apps/web/dist)
@@ -48,6 +48,7 @@ go/
 - Phase 1: done ([phase-1.md](phase-1.md))
 - Phase 2: done ([phase-2.md](phase-2.md))
 - Phase 3: done ([phase-3.md](phase-3.md))
+- Phase 4: done ([phase-4.md](phase-4.md))
 
 ## Per-phase doc template
 

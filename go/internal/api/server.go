@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"slices"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -108,7 +109,7 @@ func (s *Server) serve(w http.ResponseWriter, r *http.Request) {
 		writeError(w, &store.HTTPError{Status: 401, Code: "UNAUTHORIZED", Message: "Missing or invalid token"})
 		return
 	}
-	if rt, params := s.router.match(r.Method, r.URL.Path); rt != nil {
+	if rt, params := s.router.match(r.Method, r.URL.EscapedPath()); rt != nil {
 		if rt.raw != nil {
 			rt.raw(w, r, params)
 			return
@@ -117,6 +118,14 @@ func (s *Server) serve(w http.ResponseWriter, r *http.Request) {
 		val, err := rt.handler(c)
 		if err != nil {
 			writeError(w, err)
+			return
+		}
+		if d, ok := val.(*Download); ok {
+			w.Header().Set("Content-Type", d.ContentType)
+			w.Header().Set("Content-Disposition", `attachment; filename="`+d.Name+`"`)
+			w.Header().Set("Content-Length", strconv.Itoa(len(d.Body)))
+			w.WriteHeader(http.StatusOK)
+			w.Write(d.Body)
 			return
 		}
 		status := c.Status
@@ -164,4 +173,10 @@ func writeJSON(w http.ResponseWriter, status int, v any) {
 func writeError(w http.ResponseWriter, err error) {
 	status, body := classify(err)
 	writeJSON(w, status, map[string]any{"error": body})
+}
+
+// Download is a handler result that is sent as a file attachment instead of JSON.
+type Download struct {
+	Name, ContentType string
+	Body              []byte
 }

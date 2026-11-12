@@ -28,7 +28,10 @@ func NormalizeTitle(title string) string {
 
 // TitleSimilarity is a 0..1 similarity of two titles after normalization (1 = identical).
 func TitleSimilarity(a, b string) float64 {
-	x, y := NormalizeTitle(a), NormalizeTitle(b)
+	return titleSimilarityNorm(NormalizeTitle(a), NormalizeTitle(b))
+}
+
+func titleSimilarityNorm(x, y string) float64 {
 	xl, yl := len([]rune(x)), len([]rune(y))
 	if xl == 0 && yl == 0 {
 		return 1
@@ -49,10 +52,16 @@ func fields(s string) []string {
 // IsNearDuplicateTitle is the fuzzy "might be the same series" test: high similarity, or most words of
 // the shorter title appear in the other.
 func IsNearDuplicateTitle(a, b string) bool {
-	if TitleSimilarity(a, b) >= 0.85 {
+	return IsNearDuplicateNorm(NormalizeTitle(a), NormalizeTitle(b))
+}
+
+// IsNearDuplicateNorm is IsNearDuplicateTitle for titles that are already normalized, so callers
+// comparing one title against thousands can normalize each only once.
+func IsNearDuplicateNorm(x, y string) bool {
+	if titleSimilarityNorm(x, y) >= 0.85 {
 		return true
 	}
-	ta, tb := fields(NormalizeTitle(a)), fields(NormalizeTitle(b))
+	ta, tb := fields(x), fields(y)
 	small, big := ta, tb
 	if len(ta) > len(tb) {
 		small, big = tb, ta

@@ -19,6 +19,7 @@ import (
 	"time"
 
 	"github.com/reeper316099/Lorekeeper/go/internal/api"
+	"github.com/reeper316099/Lorekeeper/go/internal/importexport"
 	"github.com/reeper316099/Lorekeeper/go/internal/shared"
 	"github.com/reeper316099/Lorekeeper/go/internal/store"
 )
@@ -47,6 +48,7 @@ func main() {
 		Token:          token,
 		AllowedOrigins: []string{"http://localhost:5173", "http://127.0.0.1:5173"},
 		StaticDir:      os.Getenv("LOREKEEPER_STATIC"),
+		Extend:         importexport.Register,
 	})
 	ln, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", port))
 	if err != nil {

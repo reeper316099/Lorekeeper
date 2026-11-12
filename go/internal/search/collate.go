@@ -12,14 +12,16 @@ import (
 // Collators are not safe for concurrent use, so every call takes this lock.
 var coll struct {
 	sync.Mutex
-	base *collate.Collator // Intl.Collator({ sensitivity: 'base', numeric: true })
-	full *collate.Collator // String.prototype.localeCompare
-	buf  collate.Buffer
+	base  *collate.Collator // Intl.Collator({ sensitivity: 'base', numeric: true })
+	full  *collate.Collator // String.prototype.localeCompare
+	loose *collate.Collator // localeCompare(b, undefined, { sensitivity: 'base' })
+	buf   collate.Buffer
 }
 
 func init() {
 	coll.base = collate.New(language.Und, collate.Numeric, collate.Loose)
 	coll.full = collate.New(language.Und)
+	coll.loose = collate.New(language.Und, collate.Loose)
 }
 
 // CompareBase compares like Intl.Collator(undefined, { sensitivity: 'base', numeric: true }):
@@ -42,4 +44,12 @@ func BaseKey(s string) []byte {
 	coll.Lock()
 	defer coll.Unlock()
 	return append([]byte(nil), coll.base.KeyFromString(&coll.buf, s)...)
+}
+
+// CompareLoose compares like localeCompare(b, undefined, { sensitivity: 'base' }): case and accents
+// are ignored, digits are not treated numerically.
+func CompareLoose(a, b string) int {
+	coll.Lock()
+	defer coll.Unlock()
+	return coll.loose.CompareString(a, b)
 }

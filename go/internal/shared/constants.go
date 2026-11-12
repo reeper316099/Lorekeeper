@@ -139,3 +139,6 @@ func validMediaType(m MediaType) bool {
 	}
 	return false
 }
+
+// ValidStatus reports whether s is one of the known statuses.
+func ValidStatus(s Status) bool { return validStatus(s) }

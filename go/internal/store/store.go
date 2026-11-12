@@ -510,13 +510,13 @@ func (s *Store) Scales() shared.Scales {
 func (s *Store) Categories() []shared.Category {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
-	return append([]shared.Category(nil), s.categories...)
+	return append([]shared.Category{}, s.categories...)
 }
 
 func (s *Store) Tags() []shared.Tag {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
-	return append([]shared.Tag(nil), s.tags...)
+	return append([]shared.Tag{}, s.tags...)
 }
 
 // ImportsDir / ExportsDir are helpers for the importers.

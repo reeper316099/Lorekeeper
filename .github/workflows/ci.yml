@@ -34,20 +34,31 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        working-directory: go
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
           go-version-file: go/go.mod
           cache-dependency-path: go/go.sum
+      # The import tests read the synthetic workbooks, which are generated (never committed).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run fixtures:generate
       - name: gofmt
         if: runner.os == 'Linux'
+        working-directory: go
         run: test -z "$(gofmt -l .)"
-      - run: go vet ./...
-      - run: go test -count=1 ./...
+      - name: go vet
+        working-directory: go
+        run: go vet ./...
+      - name: go test
+        working-directory: go
+        env:
+          REQUIRE_FIXTURES: '1'
+        run: go test -count=1 ./...
   e2e:
     needs: guard
     strategy:

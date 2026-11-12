@@ -53,11 +53,13 @@ const (
 	MergeTypo        MergeReason = "typo"
 )
 
+// Fields are in sorted JSON-key order (see TestJSONFieldsAreSorted): suggestions are written into
+// import reports, which the store format keeps key-sorted.
 type MergeSuggestion struct {
-	From     string      `json:"from"`
-	To       string      `json:"to"`
-	Reason   MergeReason `json:"reason"`
 	Distance int         `json:"distance"`
+	From     string      `json:"from"`
+	Reason   MergeReason `json:"reason"`
+	To       string      `json:"to"`
 }
 
 // TagUsage is one tag and how many entries use it. A slice (not a map) so the result order is
