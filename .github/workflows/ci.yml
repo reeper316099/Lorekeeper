@@ -81,3 +81,78 @@ jobs:
       - name: E2E smoke test
         if: runner.os != 'Linux'
         run: npx playwright test
+  go-desktop:
+    # Builds the Go + Wails desktop app and runs its self-test inside the real webview (WebKit on
+    # macOS and Linux, WebView2 on Windows).
+    needs: guard
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Linux webview toolchain
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev xvfb
+      - run: npm ci
+      - run: go/build-desktop.sh
+      - name: Self-test (Linux needs a virtual display)
+        if: runner.os == 'Linux'
+        env:
+          LOREKEEPER_SELFTEST: '1'
+          LOREKEEPER_USER_DATA: ${{ runner.temp }}/lk-user
+          LOREKEEPER_DATA_DIR: ${{ runner.temp }}/lk-data
+          WEBKIT_DISABLE_COMPOSITING_MODE: '1'
+        run: xvfb-run -a ./release-go/lorekeeper
+      - name: Self-test
+        if: runner.os != 'Linux'
+        env:
+          LOREKEEPER_SELFTEST: '1'
+          LOREKEEPER_USER_DATA: ${{ runner.temp }}/lk-user
+          LOREKEEPER_DATA_DIR: ${{ runner.temp }}/lk-data
+          LOREKEEPER_SELFTEST_OUT: ${{ runner.temp }}/selftest.json
+        run: |
+          bin=./release-go/lorekeeper
+          [ "$RUNNER_OS" = "Windows" ] && bin=./release-go/lorekeeper.exe
+          "$bin" || { echo "self-test failed"; cat "$LOREKEEPER_SELFTEST_OUT" || true; exit 1; }
+          cat "$LOREKEEPER_SELFTEST_OUT"
+  e2e-go:
+    # The same Playwright specs (user journey, WCAG 2 AA audit with axe, links) against the Go server in Chromium.
+    needs: guard
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run fixtures:generate
+      - run: npm run build -w @lorekeeper/web
+      - name: Build the Go server
+        working-directory: go
+        run: go build -o ../release-go/lorekeeper-server${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/server
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+        env:
+          E2E_BACKEND: go

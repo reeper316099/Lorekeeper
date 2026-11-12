@@ -35,10 +35,17 @@ Per-file times overlap because Vitest runs files in parallel. Whole run, three r
 | 20 concurrent progress writes (coalesced)  | 311 ms   | 311 ms   |
 | Slowest search while writes were in flight | 2.7 ms   |          |
 
-## Size and memory (filled in at phase 7)
+## Size and memory (filled in at phase 7, macOS arm64)
 
-| Metric          | Electron | Wails |
-| --------------- | -------- | ----- |
-| macOS installer | TBD      | TBD   |
-| Installed size  | TBD      | TBD   |
-| Idle memory     | TBD      | TBD   |
+Measured on the same MacBook Air (Apple M2, macOS 27) with unsigned builds: Electron through `electron-builder --mac dmg --arm64`, Go through the Wails CLI. Memory is the total resident set after the app had been running for 8 seconds with a hidden window, 3 runs each; for the Go app the WebKit helper processes (they are system XPC services, not children) are estimated as the growth of all `com.apple.WebKit.*` processes during the run, so treat that part as approximate.
+
+| Metric                                     | Electron                 | Go + Wails                                         |
+| ------------------------------------------ | ------------------------ | -------------------------------------------------- |
+| macOS installer (dmg, arm64)               | 130.3 MB                 | 8.1 MB                                             |
+| Installed app (`.app`)                     | 296 MB                   | 17.9 MB                                            |
+| Memory, all processes                      | 470-520 MB (4 processes) | about 235-245 MB (main 113 MB + WebKit 120-130 MB) |
+| Launch until the API answers (median of 5) | 0.38 s                   | 0.22 s                                             |
+
+## Re-measured test time
+
+The Node suite was timed again at the end of the port, after the machine was warm: 89 tests in **9.6-10.8 s** over 3 runs. The 20.9-22.5 s above were the first runs after a clean install (cold caches, workbook generation).

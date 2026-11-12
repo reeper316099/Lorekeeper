@@ -1,0 +1,23 @@
+# deb and rpm packages (package-desktop.sh passes the values through the environment).
+name: lorekeeper
+arch: ${ARCH}
+platform: linux
+version: ${VERSION}
+section: utils
+maintainer: Lorekeeper contributors <noreply@users.noreply.github.com>
+description: Local-first tracker for manga, manhwa, manhua, anime and TV
+homepage: https://github.com/reeper316099/Lorekeeper
+license: UNLICENSED
+contents:
+  - src: ${BIN}
+    dst: /usr/bin/lorekeeper
+    file_info: { mode: 0755 }
+  - src: ${DESKTOP}
+    dst: /usr/share/applications/lorekeeper.desktop
+  - src: ${ICON}
+    dst: /usr/share/icons/hicolor/512x512/apps/lorekeeper.png
+overrides:
+  deb:
+    depends: [libgtk-3-0, libwebkit2gtk-4.1-0]
+  rpm:
+    depends: [gtk3, webkit2gtk4.1]

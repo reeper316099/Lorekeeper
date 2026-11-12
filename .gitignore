@@ -22,3 +22,4 @@ playwright-report/
 release-go/
 go/cmd/lorekeeper/frontend/*
 !go/cmd/lorekeeper/frontend/.gitkeep
+go/cmd/lorekeeper/build/bin/

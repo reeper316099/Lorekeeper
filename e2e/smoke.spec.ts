@@ -11,6 +11,12 @@ import {
   type Page,
 } from '@playwright/test';
 
+// The Electron-specific checks (app identity, renderer isolation, single instance) only apply to that backend.
+test.skip(
+  process.env.E2E_BACKEND === 'go',
+  'Electron-only; e2e/go-smoke.spec.ts covers the Go backend',
+);
+
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MAIN = path.join(root, 'apps', 'desktop', 'dist', 'main.cjs');
 const WORKBOOK = path.join(root, 'fixtures', 'synthetic', 'Watching_Tracker.xlsx');

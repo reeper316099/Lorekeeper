@@ -52,6 +52,7 @@ go/
 - Phase 4: done ([phase-4.md](phase-4.md))
 - Phase 5: done ([phase-5.md](phase-5.md))
 - Phase 6: done ([phase-6.md](phase-6.md))
+- Phase 7: done ([phase-7.md](phase-7.md)); overall result and cutover advice: [SUMMARY.md](SUMMARY.md)
 
 ## Per-phase doc template
 

@@ -1,0 +1,69 @@
+name: Release (Go + Wails)
+# Builds the Go desktop app per OS. Pushing a tag named go-v* also attaches the files to a GitHub
+# release; manual runs only upload build artifacts. Nothing is signed or notarized (see docs/DISTRIBUTION.md).
+on:
+  push:
+    tags: ['go-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Linux webview toolchain
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
+      - name: Windows installer tool (NSIS)
+        if: runner.os == 'Windows'
+        run: choco install nsis -y --no-progress
+      - run: npm ci
+      - run: go install github.com/wailsapp/wails/v2/cmd/wails@v2.17.1
+      - name: Go tests
+        working-directory: go
+        run: go test ./...
+      - name: Package for macOS (dmg) and Linux (tar.gz, deb, rpm)
+        if: runner.os != 'Windows'
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then go install github.com/goreleaser/nfpm/v2/cmd/nfpm@latest; fi
+          export PATH="$PATH:$(go env GOPATH)/bin"
+          go/package-desktop.sh
+      - name: Package for Windows (installer and portable exe)
+        if: runner.os == 'Windows'
+        run: |
+          export PATH="$PATH:$(go env GOPATH)/bin"
+          version="$(node -p "require('./apps/desktop/package.json').version")"
+          sh go/prepare-frontend.sh
+          mkdir -p release-go
+          cd go/cmd/lorekeeper
+          wails build -clean -platform windows/amd64 -nsis -skipbindings -s -ldflags "-s -w -X main.version=$version"
+          cp build/bin/lorekeeper.exe "../../../release-go/lorekeeper-$version-win-x64-portable.exe"
+          cp build/bin/*installer.exe "../../../release-go/lorekeeper-$version-win-x64-setup.exe"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lorekeeper-go-${{ matrix.os }}
+          path: release-go/*
+          if-no-files-found: error
+      - name: Attach to GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-go/*

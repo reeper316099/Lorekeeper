@@ -298,6 +298,10 @@ func (a *App) SelfTestDone(report string) {
 	}
 	_ = json.Unmarshal([]byte(report), &r)
 	fmt.Println(report)
+	// A GUI-subsystem build on Windows has no console, so the report can also go to a file.
+	if out := os.Getenv("LOREKEEPER_SELFTEST_OUT"); out != "" {
+		_ = os.WriteFile(out, []byte(report), 0o644)
+	}
 	if !r.OK {
 		a.exitCode = 1
 	}
@@ -328,7 +332,7 @@ func main() {
 		Height:           ws.Height,
 		MinWidth:         desktop.MinWidth,
 		MinHeight:        desktop.MinHeight,
-		StartHidden:      selfTest,
+		StartHidden:      selfTest || os.Getenv("LOREKEEPER_HEADLESS") == "1", // like the Electron build: no visible window (e2e)
 		WindowStartState: startState,
 		BackgroundColour: &options.RGBA{R: 13, G: 14, B: 19, A: 255},
 		AssetServer: &assetserver.Options{

@@ -1,16 +1,49 @@
+import { spawn, type ChildProcess } from 'node:child_process';
+import { randomBytes } from 'node:crypto';
 import { mkdtempSync, rmSync } from 'node:fs';
+import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { _electron as electron, type ElectronApplication, type Page } from '@playwright/test';
+import {
+  chromium,
+  _electron as electron,
+  type Browser,
+  type ElectronApplication,
+  type Page,
+} from '@playwright/test';
 
 export const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const MAIN = path.join(root, 'apps', 'desktop', 'dist', 'main.cjs');
 export const FIXTURES = path.join(root, 'fixtures', 'synthetic');
 
+/**
+ * The same specs run against two backends:
+ *  - electron (default): the packaged-style Electron app (apps/desktop/dist);
+ *  - go: the Go API server (go/cmd/server) serving the built web UI, driven in Chromium with the
+ *    `window.lorekeeper` bridge the desktop shell would provide (E2E_BACKEND=go).
+ */
+export const BACKEND: 'electron' | 'go' = process.env.E2E_BACKEND === 'go' ? 'go' : 'electron';
+export const GO_SERVER =
+  process.env.E2E_GO_SERVER ??
+  path.join(
+    root,
+    'release-go',
+    process.platform === 'win32' ? 'lorekeeper-server.exe' : 'lorekeeper-server',
+  );
+
+/** What the specs need from a running app, whichever backend it is. */
+export interface E2EApp {
+  close(): Promise<void>;
+  /** Run a script in the page, bypassing the page's Content-Security-Policy (used to inject axe). */
+  injectScript(source: string): Promise<void>;
+  electron?: ElectronApplication;
+}
+
 export interface Session {
   tmp: string;
-  running: ElectronApplication[];
+  running: E2EApp[];
+  browser?: Browser;
 }
 
 export const newSession = (): Session => ({
@@ -19,6 +52,7 @@ export const newSession = (): Session => ({
 });
 export const endSession = async (s: Session) => {
   for (const a of s.running.splice(0)) await a.close().catch(() => undefined);
+  await s.browser?.close().catch(() => undefined);
   rmSync(s.tmp, { recursive: true, force: true });
 };
 
@@ -29,16 +63,114 @@ export const sessionEnv = (s: Session) => ({
   LOREKEEPER_DATA_DIR: path.join(s.tmp, 'data'),
 });
 
+const freePort = () =>
+  new Promise<number>((resolve, reject) => {
+    const srv = net.createServer();
+    srv.once('error', reject);
+    srv.listen(0, '127.0.0.1', () => {
+      const { port } = srv.address() as net.AddressInfo;
+      srv.close(() => resolve(port));
+    });
+  });
+
+async function launchGo(s: Session, size: { width: number; height: number }) {
+  const port = await freePort();
+  const token = randomBytes(16).toString('hex');
+  const baseUrl = `http://127.0.0.1:${port}`;
+  const server: ChildProcess = spawn(GO_SERVER, [], {
+    stdio: 'ignore',
+    env: {
+      ...process.env,
+      PORT: String(port),
+      LOREKEEPER_TOKEN: token,
+      LOREKEEPER_DATA_DIR: path.join(s.tmp, 'data'),
+      LOREKEEPER_STATIC: path.join(root, 'apps', 'web', 'dist'),
+    },
+  });
+  for (let i = 0; ; i++) {
+    const ok = await fetch(`${baseUrl}/api/v1/health`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.ok)
+      .catch(() => false);
+    if (ok) break;
+    if (i > 100) throw new Error(`the Go server did not start (${GO_SERVER})`);
+    await new Promise((r) => setTimeout(r, 100));
+  }
+  s.browser ??= await chromium.launch();
+  const context = await s.browser.newContext({ viewport: size });
+  // the bridge the desktop shell provides
+  await context.addInitScript(
+    ({ baseUrl, token, platform }) => {
+      (window as unknown as { lorekeeper: object }).lorekeeper = {
+        baseUrl,
+        token,
+        platform,
+        openDataDir: async () => undefined,
+        chooseDataDir: async () => ({ ok: false }),
+        setTheme: () => undefined,
+        onMenu: () => () => undefined,
+      };
+    },
+    { baseUrl, token, platform: process.platform },
+  );
+  const page = await context.newPage();
+  await page.goto(baseUrl);
+  const app: E2EApp = {
+    injectScript: async (source) => {
+      await page.evaluate(source);
+    },
+    close: async () => {
+      await context.close().catch(() => undefined);
+      if (server.exitCode === null) {
+        server.kill('SIGTERM');
+        await new Promise((r) => {
+          const t = setTimeout(() => {
+            server.kill('SIGKILL');
+            r(null);
+          }, 10_000);
+          server.once('exit', () => {
+            clearTimeout(t);
+            r(null);
+          });
+        });
+      }
+    },
+  };
+  return { app, page };
+}
+
 export async function launch(
   s: Session,
   size = { width: 1360, height: 900 },
-): Promise<{ app: ElectronApplication; page: Page }> {
-  const app = await electron.launch({ args: [MAIN], env: sessionEnv(s) as Record<string, string> });
-  s.running.push(app);
-  const page = await app.firstWindow();
-  await page.setViewportSize(size);
-  await page.waitForSelector('.app');
-  return { app, page };
+): Promise<{ app: E2EApp; page: Page }> {
+  let launched: { app: E2EApp; page: Page };
+  if (BACKEND === 'go') launched = await launchGo(s, size);
+  else {
+    const el = await electron.launch({
+      args: [MAIN],
+      env: sessionEnv(s) as Record<string, string>,
+    });
+    const page = await el.firstWindow();
+    await page.setViewportSize(size);
+    launched = {
+      page,
+      app: {
+        electron: el,
+        close: () => el.close(),
+        injectScript: async (source) => {
+          await el.evaluate(
+            ({ BrowserWindow }, src) =>
+              BrowserWindow.getAllWindows()[0]!.webContents.executeJavaScript(src),
+            source,
+          );
+        },
+      },
+    };
+  }
+  s.running.push(launched.app);
+  await launched.page.waitForSelector('.app');
+  return launched;
 }
 
 /** Import a synthetic workbook through the real wizard. */
