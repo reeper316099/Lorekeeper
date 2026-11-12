@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node scripts/check-no-spreadsheets.mjs
-  test:
+  web:
+    # The React UI and the shared TypeScript package: lint, types and unit tests.
     needs: guard
     strategy:
       fail-fast: false
@@ -59,28 +60,6 @@ jobs:
         env:
           REQUIRE_FIXTURES: '1'
         run: go test -count=1 ./...
-  e2e:
-    needs: guard
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run fixtures:generate
-      - run: npm run build -w @lorekeeper/desktop
-      - name: E2E smoke test (Linux needs a virtual display)
-        if: runner.os == 'Linux'
-        run: xvfb-run -a npx playwright test
-      - name: E2E smoke test
-        if: runner.os != 'Linux'
-        run: npx playwright test
   go-desktop:
     # Builds the Go + Wails desktop app and runs its self-test inside the real webview (WebKit on
     # macOS and Linux, WebView2 on Windows).
@@ -128,8 +107,8 @@ jobs:
           [ "$RUNNER_OS" = "Windows" ] && bin=./release-go/lorekeeper.exe
           "$bin" || { echo "self-test failed"; cat "$LOREKEEPER_SELFTEST_OUT" || true; exit 1; }
           cat "$LOREKEEPER_SELFTEST_OUT"
-  e2e-go:
-    # The same Playwright specs (user journey, WCAG 2 AA audit with axe, links) against the Go server in Chromium.
+  e2e:
+    # Playwright specs (user journey, WCAG 2 AA audit with axe, links) against the Go server in Chromium.
     needs: guard
     strategy:
       fail-fast: false
@@ -154,5 +133,3 @@ jobs:
         run: go build -o ../release-go/lorekeeper-server${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/server
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test
-        env:
-          E2E_BACKEND: go

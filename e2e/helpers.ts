@@ -5,25 +5,15 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  chromium,
-  _electron as electron,
-  type Browser,
-  type ElectronApplication,
-  type Page,
-} from '@playwright/test';
+import { chromium, type Browser, type Page } from '@playwright/test';
 
 export const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-export const MAIN = path.join(root, 'apps', 'desktop', 'dist', 'main.cjs');
 export const FIXTURES = path.join(root, 'fixtures', 'synthetic');
 
 /**
- * The same specs run against two backends:
- *  - electron (default): the packaged-style Electron app (apps/desktop/dist);
- *  - go: the Go API server (go/cmd/server) serving the built web UI, driven in Chromium with the
- *    `window.lorekeeper` bridge the desktop shell would provide (E2E_BACKEND=go).
+ * The specs run against the Go API server (go/cmd/server) serving the built web UI, driven in
+ * Chromium with the `window.lorekeeper` bridge the desktop shell would provide.
  */
-export const BACKEND: 'electron' | 'go' = process.env.E2E_BACKEND === 'go' ? 'go' : 'electron';
 export const GO_SERVER =
   process.env.E2E_GO_SERVER ??
   path.join(
@@ -37,7 +27,6 @@ export interface E2EApp {
   close(): Promise<void>;
   /** Run a script in the page, bypassing the page's Content-Security-Policy (used to inject axe). */
   injectScript(source: string): Promise<void>;
-  electron?: ElectronApplication;
 }
 
 export interface Session {
@@ -55,13 +44,6 @@ export const endSession = async (s: Session) => {
   await s.browser?.close().catch(() => undefined);
   rmSync(s.tmp, { recursive: true, force: true });
 };
-
-export const sessionEnv = (s: Session) => ({
-  ...process.env,
-  LOREKEEPER_HEADLESS: '1',
-  LOREKEEPER_USER_DATA: path.join(s.tmp, 'userData'),
-  LOREKEEPER_DATA_DIR: path.join(s.tmp, 'data'),
-});
 
 const freePort = () =>
   new Promise<number>((resolve, reject) => {
@@ -144,30 +126,7 @@ export async function launch(
   s: Session,
   size = { width: 1360, height: 900 },
 ): Promise<{ app: E2EApp; page: Page }> {
-  let launched: { app: E2EApp; page: Page };
-  if (BACKEND === 'go') launched = await launchGo(s, size);
-  else {
-    const el = await electron.launch({
-      args: [MAIN],
-      env: sessionEnv(s) as Record<string, string>,
-    });
-    const page = await el.firstWindow();
-    await page.setViewportSize(size);
-    launched = {
-      page,
-      app: {
-        electron: el,
-        close: () => el.close(),
-        injectScript: async (source) => {
-          await el.evaluate(
-            ({ BrowserWindow }, src) =>
-              BrowserWindow.getAllWindows()[0]!.webContents.executeJavaScript(src),
-            source,
-          );
-        },
-      },
-    };
-  }
+  const launched = await launchGo(s, size);
   s.running.push(launched.app);
   await launched.page.waitForSelector('.app');
   return launched;

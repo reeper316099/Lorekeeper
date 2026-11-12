@@ -61,8 +61,9 @@ export const get = <T>(p: string) => api<T>('GET', p);
 export type { Category, Entry, Scales, Settings, Tag };
 
 function conn(): { baseUrl: string; token: string; imageBase?: string } {
-  const b = (window as unknown as { lorekeeper?: { baseUrl: string; token: string; imageBase?: string } })
-    .lorekeeper;
+  const b = (
+    window as unknown as { lorekeeper?: { baseUrl: string; token: string; imageBase?: string } }
+  ).lorekeeper;
   return (
     b ?? {
       baseUrl: import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:4317',

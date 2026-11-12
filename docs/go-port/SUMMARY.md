@@ -1,6 +1,6 @@
 # Go + Wails port: summary and cutover decision
 
-The Go port is functionally complete and verified against the Node implementation. Nothing from the Node build has been removed.
+The Go port is functionally complete and was verified against the Node implementation. **The cutover is done** (see [cutover.md](cutover.md)): the Electron/Node code has been removed and the Go app is the only build. The rest of this page is the state at the end of phase 7.
 
 ## What exists
 
@@ -37,4 +37,4 @@ Every phase has its own page with the numbers: [phase-1](phase-1.md), [2](phase-
 2. Use the Go build for a week next to the Electron one (same data folder, never at the same time), including one real AniList match run.
 3. Then cut over: merge `go-port`, make `go-release.yml` the release path, and delete `apps/desktop`, `packages/server`, the Node scripts and the Electron CI jobs in a separate commit. Until then both stay.
 
-The decision is yours; I have not removed any Node code.
+The decision was made after use of the Go build: see [cutover.md](cutover.md).

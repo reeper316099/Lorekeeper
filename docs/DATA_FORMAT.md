@@ -21,12 +21,12 @@ covers/<anilistId>.<ext>  cached cover images for confirmed matches
 .lorekeeper.lock          pid of the running app (one process per data folder)
 ```
 
-In Electron's own profile folder (not the data folder) `bootstrap.json` remembers a data folder chosen in Settings and
+In the default app folder (even when the data folder is elsewhere) `bootstrap.json` remembers a data folder chosen in Settings and
 `window-state.json` remembers the window size and position.
 
 ## Entry
 
-See `packages/shared/src/schemas.ts` (`EntrySchema`). Ambiguous spreadsheet cells keep their text in
+See `go/internal/shared/schemas.go` and `packages/shared/src/schemas.ts` (`EntrySchema`). Ambiguous spreadsheet cells keep their text in
 `current.raw` / `consumedUpTo.raw`; `number`, `season` and `kind` are best-effort parses next to it.
 `links[].raw` keeps the original cell text; `slot` records which column it came from.
 

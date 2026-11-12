@@ -2,3 +2,5 @@ node_modules
 dist
 private-fixtures
 package-lock.json
+go
+release-go

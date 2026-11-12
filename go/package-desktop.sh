@@ -7,7 +7,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 root="$(pwd)"
-version="${VERSION:-$(node -p "require('./apps/desktop/package.json').version")}"
+version="${VERSION:-$(node -p "require('./package.json').version")}"
 sh go/prepare-frontend.sh
 mkdir -p release-go
 cd go/cmd/lorekeeper

@@ -1,7 +1,7 @@
 {
   "name": "lorekeeper",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "workspaces": [
     "apps/*",
@@ -16,19 +16,19 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc -b packages/shared packages/server && tsc --noEmit -p apps/web && tsc --noEmit -p apps/desktop",
+    "typecheck": "tsc -b packages/shared && tsc --noEmit -p apps/web",
     "guard": "node scripts/check-no-spreadsheets.mjs",
     "fixtures:generate": "tsx scripts/generate-fixtures.ts",
-    "dev:server": "tsx watch packages/server/src/dev.ts",
-    "dev:web": "npm run dev -w @lorekeeper/web",
     "dev": "concurrently -k -n api,web \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "go run -C go ./cmd/server",
+    "dev:web": "npm run dev -w @lorekeeper/web",
     "prepare": "simple-git-hooks",
-    "build:desktop": "npm run dist -w @lorekeeper/desktop",
-    "dev:desktop": "concurrently -k -n web,app \"npm:dev:web\" \"wait-on tcp:127.0.0.1:5173 && npm run bundle:dev -w @lorekeeper/desktop && npm run dev -w @lorekeeper/desktop\"",
-    "e2e": "npm run build -w @lorekeeper/desktop && playwright test",
-    "perf": "tsx scripts/perf.ts",
-    "screenshots": "npm run build -w @lorekeeper/desktop && SCREENSHOTS=1 playwright test e2e/screenshots.spec.ts",
-    "verify": "npm run lint && npm run typecheck && npm test && npm run e2e"
+    "build:desktop": "sh go/build-desktop.sh",
+    "build:e2e": "npm run build -w @lorekeeper/web && go build -C go -o ../release-go/lorekeeper-server ./cmd/server",
+    "e2e": "npm run build:e2e && playwright test",
+    "screenshots": "npm run build:e2e && SCREENSHOTS=1 playwright test e2e/screenshots.spec.ts",
+    "go:test": "go test -C go ./...",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run go:test && npm run e2e"
   },
   "simple-git-hooks": {
     "pre-commit": "node scripts/check-no-spreadsheets.mjs --staged"
@@ -40,13 +40,14 @@
     "axe-core": "^4.14.0",
     "concurrently": "^10.0.6",
     "eslint": "^10.13.0",
+    "exceljs": "^4.4.0",
     "globals": "^17.13.0",
+    "iconv-lite": "^0.7.3",
     "prettier": "^3.9.10",
     "simple-git-hooks": "^2.14.0",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.2",
-    "vitest": "^5.0.5",
-    "wait-on": "^9.5.1"
+    "vitest": "^5.0.5"
   }
 }

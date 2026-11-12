@@ -1,24 +1,29 @@
 # Architecture
 
 ```
-Electron main ──spawns──▶ Fastify API (127.0.0.1:ephemeral, bearer token) ──▶ Store (in-memory truth) ──▶ JSON files
-      │ preload (contextBridge: token + base URL)                      ▲ chokidar reloads hand edits, SSE /events
-      └──▶ React renderer (talks only to /api/v1)
+Wails window ──starts──▶ Go API (127.0.0.1:ephemeral, bearer token) ──▶ Store (in-memory truth) ──▶ JSON files
+      │ injected bridge script (token + base URL)                      ▲ fsnotify reloads hand edits, SSE /events
+      └──▶ React UI in the system webview (talks only to /api/v1)
 ```
 
-- `packages/shared`: Zod schemas, constants, pure parsers (progress, links, tags, titles, status, score).
-- `packages/server/src/anilist`: rate-limited, cached, cancellable AniList client; matcher; review queue; account import.
-- `packages/server`: `storage/` (atomic IO, backups, migrations, `Store`), `search.ts` (MiniSearch + filters),
-  `stats.ts`, `api/app.ts` (routes), `io/` (spreadsheet reading, import planner/commit/undo, exporters).
 - `apps/web`: React UI (TanStack Query for server state, Zustand for UI state), talks only to `/api/v1`.
-- `apps/desktop`: Electron main (starts the Store + API on an ephemeral port, single-instance lock, window state, native menu), sandboxed preload bridge, esbuild bundle and electron-builder config. See `docs/DISTRIBUTION.md`.
+- `packages/shared`: Zod schemas, constants and pure parsers the UI uses.
+- `go/internal/shared`: schemas, constants and parsers (progress, links, tags, titles, status, score) for the backend.
+- `go/internal/store`: atomic IO, backups, migrations and the `Store`; `search` (MiniSearch-compatible index and filters),
+  `stats`, `api` (router, auth, SSE) and `routes`, `importexport` (spreadsheet reading, import planner/commit/undo, exporters).
+- `go/internal/anilist`: rate-limited, cached, cancellable AniList client; matcher; review queue; account import.
+- `go/internal/desktop`: the shell core that needs no window (paths, single-instance lock, window state, bridge, menu);
+  `go/cmd/lorekeeper` is the thin Wails glue and `go/cmd/server` the headless API used for development and e2e.
+  See `docs/DISTRIBUTION.md`.
+
+The Go backend replaced an Electron + Node one; `docs/go-port` records how it was built and checked against it.
 
 ## Performance notes
 
-Measured with `npm run perf` on 10,000 entries (laptop): cold open ~0.2 s, warm search ~1 ms (fuzzy and prefix too), title
-sort of the whole library ~1 ms once cached, stats ~10 ms, and 20 concurrent progress writes coalesce into ~2 file writes
-(~130 ms instead of ~1.1 s). The search index updates incrementally by object identity instead of rebuilding, the UI renders
-only the visible rows (virtualized) and pages the API 200 at a time, and typing in the search box is debounced 120 ms.
+Measured on 10,000 entries (`PERF=1 go test -run TestPerf -v ./internal/...`; full tables in `docs/go-port/phase-3.md`):
+first search (builds the index) 60-155 ms, warm search 1-3 ms (fuzzy and prefix too), stats 6-13 ms, one persisted edit
+53-63 ms. The search index updates incrementally by object identity instead of rebuilding, the UI renders only the visible rows
+(virtualized) and pages the API 200 at a time, and typing in the search box is debounced 120 ms.
 
 ## Diagram
 
@@ -40,34 +45,34 @@ subgraph group_client["User interface"]
 end
 
 subgraph group_server["Local API"]
-  node_api_app["API application<br/>[app.ts]"]
-  node_io_routes["Import and export routes<br/>[routes.ts]"]
-  node_search["Library search<br/>[search.ts]"]
-  node_stats["Statistics<br/>[stats.ts]"]
-  node_importer["Import processing<br/>[importer.ts]"]
-  node_exporter["Spreadsheet export<br/>[export.ts]"]
-  node_columns["Column mapping<br/>[columns.ts]"]
+  node_api_app["API application<br/>[router.go]"]
+  node_io_routes["Import and export routes<br/>[routes.go]"]
+  node_search["Library search<br/>[index.go]"]
+  node_stats["Statistics<br/>[stats.go]"]
+  node_importer["Import processing<br/>[importer.go]"]
+  node_exporter["Spreadsheet export<br/>[export.go]"]
+  node_columns["Column mapping<br/>[columns.go]"]
 end
 
 subgraph group_data["Library data"]
-  node_store[("JSON library store<br/>[store.ts]")]
-  node_backups["Snapshots and restore<br/>[backups.ts]"]
-  node_atomic["Atomic file writes<br/>[atomic.ts]"]
+  node_store[("JSON library store<br/>[store.go]")]
+  node_backups["Snapshots and restore<br/>[backups.go]"]
+  node_atomic["Atomic file writes<br/>[atomic.go]"]
 end
 
 subgraph group_anilist["AniList integration"]
-  node_ani_routes["AniList routes<br/>[routes.ts]"]
-  node_ani_service["AniList matching and import<br/>[service.ts]"]
-  node_ani_client["AniList client and cache<br/>[client.ts]"]
+  node_ani_routes["AniList routes<br/>[routes.go]"]
+  node_ani_service["AniList matching and import<br/>[service.go]"]
+  node_ani_client["AniList client and cache<br/>[client.go]"]
 end
 
 subgraph group_shared["Shared domain"]
-  node_shared_schema["Domain schemas<br/>[schemas.ts]"]
-  node_progress["Progress parsing<br/>[progress.ts]"]
+  node_shared_schema["Domain schemas<br/>[schemas.go]"]
+  node_progress["Progress parsing<br/>[parse_progress.go]"]
 end
 
 subgraph group_desktop["Desktop host"]
-  node_desktop_host["Electron host<br/>[main.ts]"]
+  node_desktop_host["Wails host<br/>[main.go]"]
 end
 
 node_user(("User"))
@@ -118,22 +123,22 @@ click node_ui "https://github.com/reeper316099/lorekeeper/blob/main/apps/web/src
 click node_queries "https://github.com/reeper316099/lorekeeper/blob/main/apps/web/src/lib/queries.ts"
 click node_api_client "https://github.com/reeper316099/lorekeeper/blob/main/apps/web/src/lib/api.ts"
 click node_ui_store "https://github.com/reeper316099/lorekeeper/blob/main/apps/web/src/lib/store.ts"
-click node_api_app "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/api/app.ts"
-click node_io_routes "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/io/routes.ts"
-click node_search "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/search.ts"
-click node_stats "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/stats.ts"
-click node_importer "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/io/importer.ts"
-click node_exporter "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/io/export.ts"
-click node_columns "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/io/columns.ts"
-click node_store "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/storage/store.ts"
-click node_backups "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/storage/backups.ts"
-click node_atomic "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/storage/atomic.ts"
-click node_ani_routes "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/anilist/routes.ts"
-click node_ani_service "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/anilist/service.ts"
-click node_ani_client "https://github.com/reeper316099/lorekeeper/blob/main/packages/server/src/anilist/client.ts"
-click node_shared_schema "https://github.com/reeper316099/lorekeeper/blob/main/packages/shared/src/schemas.ts"
-click node_progress "https://github.com/reeper316099/lorekeeper/blob/main/packages/shared/src/parse/progress.ts"
-click node_desktop_host "https://github.com/reeper316099/lorekeeper/blob/main/apps/desktop/src/main.ts"
+click node_api_app "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/api/router.go"
+click node_io_routes "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/importexport/routes.go"
+click node_search "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/search/index.go"
+click node_stats "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/stats/stats.go"
+click node_importer "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/importexport/importer.go"
+click node_exporter "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/importexport/export.go"
+click node_columns "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/importexport/columns.go"
+click node_store "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/store/store.go"
+click node_backups "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/store/backups.go"
+click node_atomic "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/store/atomic.go"
+click node_ani_routes "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/anilist/routes.go"
+click node_ani_service "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/anilist/service.go"
+click node_ani_client "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/anilist/client.go"
+click node_shared_schema "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/shared/schemas.go"
+click node_progress "https://github.com/reeper316099/lorekeeper/blob/main/go/internal/shared/parse_progress.go"
+click node_desktop_host "https://github.com/reeper316099/lorekeeper/blob/main/go/cmd/lorekeeper/main.go"
 
 classDef toneNeutral fill:#f8fafc,stroke:#334155,stroke-width:1.5px,color:#0f172a
 classDef toneBlue fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#172554

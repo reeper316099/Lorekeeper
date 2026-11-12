@@ -5,7 +5,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 out="${1:-release-go/lorekeeper}"
-version="${VERSION:-$(node -p "require('./apps/desktop/package.json').version")}"
+version="${VERSION:-$(node -p "require('./package.json').version")}"
 sh go/prepare-frontend.sh
 mkdir -p "$(dirname "$out")"
 tags="desktop,production"

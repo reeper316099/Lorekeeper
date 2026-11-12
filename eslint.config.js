@@ -3,7 +3,9 @@ import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
 export default tseslint.config(
-  { ignores: ['**/dist/**', '**/node_modules/**', 'private-fixtures/**'] },
+  {
+    ignores: ['**/dist/**', '**/node_modules/**', 'private-fixtures/**', 'go/**', 'release-go/**'],
+  },
   js.configs.recommended,
   { languageOptions: { globals: globals.node } },
   ...tseslint.configs.recommended,

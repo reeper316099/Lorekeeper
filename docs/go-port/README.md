@@ -9,7 +9,7 @@ Goals: much smaller installer and lower memory, **no change in behaviour or on-d
 - **Keep the localhost HTTP API** (`/api/v1`, per-launch bearer token, SSE `/events`). The Go server exposes the same routes, so the web app needs almost no changes. Wails hosts the UI and hands it the base URL and token, like the Electron preload does today.
 - **Wails v2** (stable), not v3 (alpha).
 - **On-disk format is frozen.** A data folder written by the Node app must open in the Go app and vice versa (same stable 2-space JSON, same `meta.schemaVersion`, same backups layout). This is the main acceptance test for every storage phase.
-- **Node code stays in the repo until parity is proven** (final phase), so each phase can be checked against the original.
+- **Node code stayed in the repo until parity was proven** (final phase), so each phase could be checked against the original. It has since been removed: see [cutover.md](cutover.md).
 - Work happens on the `go-port` branch. Go code lives in `go/` (module `lorekeeper`); `docs/go-port/` holds these pages.
 - Libraries: `excelize` (xlsx), `encoding/csv` + charset detection (csv), `fsnotify` (watcher), `archive/zip` (backups), a custom index that ports MiniSearch's scoring (decided in phase 3), stdlib `net/http` with a small custom router (to keep Fastify's 404 behaviour).
 - Same rules as before: public repo, invented fixtures only, no committed .xlsx, you do the `git push`.

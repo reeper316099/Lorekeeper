@@ -36,28 +36,35 @@ _Screenshots use generated sample data only._
 ## Install
 
 Download an installer from the Releases page, or build it yourself (below). Builds are **unsigned**, so the OS will warn
-you on first launch: Windows SmartScreen ("More info" → "Run anyway"), macOS Gatekeeper (right-click → Open), Linux AppImage
-(`chmod +x`). Details and how to add signing later are in [docs/DISTRIBUTION.md](docs/DISTRIBUTION.md).
+you on first launch: Windows SmartScreen ("More info" → "Run anyway") and macOS Gatekeeper (right-click → Open). Linux
+packages are `.deb`, `.rpm` and a `.tar.gz`. Details and how to add signing later are in
+[docs/DISTRIBUTION.md](docs/DISTRIBUTION.md).
+
+The app is written in Go with a [Wails](https://wails.io) window (the system webview, no bundled browser) around the
+React UI: an installer of about 8 MB and roughly 240 MB of memory.
 
 ## Run from source
 
-Requires Node 22+.
+Requires Go (see `go/go.mod`), Node 22+ for the web UI, and a C compiler for the desktop window (on Linux also the GTK 3
+and WebKit2GTK dev packages).
 
 ```bash
 npm install
-npm run dev            # API + web UI in a browser (http://127.0.0.1:5173)
-npm run dev:desktop    # the same UI inside Electron
-npm run build:desktop  # installers for your OS -> apps/desktop/release/
+npm run dev            # Go API + web UI in a browser (http://127.0.0.1:5173)
+npm run build:desktop  # the desktop app -> release-go/lorekeeper
 ```
 
-| Script                      | What it does                                                                      |
-| --------------------------- | --------------------------------------------------------------------------------- |
-| `npm test`                  | unit + API + importer tests (Vitest)                                              |
-| `npm run e2e`               | Playwright smoke, accessibility and keyboard tests against the built Electron app |
-| `npm run verify`            | lint, typecheck, tests and e2e: the same checks CI runs                           |
-| `npm run perf`              | timing check with 10,000 synthetic entries                                        |
-| `npm run fixtures:generate` | writes the synthetic sample workbooks to `fixtures/synthetic/`                    |
-| `npm run screenshots`       | regenerates the images above                                                      |
+| Script                      | What it does                                                                     |
+| --------------------------- | -------------------------------------------------------------------------------- |
+| `npm test`                  | web + shared TypeScript unit tests (Vitest)                                      |
+| `npm run go:test`           | the Go tests (storage, API, import/export, AniList, search, desktop shell)       |
+| `npm run e2e`               | Playwright journey, accessibility and keyboard tests against the Go API server   |
+| `npm run verify`            | lint, typecheck, TypeScript tests, Go tests and e2e: the same checks CI runs     |
+| `npm run fixtures:generate` | writes the synthetic sample workbooks to `fixtures/synthetic/` (Go tests use it) |
+| `npm run screenshots`       | regenerates the images above                                                     |
+
+`LOREKEEPER_SELFTEST=1 ./release-go/lorekeeper` starts the built app with a hidden window and checks the bridge, the API,
+cover images and full-screen support inside the real webview (exit code 0 means all passed).
 
 ## Where your data lives
 
