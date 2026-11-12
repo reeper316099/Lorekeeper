@@ -18,6 +18,7 @@ import {
   BY_ID_QUERY,
   LIST_QUERY,
   SEARCH_QUERY,
+  SEARCH_QUERY_ANY_COUNTRY,
   type AniDate,
   type AniListEntry,
   type AniMedia,
@@ -158,10 +159,10 @@ export class AniListService {
     country: string | null,
     signal?: AbortSignal,
   ) {
-    const vars = { search, type, country, perPage: 8 };
+    const vars = country ? { search, type, country, perPage: 8 } : { search, type, perPage: 8 };
     const r = await this.client.cachedRequest<{ Page: { media: AniMedia[] } }>(
       AniListClient.hashKey('search', vars),
-      SEARCH_QUERY,
+      country ? SEARCH_QUERY : SEARCH_QUERY_ANY_COUNTRY,
       vars,
       signal,
     );

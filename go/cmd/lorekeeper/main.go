@@ -8,6 +8,7 @@ package main
 import (
 	"context"
 	"embed"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/fs"
@@ -289,12 +290,34 @@ const selfTestScript = `(async function () {
     });
     step('event stream connects', sse);
     step('native bindings present', window.go && window.go.main && window.go.main.App && window.runtime, null);
+    var imgBase = lk.imageBase || lk.baseUrl;
+    var imgState = await new Promise(function (resolve) {
+      var im = new Image(); im.onload = function () { resolve('loaded'); }; im.onerror = function () { resolve('error'); };
+      im.src = imgBase + '/api/v1/anilist/cover/0.png?token=' + encodeURIComponent(lk.token);
+      setTimeout(function () { resolve('timeout'); }, 5000);
+    });
+    step('cover image displays (<img> from the page)', imgState === 'loaded', imgState);
     step('window can enter full screen', await window.go.main.App.FullscreenCapable(), null);
     out.text = (document.body.innerText || '').slice(0, 160);
     out.ok = out.steps.every(function (s) { return s.ok; });
   } catch (e) { step('exception', false, String(e)); }
   window.go.main.App.SelfTestDone(JSON.stringify(out));
 })();`
+
+// selfTestPNG is a 1x1 PNG.
+const selfTestPNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+
+func writeSelfTestCover(dataDir string) error {
+	b, err := base64.StdEncoding.DecodeString(selfTestPNG)
+	if err != nil {
+		return err
+	}
+	dir := filepath.Join(dataDir, "covers")
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
+	return os.WriteFile(filepath.Join(dir, "0.png"), b, 0o644)
+}
 
 // SelfTestDone receives the self-test report from the page, prints it and quits.
 func (a *App) SelfTestDone(report string) {
@@ -303,6 +326,9 @@ func (a *App) SelfTestDone(report string) {
 	}
 	_ = json.Unmarshal([]byte(report), &r)
 	fmt.Println(report)
+	if a.core != nil {
+		_ = os.Remove(filepath.Join(a.core.DataDir, "covers", "0.png"))
+	}
 	// A GUI-subsystem build on Windows has no console, so the report can also go to a file.
 	if out := os.Getenv("LOREKEEPER_SELFTEST_OUT"); out != "" {
 		_ = os.WriteFile(out, []byte(report), 0o644)
@@ -353,6 +379,10 @@ func main() {
 		OnDomReady: func(ctx context.Context) {
 			enableFullscreen()
 			if selfTest && app.core != nil {
+				// a tiny cover for the self-test's image check (removed again when the app quits)
+				if err := writeSelfTestCover(app.core.DataDir); err != nil {
+					fmt.Fprintln(os.Stderr, "self-test cover:", err)
+				}
 				wr.WindowExecJS(ctx, selfTestScript)
 			}
 		},

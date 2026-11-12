@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"net/http/httputil"
+	"net/url"
 	"runtime"
 	"strconv"
 	"strings"
@@ -23,6 +25,8 @@ func BridgeScript(baseURL, token string) string {
   window.lorekeeper = {
     baseUrl: ` + js(baseURL) + `,
     token: ` + js(token) + `,
+    // Images load from the page's own origin: WebKit will not show an http:// <img> inside a wails:// page.
+    imageBase: location.origin,
     platform: ` + js(platform) + `,
     openDataDir: function () { return app().OpenDataDir(); },
     chooseDataDir: function (copyExisting) { return app().ChooseDataDir(copyExisting === true); },
@@ -53,6 +57,12 @@ func BridgeScript(baseURL, token string) string {
 // script-src 'self' policy of the built page still holds).
 const BridgePath = "/__lorekeeper.js"
 
+// ImagePaths are the API routes <img> tags use. The page asks for them on its own origin (WebKit
+// blocks http:// images in a wails:// page) and the middleware forwards them to the local API.
+func isImagePath(p string) bool {
+	return strings.HasPrefix(p, "/api/v1/anilist/cover/") || p == "/api/v1/anilist/image"
+}
+
 // AssetsMiddleware serves the bridge script and inserts its <script> tag into index.html. config
 // is read on every request because the API only starts after the window machinery does.
 func AssetsMiddleware(config func() (baseURL, token string, ok bool)) func(http.Handler) http.Handler {
@@ -68,6 +78,14 @@ func AssetsMiddleware(config func() (baseURL, token string, ok bool)) func(http.
 				w.Header().Set("Content-Type", "application/javascript; charset=utf-8")
 				w.Header().Set("Cache-Control", "no-store")
 				w.Write([]byte(BridgeScript(baseURL, token)))
+			case r.Method == http.MethodGet && isImagePath(r.URL.Path):
+				baseURL, _, ok := config()
+				target, err := url.Parse(baseURL)
+				if !ok || err != nil {
+					http.Error(w, "starting", http.StatusServiceUnavailable)
+					return
+				}
+				httputil.NewSingleHostReverseProxy(target).ServeHTTP(w, r)
 			case r.Method == http.MethodGet && (r.URL.Path == "/" || r.URL.Path == "/index.html"):
 				rec := &bufferedResponse{header: http.Header{}, status: http.StatusOK}
 				next.ServeHTTP(rec, r)

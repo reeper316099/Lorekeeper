@@ -477,7 +477,6 @@ const matcher = {
     AniListClient.hashKey('search', {
       search: 'Café <&> “quoted”',
       type: 'ANIME',
-      country: null,
       perPage: 8,
     }),
   ],

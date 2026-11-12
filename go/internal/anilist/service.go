@@ -325,7 +325,7 @@ func maps(m map[string]QueueItem) map[string]QueueItem {
 type searchVars struct {
 	Search  string  `json:"search"`
 	Type    string  `json:"type"`
-	Country *string `json:"country"`
+	Country *string `json:"country,omitempty"`
 	PerPage int     `json:"perPage"`
 }
 
@@ -346,10 +346,12 @@ type searchResult struct {
 
 func (s *Service) searchMedia(ctx context.Context, text, typ, country string) (searchResult, error) {
 	vars := searchVars{Search: text, Type: typ, PerPage: 8}
+	query := SearchQueryAnyCountry
 	if country != "" {
 		vars.Country = &country
+		query = SearchQuery
 	}
-	r, err := CachedRequest[searchData](ctx, s.Client, HashKey("search", vars), SearchQuery, vars)
+	r, err := CachedRequest[searchData](ctx, s.Client, HashKey("search", vars), query, vars)
 	if err != nil {
 		return searchResult{}, err
 	}
@@ -421,11 +423,41 @@ func (s *Service) CandidatesFor(ctx context.Context, entryID, query string) ([]C
 		if err != nil {
 			return nil, err
 		}
+		media := r.Media
+		if len(media) == 0 {
+			// AniList does not forgive typos but does match word beginnings, so retry with the
+			// last word cut short, then without it ("I will fall with the emporer" still finds it).
+			for _, alt := range typoFallbacks(q) {
+				fr, err := s.searchMedia(ctx, alt, plan.Type, "")
+				if err != nil {
+					return nil, err
+				}
+				if len(fr.Media) > 0 {
+					media = fr.Media
+					break
+				}
+			}
+		}
 		plan.Country = ""
-		return Rank(e.Title, e.AltTitles, r.Media, plan, 8), nil
+		return Rank(e.Title, e.AltTitles, media, plan, 8), nil
 	}
 	o, err := s.searchFor(ctx, e)
 	return o.candidates, err
+}
+
+// typoFallbacks lists looser versions of a multi-word query to try when it finds nothing.
+func typoFallbacks(q string) []string {
+	words := strings.Fields(q)
+	if len(words) < 2 {
+		return nil
+	}
+	last := []rune(words[len(words)-1])
+	head := strings.Join(words[:len(words)-1], " ")
+	var out []string
+	if len(last) > 3 {
+		out = append(out, head+" "+string(last[:3]))
+	}
+	return append(out, head)
 }
 
 // ---------------- applying a match ----------------

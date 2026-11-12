@@ -22,6 +22,15 @@ query ($search: String, $type: MediaType, $country: CountryCode, $perPage: Int) 
   }
 }`
 
+// SearchQueryAnyCountry is used when there is no country filter: AniList treats an explicit
+// countryOfOrigin: null as a filter and returns nothing, so the argument has to be left out.
+const SearchQueryAnyCountry = `
+query ($search: String, $type: MediaType, $perPage: Int) {
+  Page(page: 1, perPage: $perPage) {
+    media(search: $search, type: $type, sort: SEARCH_MATCH) { ` + media + ` }
+  }
+}`
+
 const ByIDQuery = `query ($id: Int) { Media(id: $id) { ` + media + ` } }`
 
 const ListQuery = `
