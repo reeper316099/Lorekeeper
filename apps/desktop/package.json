@@ -1,6 +1,6 @@
 {
   "name": "@lorekeeper/desktop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Local-first tracker for manga, manhwa, manhua, anime and TV",
   "author": "Lorekeeper contributors",
