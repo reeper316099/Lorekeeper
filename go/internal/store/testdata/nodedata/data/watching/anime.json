@@ -1,0 +1,85 @@
+[
+  {
+    "altTitles": [],
+    "categoryId": "watching-anime",
+    "completedAt": "2026-02-03",
+    "consumedUpTo": {
+      "kind": null,
+      "number": null,
+      "raw": null,
+      "season": null
+    },
+    "createdAt": "2026-11-11T23:05:28.247Z",
+    "current": {
+      "kind": null,
+      "number": null,
+      "raw": null,
+      "season": null
+    },
+    "external": {},
+    "favorite": false,
+    "id": "01a1ccdb-efb7-7e8e-89db-0ad2b1ef1897",
+    "importRef": {
+      "file": "sample.xlsx",
+      "importedAt": "2026-01-01T00:00:00.000Z",
+      "row": 4,
+      "sheet": "Anime"
+    },
+    "library": "watching",
+    "links": [],
+    "mediaType": "anime",
+    "notes": {
+      "extra1": null,
+      "extra2": null,
+      "general": null
+    },
+    "score": 10,
+    "season": null,
+    "sources": [],
+    "startedAt": "2026-01-02",
+    "status": "completed",
+    "tags": [
+      "Comedy",
+      "Space"
+    ],
+    "title": "Café Nebula",
+    "totalUnits": null,
+    "updatedAt": "2026-11-11T23:05:28.247Z"
+  },
+  {
+    "altTitles": [],
+    "categoryId": "watching-anime",
+    "consumedUpTo": {
+      "kind": null,
+      "number": null,
+      "raw": null,
+      "season": null
+    },
+    "createdAt": "2026-11-11T23:05:28.258Z",
+    "current": {
+      "kind": null,
+      "number": null,
+      "raw": null,
+      "season": null
+    },
+    "external": {},
+    "favorite": false,
+    "id": "01a1ccdb-efc3-7995-9554-bbe244771e4c",
+    "library": "watching",
+    "links": [],
+    "mediaType": "anime",
+    "notes": {
+      "extra1": null,
+      "extra2": null,
+      "general": null
+    },
+    "score": null,
+    "season": null,
+    "sources": [],
+    "status": null,
+    "tags": [],
+    "title": "Quiet Harbor",
+    "totalUnits": null,
+    "updatedAt": "2026-11-11T23:05:28.258Z"
+  }
+]

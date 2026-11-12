@@ -17,3 +17,9 @@ coverage/
 .claude/
 test-results/
 playwright-report/
+
+# Go desktop build
+release-go/
+go/cmd/lorekeeper/frontend/*
+!go/cmd/lorekeeper/frontend/.gitkeep
+go/cmd/lorekeeper/build/bin/

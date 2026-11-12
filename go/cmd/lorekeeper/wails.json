@@ -1,0 +1,15 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Lorekeeper",
+  "outputfilename": "lorekeeper",
+  "frontend:install": "",
+  "frontend:build": "",
+  "info": {
+    "companyName": "Lorekeeper contributors",
+    "productName": "Lorekeeper",
+    "productVersion": "0.1.0",
+    "copyright": "Copyright © Lorekeeper contributors",
+    "comments": "Local-first tracker for manga, manhwa, manhua, anime and TV"
+  },
+  "author": { "name": "Lorekeeper contributors" }
+}

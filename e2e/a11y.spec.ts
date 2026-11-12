@@ -1,7 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { expect, test, type ElectronApplication, type Page } from '@playwright/test';
-import { endSession, importWorkbook, launch, newSession, type Session } from './helpers';
+import { expect, test, type Page } from '@playwright/test';
+import {
+  endSession,
+  importWorkbook,
+  launch,
+  newSession,
+  type E2EApp,
+  type Session,
+} from './helpers';
 
 const axeSource = readFileSync(
   createRequire(import.meta.url).resolve('axe-core/axe.min.js'),
@@ -23,15 +30,14 @@ test.afterEach(() => {
   expect(all, all.join('\n')).toEqual([]);
 });
 
-async function audit(app: ElectronApplication, page: Page, label: string) {
+async function audit(app: E2EApp, page: Page, label: string) {
   await page.waitForTimeout(350); // let entrance animations settle
-  // The page's strict CSP (rightly) blocks injected <script> tags, so run axe through the main process instead.
-  if (!(await page.evaluate(() => 'axe' in window)))
-    await app.evaluate(
-      ({ BrowserWindow }, src) =>
-        BrowserWindow.getAllWindows()[0]!.webContents.executeJavaScript(src),
-      axeSource,
-    );
+  // Contrast measured mid-fade is a false alarm (seen once on the AniList screen): wait for them to finish.
+  await page.evaluate(() =>
+    Promise.all(document.getAnimations().map((a) => a.finished.catch(() => undefined))),
+  );
+  // The page's strict CSP (rightly) blocks injected <script> tags, so axe is injected out of band.
+  if (!(await page.evaluate(() => 'axe' in window))) await app.injectScript(axeSource);
   const res = (await page.evaluate(() =>
     (window as unknown as { axe: { run(ctx: Document, o: object): Promise<unknown> } }).axe.run(
       document,

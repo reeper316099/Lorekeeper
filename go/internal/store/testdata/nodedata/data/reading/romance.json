@@ -1,0 +1,80 @@
+[
+  {
+    "altTitles": [],
+    "categoryId": "reading-romance",
+    "consumedUpTo": {
+      "kind": "number",
+      "number": 11,
+      "raw": "11",
+      "season": null
+    },
+    "createdAt": "2026-11-11T23:05:28.191Z",
+    "current": {
+      "kind": "number",
+      "number": 3,
+      "raw": "3",
+      "season": 2
+    },
+    "external": {
+      "anilistId": 101,
+      "averageScore": 79.5,
+      "description": "Line Separator and éè accents",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "nested": {
+        "a": [
+          2,
+          {
+            "y": 2,
+            "z": 1
+          }
+        ],
+        "b": 1
+      }
+    },
+    "favorite": true,
+    "id": "01a1ccdb-ef80-7eec-99ab-f1391a657140",
+    "library": "reading",
+    "links": [
+      {
+        "channel": null,
+        "date": null,
+        "kind": "youtube",
+        "label": null,
+        "raw": "youtu.be/abc123XYZ",
+        "slot": "primary",
+        "url": "https://youtu.be/abc123XYZ"
+      },
+      {
+        "channel": "PanelPilot",
+        "date": "3/3/26",
+        "kind": "youtube",
+        "label": "(S1 #4) Orchard Recap (3/3/26) By: PanelPilot",
+        "raw": "(S1 #4) Orchard Recap (3/3/26) By: PanelPilot",
+        "slot": "other",
+        "url": null
+      }
+    ],
+    "mediaType": "unknown",
+    "notes": {
+      "extra1": "ch 12",
+      "extra2": null,
+      "general": "Tom & Jerry <Reborn> \"quoted\""
+    },
+    "score": 8,
+    "season": null,
+    "sources": [
+      "YouTube",
+      "Inkreader"
+    ],
+    "status": "in_progress",
+    "tags": [
+      "Cozy Town"
+    ],
+    "title": "Moonlit Orchard",
+    "totalUnits": null,
+    "updatedAt": "2026-11-11T23:05:28.265Z"
+  }
+]

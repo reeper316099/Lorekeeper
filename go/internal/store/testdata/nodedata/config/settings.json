@@ -1,0 +1,27 @@
+{
+  "accent": "#E5484D",
+  "autoConfirmThreshold": 0.92,
+  "backup": {
+    "keep": 20,
+    "onLaunchHours": 6
+  },
+  "defaultLibrary": "all",
+  "density": "comfortable",
+  "hiddenTags": [
+    "Space"
+  ],
+  "labelOverrides": {
+    "extra1": "Left off",
+    "extra2": "Extras"
+  },
+  "savedViews": [
+    {
+      "id": "v1",
+      "name": "Cozy",
+      "query": {
+        "tags": "Cozy Town"
+      }
+    }
+  ],
+  "theme": "light"
+}

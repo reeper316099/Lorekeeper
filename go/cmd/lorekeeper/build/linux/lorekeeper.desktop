@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Lorekeeper
+Comment=Track what you read and watch
+Exec=lorekeeper
+Icon=lorekeeper
+Categories=Utility;
+StartupWMClass=lorekeeper
+Terminal=false
