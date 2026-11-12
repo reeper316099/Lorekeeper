@@ -175,6 +175,9 @@ func (a *App) ChooseDataDir(copyExisting bool) map[string]bool {
 	return map[string]bool{"ok": true}
 }
 
+// FullscreenCapable reports whether the window can enter full screen (the self-test checks it).
+func (a *App) FullscreenCapable() bool { return fullscreenCapable() }
+
 // SetTheme follows the app's theme setting for native chrome (title bar, menus).
 func (a *App) SetTheme(theme string) {
 	switch theme {
@@ -285,6 +288,7 @@ const selfTestScript = `(async function () {
     });
     step('event stream connects', sse);
     step('native bindings present', window.go && window.go.main && window.go.main.App && window.runtime, null);
+    step('window can enter full screen', await window.go.main.App.FullscreenCapable(), null);
     out.text = (document.body.innerText || '').slice(0, 160);
     out.ok = out.steps.every(function (s) { return s.ok; });
   } catch (e) { step('exception', false, String(e)); }
@@ -344,6 +348,7 @@ func main() {
 		LogLevelProduction: logger.ERROR,
 		OnStartup:          app.startup,
 		OnDomReady: func(ctx context.Context) {
+			enableFullscreen()
 			if selfTest && app.core != nil {
 				wr.WindowExecJS(ctx, selfTestScript)
 			}
