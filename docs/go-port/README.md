@@ -26,7 +26,8 @@ go/
   internal/importexport/  import/export (xlsx, csv, json) + routes
   internal/anilist/   client, cache, matcher, queue, jobs
   cmd/server/         headless server (dev, tests, e2e)
-  cmd/lorekeeper/     Wails desktop app (embeds apps/web/dist)
+  internal/desktop/   window-free desktop core (paths, lock, logger, window state, bridge, menu)
+  cmd/lorekeeper/     Wails desktop app (embeds apps/web/dist; build tag `desktop`)
 ```
 
 ## Phases
@@ -50,6 +51,7 @@ go/
 - Phase 3: done ([phase-3.md](phase-3.md))
 - Phase 4: done ([phase-4.md](phase-4.md))
 - Phase 5: done ([phase-5.md](phase-5.md))
+- Phase 6: done ([phase-6.md](phase-6.md))
 
 ## Per-phase doc template
 
