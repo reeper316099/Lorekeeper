@@ -36,10 +36,12 @@ case "$(uname -s)" in
     cp build/bin/lorekeeper "$stage/"
     tar -C "$(dirname "$stage")" -czf "$root/release-go/lorekeeper-$version-linux-$arch.tar.gz" "lorekeeper-$version"
     if command -v nfpm >/dev/null 2>&1; then
-      VERSION="$version" ARCH="$arch" BIN="$PWD/build/bin/lorekeeper" ICON="$PWD/build/appicon.png" DESKTOP="$PWD/build/linux/lorekeeper.desktop" \
-        nfpm package -f build/linux/nfpm.yaml -p deb -t "$root/release-go/"
-      VERSION="$version" ARCH="$arch" BIN="$PWD/build/bin/lorekeeper" ICON="$PWD/build/appicon.png" DESKTOP="$PWD/build/linux/lorekeeper.desktop" \
-        nfpm package -f build/linux/nfpm.yaml -p rpm -t "$root/release-go/"
+      spec="$(mktemp)"
+      sed -e "s|@VERSION@|$version|g" -e "s|@ARCH@|$arch|g" -e "s|@BIN@|$PWD/build/bin/lorekeeper|g" \
+        -e "s|@ICON@|$PWD/build/appicon.png|g" -e "s|@DESKTOP@|$PWD/build/linux/lorekeeper.desktop|g" \
+        build/linux/nfpm.yaml > "$spec"
+      nfpm package -f "$spec" -p deb -t "$root/release-go/"
+      nfpm package -f "$spec" -p rpm -t "$root/release-go/"
     fi
     ;;
   *) echo "Run the Wails CLI by hand on this OS (see docs/go-port/phase-7.md)"; exit 1 ;;

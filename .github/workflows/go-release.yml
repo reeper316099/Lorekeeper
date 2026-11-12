@@ -49,7 +49,9 @@ jobs:
       - name: Package for Windows (installer and portable exe)
         if: runner.os == 'Windows'
         run: |
-          export PATH="$PATH:$(go env GOPATH)/bin"
+          # choco installs NSIS but this shell started before that, so add it to PATH by hand
+          export PATH="$PATH:$(go env GOPATH)/bin:/c/Program Files (x86)/NSIS"
+          command -v makensis
           version="$(node -p "require('./apps/desktop/package.json').version")"
           sh go/prepare-frontend.sh
           mkdir -p release-go

@@ -1,20 +1,20 @@
-# deb and rpm packages (package-desktop.sh passes the values through the environment).
+# deb and rpm packages (package-desktop.sh fills in the @NAME@ placeholders; nfpm does not expand variables in file paths).
 name: lorekeeper
-arch: ${ARCH}
+arch: "@ARCH@"
 platform: linux
-version: ${VERSION}
+version: "@VERSION@"
 section: utils
 maintainer: Lorekeeper contributors <noreply@users.noreply.github.com>
 description: Local-first tracker for manga, manhwa, manhua, anime and TV
 homepage: https://github.com/reeper316099/Lorekeeper
 license: UNLICENSED
 contents:
-  - src: ${BIN}
+  - src: "@BIN@"
     dst: /usr/bin/lorekeeper
     file_info: { mode: 0755 }
-  - src: ${DESKTOP}
+  - src: "@DESKTOP@"
     dst: /usr/share/applications/lorekeeper.desktop
-  - src: ${ICON}
+  - src: "@ICON@"
     dst: /usr/share/icons/hicolor/512x512/apps/lorekeeper.png
 overrides:
   deb:
