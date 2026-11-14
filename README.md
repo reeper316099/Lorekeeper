@@ -6,6 +6,7 @@ and never phones home. No accounts, no telemetry, no cloud. (The only network ca
 the AniList features.)
 
 ![Dashboard](docs/screenshots/dashboard-dark.png)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/reeper316099/Lorekeeper)
 
 |                                                      |                                                                         |
 | ---------------------------------------------------- | ----------------------------------------------------------------------- |
