@@ -1,12 +1,13 @@
 # Lorekeeper
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/reeper316099/Lorekeeper)
+
 A private, local-first tracker for everything you read and watch: manga, manhwa, manhua, anime, donghua, TV and more.
 It replaces a pair of Excel workbooks with a fast desktop app, keeps your data as plain JSON files you can open and edit,
 and never phones home. No accounts, no telemetry, no cloud. (The only network calls are to AniList, and only when you use
 the AniList features.)
 
 ![Dashboard](docs/screenshots/dashboard-dark.png)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/reeper316099/Lorekeeper)
 
 |                                                      |                                                                         |
 | ---------------------------------------------------- | ----------------------------------------------------------------------- |
